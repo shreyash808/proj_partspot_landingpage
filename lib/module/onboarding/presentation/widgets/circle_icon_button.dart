@@ -27,6 +27,7 @@ class CircularIconButton extends StatelessWidget {
         width: size,
         decoration: BoxDecoration(
           color: backgroundColor,
+
           shape: BoxShape.circle,
         ),
         child: Center(child: Icon(icon, color: iconColor, size: iconSize)),
