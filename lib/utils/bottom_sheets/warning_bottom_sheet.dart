@@ -18,7 +18,7 @@ Future<bool?> showWarningBottomSheet({required BuildContext context,String? titl
             child: Column(
               children: [
                 if(icon != null)
-                  CustomSvgPicture(image: icon),
+                  CustomSvgPicture(iconPath: icon),
                 Text(title ?? '',textAlign: TextAlign.center,
                   style: AppTextStyles.get16BoldTextStyle(),
                 ),

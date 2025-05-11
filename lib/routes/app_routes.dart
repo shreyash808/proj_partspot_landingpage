@@ -1,6 +1,7 @@
-import 'dart:io';
 
 import 'package:get/get.dart';
+import 'package:partyspot/module/home/presentation/binding/home_binding.dart';
+import 'package:partyspot/module/home/presentation/view/home_screen.dart';
 import 'package:partyspot/module/onboarding/presentation/binding/onboarding_binding.dart';
 import 'package:partyspot/module/onboarding/presentation/view/onboarding_screen.dart';
 import 'package:partyspot/module/splash/presentation/binding/splash_binding.dart';
@@ -22,6 +23,12 @@ class AppRoutes {
         transition: Transition.circularReveal,
         page: () => const OnboardingScreen(),
         binding: OnboardingBinding(),
+      ),
+      GetPage(
+        name: Routes.homeScreen,
+        transition: Transition.circularReveal,
+        page: () => const HomeScreen(),
+        binding: HomeBinding(),
       ),
     ];
   }

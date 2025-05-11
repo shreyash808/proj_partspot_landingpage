@@ -116,7 +116,7 @@ class _CustomPopupMenuItemState extends PopupMenuItemState<Widget, PopUpMenuItem
         ),
         AppSizes.widthBox(boxWidth: 15),
         CustomSvgPicture(
-          image: widget.icon,
+          iconPath: widget.icon,
           color: widget.iconColor ?? widget.textColor ?? AppColor.blackColor,
         ),
       ],

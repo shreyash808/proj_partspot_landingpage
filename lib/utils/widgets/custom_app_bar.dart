@@ -61,7 +61,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   Get.back();
                 },
                 child: CustomSvgPicture(
-                  image: backIcon ?? AppIcons.icArrowBack,
+                  iconPath: backIcon ?? AppIcons.icArrowBack,
                   color: backButtonColor,
                 )),
           ),

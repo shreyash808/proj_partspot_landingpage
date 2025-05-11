@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
-import 'package:partyspot/utils/classes/theme_controller.dart';
 import 'package:partyspot/utils/constants/app_enums.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/icon_constants.dart';
@@ -64,7 +63,7 @@ class AppButton extends StatelessWidget {
         break;
       case ApiState.finished:
         title = StringConsts.verified.tr;
-        icon = const CustomSvgPicture(image: AppIcons.greenTickIcon);
+        icon = const CustomSvgPicture(iconPath: AppIcons.greenTickIcon);
         break;
     }
 

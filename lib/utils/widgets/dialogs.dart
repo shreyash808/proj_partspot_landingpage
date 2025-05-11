@@ -31,7 +31,7 @@ Future showSuccessDialog(
                   width: 61.spW,
                   height: 61.spW,
                   child: CustomSvgPicture(
-                    image: icon,
+                    iconPath: icon,
                     fit: BoxFit.scaleDown,
                   ),
                 ),
