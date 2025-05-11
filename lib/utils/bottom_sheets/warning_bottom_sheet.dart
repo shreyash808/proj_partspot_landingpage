@@ -28,7 +28,7 @@ Future<bool?> showWarningBottomSheet({required BuildContext context,String? titl
                     Expanded(
                       flex: 1,
                       child: AppOutlinedButton(
-                        StringConsts.yes.tr,
+                        StringConsts.yes,
                         onPressed: onYes,
                       ),
                     ),
@@ -36,7 +36,7 @@ Future<bool?> showWarningBottomSheet({required BuildContext context,String? titl
                     Expanded(
                       flex: 2,
                       child: AppButton(
-                        StringConsts.no.tr,
+                        StringConsts.no,
                         onPressed: () {
                           Get.back(result: false);
                         },
