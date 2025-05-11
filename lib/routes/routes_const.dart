@@ -1,9 +1,11 @@
 class Routes {
   static const splashScreen = '/splashScreen';
-  static const chooseLanguageScreen = '/chooseLanguageScreen';
+  static const loginScreen = '/loginScreen';
   static const onBoardingScreen = '/onBoardingScreen';
+  static const otpScreen = '/otpScreen';
+
   static const signUpScreen = '/signUpScreen';
-  static const verifyEmailScreen = '/verifyEmailScreen';
+
   static const enterPhoneScreen = '/enterPhoneScreen';
   static const verifyPhoneScreen = '/verifyPhoneScreen';
   static const enterNameScreen = '/enterNameScreen';
