@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:partyspot/utils/classes/app_text_styles.dart';
+import 'package:partyspot/utils/constants/color_consts.dart';
 
 class SlideToUnlockButton extends StatefulWidget {
   final VoidCallback onSlideComplete;
@@ -42,9 +44,8 @@ class _SlideToUnlockButtonState extends State<SlideToUnlockButton>
               duration: const Duration(milliseconds: 200),
               child: Text(
                 widget.label,
-                style: const TextStyle(
-                  color: Colors.black54,
-                  fontWeight: FontWeight.bold,
+                style: AppTextStyles.get20SemiBoldTextStyle(
+                  color: AppColor.buttonOrange,
                 ),
               ),
             ),

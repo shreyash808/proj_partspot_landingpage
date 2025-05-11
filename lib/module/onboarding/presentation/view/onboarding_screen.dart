@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:partyspot/module/onboarding/data/onboarding_model.dart';
 import 'package:partyspot/module/onboarding/presentation/widgets/circle_icon_button.dart';
 import 'package:partyspot/module/onboarding/presentation/widgets/curve_clipper.dart';
 import 'package:partyspot/module/onboarding/presentation/widgets/onboarding_dots.dart';
 import 'package:partyspot/module/onboarding/presentation/widgets/slider_button.dart';
+import 'package:partyspot/routes/routes_const.dart';
+import 'package:partyspot/utils/classes/app_text_styles.dart';
+import 'package:partyspot/utils/constants/color_consts.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -101,10 +106,8 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                           Text(
                             onBoardingList[currentPage].title,
 
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.deepPurple,
+                            style: AppTextStyles.get24MediumTextStyle(
+                              color: AppColor.textPurple,
                             ),
                             textAlign: TextAlign.center,
                           ),
@@ -114,6 +117,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                               ? SlideToUnlockButton(
                                 label: "Get Started",
                                 onSlideComplete: () {
+                                  Get.offNamed(Routes.loginScreen);
                                   // Navigator.push(
                                   //   context,
                                   //   MaterialPageRoute(

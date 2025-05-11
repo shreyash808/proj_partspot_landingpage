@@ -3,11 +3,14 @@ import 'package:flutter/material.dart';
 class AppColor {
   static const patriarchColor = Color(0xFF70057A);
   static const orangeColor = Color(0xFFFF4B20);
+  static const buttonOrange = Color(0xFFFF7A5A);
+  static const textPurple = Color(0xFF9704C0);
+
   static const blackColor = Color(0xFF000000);
   static const whiteColor = Color(0xFFFFFFFF);
   static const disabledColor = Color(0xFF9C9797);
   static const disabledBorderColor = Color(0xFFC3B6CA);
-    static const silverColor = Color(0xFFD3D3D3);
+  static const silverColor = Color(0xFFD3D3D3);
   static const steelPinkColor = Color(0xFFC637E5);
   static const purpleDarkColor = Color(0xFF4B2663);
   static const darkTextColor = Color(0xFF320449);
