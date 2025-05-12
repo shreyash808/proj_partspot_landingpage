@@ -60,7 +60,7 @@ void showActionAlertDialog(
               Expanded(
                 flex: 1,
                 child: AppOutlinedButton(
-                  StringConsts.yes.tr,
+                  StringConsts.yes,
                   height: 60.spH,
                   // width: 100.spW,
                   onPressed: () {
@@ -72,7 +72,7 @@ void showActionAlertDialog(
               Expanded(
                 flex: 2,
                 child: AppButton(
-                  StringConsts.no.tr,
+                  StringConsts.no,
                   height: 60.spH,
                   //width: 177.spW,
                   onPressed: () {

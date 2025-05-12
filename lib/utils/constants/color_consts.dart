@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AppColor {
+  static const patriarchColor = Color(0xFF70057A);
+  static const orangeColor = Color(0xFFFF4B20);
   static const buttonOrange = Color(0xFFFF7A5A);
   static const textPurple = Color(0xFF9704C0);
 

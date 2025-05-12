@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 
 class TextView extends StatelessWidget {
@@ -13,7 +12,7 @@ class TextView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      text.tr,
+      text,
       style: style,
       textAlign: textAlign,
       maxLines: maxLines,

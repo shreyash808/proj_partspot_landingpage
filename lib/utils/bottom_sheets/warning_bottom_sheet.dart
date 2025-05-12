@@ -18,7 +18,7 @@ Future<bool?> showWarningBottomSheet({required BuildContext context,String? titl
             child: Column(
               children: [
                 if(icon != null)
-                  CustomSvgPicture(image: icon),
+                  CustomSvgPicture(iconPath: icon),
                 Text(title ?? '',textAlign: TextAlign.center,
                   style: AppTextStyles.get16BoldTextStyle(),
                 ),
@@ -28,7 +28,7 @@ Future<bool?> showWarningBottomSheet({required BuildContext context,String? titl
                     Expanded(
                       flex: 1,
                       child: AppOutlinedButton(
-                        StringConsts.yes.tr,
+                        StringConsts.yes,
                         onPressed: onYes,
                       ),
                     ),
@@ -36,7 +36,7 @@ Future<bool?> showWarningBottomSheet({required BuildContext context,String? titl
                     Expanded(
                       flex: 2,
                       child: AppButton(
-                        StringConsts.no.tr,
+                        StringConsts.no,
                         onPressed: () {
                           Get.back(result: false);
                         },

@@ -20,7 +20,7 @@ class NoDataView extends StatelessWidget {
         children: [
           if(svgIconPath?.isNotEmpty ?? false)
             CustomSvgPicture(
-              image: svgIconPath,
+              iconPath: svgIconPath,
               width: 80.spW,
             ),
           if(imagePath?.isNotEmpty ?? false)

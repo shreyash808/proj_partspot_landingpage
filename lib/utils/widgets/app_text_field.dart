@@ -169,7 +169,7 @@ class _AppTextFieldState extends State<AppTextField> {
                     prefixIcon: widget.prefixWidget ?? (widget.prefixIcon != null
                         ? Container(
                         padding: const EdgeInsets.only(left: 18,right: 8),
-                        child: CustomSvgPicture(image: widget.prefixIcon,color: hasData.value == true ? AppColor.blackColor : AppColor.disabledBorderColor))
+                        child: CustomSvgPicture(iconPath: widget.prefixIcon,color: hasData.value == true ? AppColor.blackColor : AppColor.disabledBorderColor))
                         : null),
                     suffixIconConstraints:
                     const BoxConstraints(maxHeight: double.infinity),
@@ -179,7 +179,7 @@ class _AppTextFieldState extends State<AppTextField> {
                       child: Container(
                           padding: const EdgeInsets.all(17),
                           margin: const EdgeInsets.only(left: 5, right: 2),
-                          child: CustomSvgPicture(image: widget.suffixIconPath,color: widget.suffixIconColor ?? (hasData.value == true ? AppColor.blackColor : AppColor.disabledBorderColor))),
+                          child: CustomSvgPicture(iconPath: widget.suffixIconPath,color: widget.suffixIconColor ?? (hasData.value == true ? AppColor.blackColor : AppColor.disabledBorderColor))),
                     )
                         : widget.suffixWidget,
                     contentPadding: widget.contentPadding ?? const EdgeInsets.symmetric(horizontal: 18.0, vertical: 16),

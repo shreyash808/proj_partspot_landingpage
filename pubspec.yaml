@@ -48,6 +48,7 @@ dependencies:
   path: ^1.9.1
   country_picker: ^2.0.27
   flutter_otp_text_field: ^1.5.1+1
+  carousel_slider: ^5.0.0
 
 dev_dependencies:
   flutter_test:
@@ -75,6 +76,7 @@ flutter:
   assets:
     - assets/images/png/
     - assets/images/svg/
+    - assets/icons/svg/
     - assets/fonts/
 
 
@@ -84,13 +86,13 @@ flutter:
         - asset: assets/fonts/Poppins-Bold.ttf
     - family: ExtraBold
       fonts:
-        - asset: assets/fonts/Poppins-ExtraBold.ttf    
+        - asset: assets/fonts/Poppins-ExtraBold.ttf
     - family: Medium
       fonts:
         - asset: assets/fonts/Poppins-Medium.ttf
     - family: Regular
       fonts:
-        - asset: assets/fonts/Poppins-Regular.ttf    
+        - asset: assets/fonts/Poppins-Regular.ttf
     - family: SemiBold
       fonts:
         - asset: assets/fonts/Poppins-SemiBold.ttf

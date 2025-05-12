@@ -1,15 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
-import 'package:partyspot/utils/classes/theme_controller.dart';
-import 'package:partyspot/utils/constants/app_enums.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
-import 'package:partyspot/utils/constants/icon_constants.dart';
-import 'package:partyspot/utils/constants/string_consts.dart';
-import 'package:partyspot/utils/widgets/custom_svg_picture.dart';
-
-import '../../main.dart';
-
 class AppButton extends StatelessWidget {
   final String text;
   final String? desc;
@@ -27,7 +18,6 @@ class AppButton extends StatelessWidget {
   final double? width;
   final BorderSide? side;
   final TextStyle? textStyle;
-  final ApiState buttonStatus;
 
   const AppButton(this.text,
       {super.key,
@@ -45,7 +35,6 @@ class AppButton extends StatelessWidget {
       this.suffixIcon,
       this.prefixIcon,
       this.takeFullWidth = true,
-      this.buttonStatus = ApiState.initial,
       this.padding});
 
   @override
@@ -53,23 +42,9 @@ class AppButton extends StatelessWidget {
     String title = text;
     Widget? icon = suffixIcon;
 
-    switch (buttonStatus) {
-      case ApiState.initial:
-        title = text;
-        icon = null;
-        break;
-      case ApiState.loading:
-        title = StringConsts.verifying.tr;
-        icon = null;
-        break;
-      case ApiState.finished:
-        title = StringConsts.verified.tr;
-        icon = const CustomSvgPicture(image: AppIcons.greenTickIcon);
-        break;
-    }
 
     final _text = Text(
-      title.tr,
+      title,
       textAlign: TextAlign.center,
       style: textStyle ??
           AppTextStyles.get18BoldTextStyle(color: isEnabled && onPressed != null ? null : AppColor.whiteColor),
@@ -94,8 +69,7 @@ class AppButton extends StatelessWidget {
                 : const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(80.0)), color: AppColor.silverColor),
             child: TextButton(
-                onPressed:
-                    buttonStatus == ApiState.initial ? (isEnabled && onPressed != null ? onPressed : null) : () {},
+                onPressed:(isEnabled && onPressed != null ? onPressed : null),
                 style: TextButton.styleFrom(
                   shape: RoundedRectangleBorder(
                     side: side ?? const BorderSide(color: Colors.transparent),
