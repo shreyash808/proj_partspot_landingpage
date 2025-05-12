@@ -1,4 +1,3 @@
-
 import 'package:get/get.dart';
 import 'package:partyspot/module/home/presentation/binding/home_binding.dart';
 import 'package:partyspot/module/home/presentation/view/home_screen.dart';
@@ -25,7 +24,7 @@ class AppRoutes {
       GetPage(
         name: Routes.onBoardingScreen,
         transition: Transition.circularReveal,
-        page: () => const OnboardingScreen(),
+        page: () => OnboardingScreen(),
         binding: OnboardingBinding(),
       ),
 
