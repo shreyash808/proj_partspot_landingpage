@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:partyspot/module/onboarding/data/onboarding_model.dart';
+import 'package:partyspot/utils/constants/image_consts.dart';
+import 'package:partyspot/utils/constants/string_consts.dart';
 
 class OnboardingController extends GetxController {
   final RxInt currentPage = 0.obs;
@@ -8,19 +10,19 @@ class OnboardingController extends GetxController {
 
   final List<OnBoardPageData> onBoardingList = [
     OnBoardPageData(
-      title: 'Discover events near you.',
+      title: StringConsts.OnBoardingText1,
       index: "1",
-      image: 'assets/images/png/onBoarding1.png',
+      image: AppImages.onBoardingImg1,
     ),
     OnBoardPageData(
-      title: 'Easy event booking.',
+      title: StringConsts.OnBoardingText2,
       index: "2",
-      image: 'assets/images/png/onboarding2.png',
+      image: AppImages.onBoardingImg2,
     ),
     OnBoardPageData(
-      title: 'Host and manage your\n own events.',
+      title: StringConsts.OnBoardingText3,
       index: "3",
-      image: 'assets/images/png/onBoarding3.png',
+      image: AppImages.onBoardingImg3,
     ),
   ];
 }

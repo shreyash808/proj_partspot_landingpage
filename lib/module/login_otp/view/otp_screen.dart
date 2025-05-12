@@ -7,6 +7,9 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:partyspot/routes/routes_const.dart';
 import 'package:partyspot/utils/buttons/custom_button.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
+import 'package:partyspot/utils/constants/image_consts.dart';
+import 'package:partyspot/utils/constants/string_consts.dart';
+import 'package:partyspot/utils/widgets/custom_image_asset.dart';
 
 class OtpScreen extends StatelessWidget {
   OtpScreen({super.key});
@@ -65,13 +68,14 @@ class OtpScreen extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Image.asset(
-                        'assets/images/png/otp_image.png',
-                        height: 200,
-                      ),
+                      CustomImageAsset(image: AppImages.otpImage, height: 200),
+                      // Image.asset(
+                      //   AppImages.otpImage,
+                      //   height: 200,
+                      // ),
                       const SizedBox(height: 10),
                       Text(
-                        "Enter OTP",
+                        StringConsts.enterOtp,
                         style: AppTextStyles.get24SemiBoldTextStyle(
                           color: Colors.black,
                         ),
@@ -99,7 +103,9 @@ class OtpScreen extends StatelessWidget {
                                         color: Color(0xffBEBEBE),
                                       ),
                                       children: [
-                                        const TextSpan(text: "Resend OTP in "),
+                                        const TextSpan(
+                                          text: StringConsts.resendOtpIn,
+                                        ),
                                         TextSpan(
                                           text: "$timeLeft secs",
                                           style:
@@ -115,7 +121,7 @@ class OtpScreen extends StatelessWidget {
                                       startTimer();
                                     },
                                     child: Text(
-                                      "Resend OTP",
+                                      StringConsts.resendOtp,
                                       style: AppTextStyles.get10MediumTextStyle(
                                         color: Color(0xff05A65B),
                                       ),
@@ -130,7 +136,7 @@ class OtpScreen extends StatelessWidget {
                         onTap: () {
                           Get.offNamed(Routes.homeScreen);
                         },
-                        text: "Submit",
+                        text: StringConsts.submit,
                       ),
                       const SizedBox(height: 10),
                     ],

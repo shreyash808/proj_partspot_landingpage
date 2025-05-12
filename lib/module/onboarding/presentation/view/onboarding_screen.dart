@@ -8,6 +8,7 @@ import 'package:partyspot/module/onboarding/presentation/widgets/slider_button.d
 import 'package:partyspot/routes/routes_const.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
+import 'package:partyspot/utils/constants/string_consts.dart';
 
 class OnboardingScreen extends StatelessWidget {
   OnboardingScreen({super.key});
@@ -53,7 +54,7 @@ class OnboardingScreen extends StatelessWidget {
                           );
                         },
                         child: Text(
-                          "Skip",
+                          StringConsts.skip,
                           style: AppTextStyles.get20SemiBoldTextStyle(
                             color: AppColor.whiteColor,
                           ),
@@ -107,7 +108,7 @@ class OnboardingScreen extends StatelessWidget {
 
                         isLastPage
                             ? SlideToUnlockButton(
-                              label: "Get Started",
+                              label: StringConsts.getStarted,
                               onSlideComplete: () {
                                 Get.offNamed(Routes.loginScreen);
                               },

@@ -5,7 +5,10 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:partyspot/routes/routes_const.dart';
 import 'package:partyspot/utils/buttons/custom_button.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
+import 'package:partyspot/utils/constants/image_consts.dart';
+import 'package:partyspot/utils/constants/string_consts.dart';
 import 'package:partyspot/utils/text_fields/custom_text_field.dart';
+import 'package:partyspot/utils/widgets/custom_image_asset.dart';
 
 class LoginScreen extends StatelessWidget {
   final TextEditingController numberController = TextEditingController();
@@ -50,13 +53,17 @@ class LoginScreen extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Image.asset(
-                        'assets/images/png/login_image.png',
+                      CustomImageAsset(
+                        image: AppImages.loginImage,
                         height: 200,
                       ),
+                      // Image.asset(
+                      //  AppImages.loginImage,
+                      //   height: 200,
+                      // ),
                       const SizedBox(height: 10),
                       Text(
-                        "LOGIN",
+                        StringConsts.Login,
                         style: AppTextStyles.get24SemiBoldTextStyle(
                           color: Colors.black,
                         ),
@@ -102,7 +109,7 @@ class LoginScreen extends StatelessWidget {
                             child: CustomTextField(
                               controller: numberController,
                               keyboardType: TextInputType.number,
-                              hintText: "Enter your Phone Number",
+                              hintText: StringConsts.enterPhNum,
                             ),
                           ),
                         ],
@@ -112,7 +119,7 @@ class LoginScreen extends StatelessWidget {
                         onTap: () {
                           Get.offNamed(Routes.otpScreen);
                         },
-                        text: "NEXT",
+                        text: StringConsts.next,
                       ),
                       // const SizedBox(height: 10),
                       Padding(
@@ -137,7 +144,7 @@ class LoginScreen extends StatelessWidget {
                             Expanded(
                               child: Center(
                                 child: Text(
-                                  "Continue with Apple",
+                                  StringConsts.conWithApple,
                                   style: AppTextStyles.get14MediumTextStyle(
                                     color: Color(0xff727272),
                                   ),
@@ -167,7 +174,7 @@ class LoginScreen extends StatelessWidget {
                             Expanded(
                               child: Center(
                                 child: Text(
-                                  "Continue with Google",
+                                  StringConsts.conWithGoogle,
                                   style: AppTextStyles.get14MediumTextStyle(
                                     color: Color(0xff727272),
                                   ),

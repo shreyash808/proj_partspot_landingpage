@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:partyspot/module/explore/binding/explore_binding.dart';
+import 'package:partyspot/module/explore/view/explore_screen.dart';
 import 'package:partyspot/module/home/presentation/binding/home_binding.dart';
 import 'package:partyspot/module/home/presentation/view/home_screen.dart';
 import 'package:partyspot/module/login/presentation/binding/login_binding.dart';
@@ -46,6 +48,13 @@ class AppRoutes {
         transition: Transition.circularReveal,
         page: () => const HomeScreen(),
         binding: HomeBinding(),
+      ),
+
+      GetPage(
+        name: Routes.exploreScreen,
+        transition: Transition.circularReveal,
+        page: () => ExploreScreen(),
+        binding: ExploreBinding(),
       ),
     ];
   }

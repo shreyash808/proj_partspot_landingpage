@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:partyspot/routes/routes_const.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
+import 'package:partyspot/utils/constants/image_consts.dart';
+import 'package:partyspot/utils/constants/string_consts.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -9,6 +11,7 @@ class SplashScreen extends StatelessWidget {
   void _startNavigation(BuildContext context) {
     Future.delayed(const Duration(seconds: 3), () {
       Get.offNamed(Routes.onBoardingScreen);
+      // Get.offNamed(Routes.exploreScreen);
     });
   }
 
@@ -20,16 +23,10 @@ class SplashScreen extends StatelessWidget {
       body: Stack(
         children: [
           SizedBox.expand(
-            child: Image.asset(
-              'assets/images/png/splash.png',
-              fit: BoxFit.cover,
-            ),
+            child: Image.asset(AppImages.splashImage, fit: BoxFit.cover),
           ),
           Positioned.fill(
-            child: Image.asset(
-              'assets/images/png/splash_overlay.png',
-              fit: BoxFit.cover,
-            ),
+            child: Image.asset(AppImages.splashOverlay, fit: BoxFit.cover),
           ),
           Align(
             alignment: Alignment.topCenter,
@@ -50,10 +47,10 @@ class SplashScreen extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Image.asset('assets/images/png/app_logo.png', width: 150),
+                    Image.asset(AppImages.logo, width: 150),
                     const SizedBox(height: 16),
                     Text(
-                      "Your One Spot for\nEvery Celebration",
+                      StringConsts.splashTxt,
                       textAlign: TextAlign.center,
                       style: AppTextStyles.get20SemiBoldTextStyle(
                         color: Colors.white,

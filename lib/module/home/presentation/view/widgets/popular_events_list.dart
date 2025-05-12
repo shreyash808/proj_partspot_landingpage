@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:partyspot/utils/classes/app_text_styles.dart' show AppTextStyles;
+import 'package:partyspot/utils/classes/app_text_styles.dart'
+    show AppTextStyles;
 import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/image_consts.dart' show AppImages;
 import 'package:partyspot/utils/constants/string_consts.dart' show StringConsts;
@@ -11,23 +12,26 @@ class PopularEventsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8,horizontal: 16),
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(StringConsts.popularEvents,style: AppTextStyles.get20MediumTextStyle(),),
+          Text(
+            StringConsts.popularEvents,
+            style: AppTextStyles.get20MediumTextStyle(),
+          ),
           const SizedBox(height: 8),
           Column(
-            children: List.generate(3, (index){
+            children: List.generate(3, (index) {
               return _buildItem();
             }),
-          )
+          ),
         ],
       ),
     );
   }
 
-  _buildItem(){
+  _buildItem() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: ClipRRect(
@@ -43,7 +47,7 @@ class PopularEventsList extends StatelessWidget {
                 image: AppImages.popularEventImage1,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -51,17 +55,32 @@ class PopularEventsList extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("EDM SUNDAY",style: AppTextStyles.get16BoldTextStyle(color: AppColor.whiteColor)),
-                        Text("The Blue Dot Cafe",style: AppTextStyles.get12MediumTextStyle(color: AppColor.whiteColor)),
+                        Text(
+                          "EDM SUNDAY",
+                          style: AppTextStyles.get16BoldTextStyle(
+                            color: AppColor.whiteColor,
+                          ),
+                        ),
+                        Text(
+                          "The Blue Dot Cafe",
+                          style: AppTextStyles.get12MediumTextStyle(
+                            color: AppColor.whiteColor,
+                          ),
+                        ),
                       ],
                     ),
                     Padding(
                       padding: const EdgeInsets.only(right: 8),
-                      child: Text("See more >",style: AppTextStyles.get12MediumTextStyle(color: AppColor.whiteColor)),
+                      child: Text(
+                        "See more >",
+                        style: AppTextStyles.get12MediumTextStyle(
+                          color: AppColor.whiteColor,
+                        ),
+                      ),
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),

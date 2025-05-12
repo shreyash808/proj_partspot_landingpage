@@ -11,8 +11,10 @@ class Routes {
   static const enterNameScreen = '/enterNameScreen';
   static const createProfilePictureScreen = '/createProfilePictureScreen';
   static const homeScreen = '/homeScreen';
+  static const exploreScreen = '/exploreScreen';
+
   static const bottomNavigationView = '/bottomNavigationView';
-  static const discoverPeopleScreen = '/discoverPeopleScreen';
+
   static const aboutYourselfScreen = '/aboutYourselfScreen';
   static const congratsScreen = '/congratsScreen';
   static const signInScreen = '/signInScreen';
