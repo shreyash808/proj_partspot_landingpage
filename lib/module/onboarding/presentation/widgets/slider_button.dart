@@ -20,6 +20,7 @@ class _SlideToUnlockButtonState extends State<SlideToUnlockButton>
     with SingleTickerProviderStateMixin {
   double _position = 0.0;
   bool _isCompleted = false;
+  bool _isDragging = false;
   late double maxPosition;
 
   @override
@@ -38,9 +39,10 @@ class _SlideToUnlockButtonState extends State<SlideToUnlockButton>
       child: Stack(
         alignment: Alignment.centerLeft,
         children: [
+          // Center Text
           Center(
             child: AnimatedOpacity(
-              opacity: _position < maxPosition * 0.8 ? 1.0 : 0.0,
+              opacity: (_isDragging || _isCompleted) ? 0.0 : 1.0,
               duration: const Duration(milliseconds: 200),
               child: Text(
                 widget.label,
@@ -50,10 +52,17 @@ class _SlideToUnlockButtonState extends State<SlideToUnlockButton>
               ),
             ),
           ),
+          // Thumb
           AnimatedPositioned(
             duration: const Duration(milliseconds: 0),
             left: _position,
             child: GestureDetector(
+              onHorizontalDragStart: (_) {
+                if (_isCompleted) return;
+                setState(() {
+                  _isDragging = true;
+                });
+              },
               onHorizontalDragUpdate: (details) {
                 if (_isCompleted) return;
                 setState(() {
@@ -66,6 +75,7 @@ class _SlideToUnlockButtonState extends State<SlideToUnlockButton>
                   setState(() {
                     _position = maxPosition;
                     _isCompleted = true;
+                    _isDragging = false;
                   });
                   Future.delayed(const Duration(milliseconds: 300), () {
                     widget.onSlideComplete();
@@ -73,6 +83,7 @@ class _SlideToUnlockButtonState extends State<SlideToUnlockButton>
                 } else {
                   setState(() {
                     _position = 0.0;
+                    _isDragging = false;
                   });
                 }
               },
