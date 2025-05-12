@@ -2,6 +2,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:partyspot/routes/routes_const.dart';
 import 'package:partyspot/utils/buttons/custom_button.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
 
@@ -125,7 +128,12 @@ class OtpScreen extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 15),
-                      CustomButton(onTap: () {}, text: "Submit"),
+                      CustomButton(
+                        onTap: () {
+                          Get.offNamed(Routes.homeScreen);
+                        },
+                        text: "Submit",
+                      ),
                       const SizedBox(height: 10),
                     ],
                   ),

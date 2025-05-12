@@ -15,18 +15,30 @@ class PartySportApiService {
   final languageController = locator<LanguageController>();
 
   Map<String, dynamic> getHeaders({String? token}) {
-    String accessToken = token ?? (GetStorage().read(KeysConsts.accessToken) ?? '');
+    String accessToken =
+        token ?? (GetStorage().read(KeysConsts.accessToken) ?? '');
     log('Access Token :: $accessToken');
     return {
       'Authorization': 'Bearer $accessToken',
-      'Accept-Language': languageController.getCurrentLanguage == Language.english ? 'en' : 'ar',
+      'Accept-Language':
+          languageController.getCurrentLanguage == Language.english
+              ? 'en'
+              : 'ar',
     };
   }
 
-  Future<Response> getRequest(String endpoint, {Map<String, dynamic>? queryParams, Map<String, dynamic>? body}) async {
+  Future<Response> getRequest(
+    String endpoint, {
+    Map<String, dynamic>? queryParams,
+    Map<String, dynamic>? body,
+  }) async {
     try {
-      final response = await apiClient.dio
-          .get(endpoint, queryParameters: queryParams, data: body, options: Options(headers: getHeaders()));
+      final response = await apiClient.dio.get(
+        endpoint,
+        queryParameters: queryParams,
+        data: body,
+        options: Options(headers: getHeaders()),
+      );
       return response;
     } on DioException catch (dioError) {
       throw _handleDioError(dioError);
@@ -40,22 +52,24 @@ class PartySportApiService {
   Future<dynamic> getRequestWithCustomUrl(String url) async {
     try {
       final dio = Dio();
-      final response = await dio.get(
-        Uri.parse(url).toString(),
-      );
-      return response.statusCode == 200 && response.data != null ? response.data : null;
+      final response = await dio.get(Uri.parse(url).toString());
+      return response.statusCode == 200 && response.data != null
+          ? response.data
+          : null;
     } catch (error) {
       log('Erorr :: ${error.toString()}');
       return null;
     }
   }
 
-  Future<Response> postRequest(String endpoint,
-      {Object? data,
-      String? accessToken,
-      CancelToken? cancelToken,
-      void Function(int, int)? onSendProgress,
-      bool useClientWithoutTimeout = false}) async {
+  Future<Response> postRequest(
+    String endpoint, {
+    Object? data,
+    String? accessToken,
+    CancelToken? cancelToken,
+    void Function(int, int)? onSendProgress,
+    bool useClientWithoutTimeout = false,
+  }) async {
     try {
       final client = apiClient.dio;
       final response = await client.post(
@@ -75,12 +89,14 @@ class PartySportApiService {
     }
   }
 
-  Future<Response> postRequestWithFormData(String endpoint,
-      {required Map<String, dynamic> formBody,
-      String? accessToken,
-      CancelToken? cancelToken,
-      Function(int, int)? onSendProgress,
-      bool useClientWithoutTimeout = false}) async {
+  Future<Response> postRequestWithFormData(
+    String endpoint, {
+    required Map<String, dynamic> formBody,
+    String? accessToken,
+    CancelToken? cancelToken,
+    Function(int, int)? onSendProgress,
+    bool useClientWithoutTimeout = false,
+  }) async {
     try {
       FormData formData = FormData.fromMap(formBody);
       final client = apiClient.dio;
@@ -101,9 +117,16 @@ class PartySportApiService {
     }
   }
 
-  Future<Response> putRequest(String endpoint, {Map<String, dynamic>? data}) async {
+  Future<Response> putRequest(
+    String endpoint, {
+    Map<String, dynamic>? data,
+  }) async {
     try {
-      final response = await apiClient.dio.put(endpoint, data: data, options: Options(headers: getHeaders()));
+      final response = await apiClient.dio.put(
+        endpoint,
+        data: data,
+        options: Options(headers: getHeaders()),
+      );
       return response;
     } on DioException catch (dioError) {
       throw _handleDioError(dioError);
@@ -114,9 +137,16 @@ class PartySportApiService {
     }
   }
 
-  Future<Response> deleteRequest(String endpoint, {Map<String, dynamic>? data}) async {
+  Future<Response> deleteRequest(
+    String endpoint, {
+    Map<String, dynamic>? data,
+  }) async {
     try {
-      final response = await apiClient.dio.delete(endpoint, data: data, options: Options(headers: getHeaders()));
+      final response = await apiClient.dio.delete(
+        endpoint,
+        data: data,
+        options: Options(headers: getHeaders()),
+      );
       return response;
     } on DioException catch (dioError) {
       throw _handleDioError(dioError);
@@ -140,11 +170,12 @@ class PartySportApiService {
         if (error.response != null) {
           return _handleErrorResponse(error.response!);
         } else {
-          errorMessage = 'Received invalid status code: ${error.response?.statusCode}';
+          errorMessage =
+              'Received invalid status code: ${error.response?.statusCode}';
         }
         break;
       case DioExceptionType.cancel:
-        errorMessage = StringConsts.requestCancelled;
+      //   errorMessage = StringConsts.requestCancelled;
       case DioExceptionType.connectionError:
         errorMessage = '';
       case DioExceptionType.badCertificate:
@@ -157,7 +188,9 @@ class PartySportApiService {
 
   ErrorResponse? _handleErrorResponse(Response response) {
     try {
-      final ErrorResponse errorResponseModel = ErrorResponse.fromJson(response.data ?? {});
+      final ErrorResponse errorResponseModel = ErrorResponse.fromJson(
+        response.data ?? {},
+      );
       return errorResponseModel;
     } catch (e) {
       return ErrorResponse(message: 'Something went wrong');

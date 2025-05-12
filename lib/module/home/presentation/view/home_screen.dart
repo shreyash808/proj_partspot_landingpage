@@ -28,12 +28,19 @@ class HomeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
-                        flex: 7,
-                        child: Text(StringConsts.welcomeToPartSpot,style: AppTextStyles.get24BoldTextStyle())),
+                      flex: 7,
+                      child: Text(
+                        StringConsts.welcomeToPartSpot,
+                        style: AppTextStyles.get24BoldTextStyle(),
+                      ),
+                    ),
                     SizedBox(width: 8),
                     Expanded(
-                        flex: 3,
-                        child: CustomSvgPicture(iconPath: AppIcons.notificationActiveIcon,))
+                      flex: 3,
+                      child: CustomSvgPicture(
+                        iconPath: AppIcons.notificationActiveIcon,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -43,24 +50,21 @@ class HomeScreen extends StatelessWidget {
                 options: CarouselOptions(
                   autoPlay: true,
                   viewportFraction: 1,
-                  aspectRatio: 16/6,
+                  aspectRatio: 16 / 6,
                 ),
-                itemBuilder: (context,index,realIndex){
+                itemBuilder: (context, index, realIndex) {
                   return Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16)
+                      borderRadius: BorderRadius.circular(16),
                     ),
-                    child: CustomImageAsset(
-                        image: AppImages.dummyCarousel,
-                    ),
+                    child: CustomImageAsset(image: AppImages.dummyCarousel),
                   );
-
                 },
               ),
               FeatureGrid(),
               PopularEventsList(),
-              PartySportVipHome()
+              PartySportVipHome(),
             ],
           ),
         ),

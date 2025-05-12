@@ -49,6 +49,7 @@ dependencies:
   country_picker: ^2.0.27
   flutter_otp_text_field: ^1.5.1+1
   carousel_slider: ^5.0.0
+  easy_localization: ^3.0.7+1
 
 dev_dependencies:
   flutter_test:
