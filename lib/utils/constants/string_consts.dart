@@ -4,8 +4,37 @@ class StringConsts {
   static const welcomeToPartSpot = "Welcome to \nPartySpot!";
   static const featured = "Featured";
   static const popularEvents = "Popular Events";
+  static const learnMore = "Learn More";
   static const yes = "Yes";
   static const no = "No";
+  static const home = "Home";
+  static const events = "Events";
+  static const partySportVip = "PartySpot VIP";
+  static const settings = "Settings";
+
+
+
+
+  ///Error Texts
+  static const passwordCannotBeEmpty = 'passwordCannotBeEmpty';
+  static const passwordMustBeFourCharLong = 'passwordMustBeFourCharLong';
+  static const passwordMustContainAtLeastOneUppercase = 'passwordMustContainAtLeastOneUppercase';
+  static const passwordMustContainAtLeastOneLowercase = 'passwordMustContainAtLeastOneLowercase';
+  static const passwordMustContainAtLeastOneNumber = 'passwordMustContainAtLeastOneNumber';
+  static const passwordMustContainAtLeastOneSpecialChar = 'passwordMustContainAtLeastOneSpecialChar';
+  static const enteredPasswordsDontMatch = 'enteredPasswordsDontMatch';
+  static const enteredEmailIsIncorrect = 'enteredEmailIsIncorrect';
+  static const enteredPhoneNumberIsIncorrect = 'enteredPhoneNumberIsIncorrect';
+  static const userNameCannotBeEmpty = 'userNameCannotBeEmpty';
+  static const userNameMustBeBetweenTheseChar = 'userNameMustBeBetweenTheseChar';
+  static const userNameCannotStartWithNumber = 'userNameCannotStartWithNumber';
+  static const userNameCanOnlyContain = 'userNameCanOnlyContain';
+  static const userNameShouldBeAlphaNumeric = 'userNameShouldBeAlphaNumeric';
+  static const nameCannotBeEmpty = 'nameCannotBeEmpty';
+  static const nameMustBeBetween = 'nameMustBeBetween';
+  static const invalidName = 'invalidName';
+  // -------------
+
 
   // onBoarding
 
