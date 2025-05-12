@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:partyspot/routes/routes_const.dart';
@@ -15,7 +15,6 @@ class OtpScreen extends StatelessWidget {
   Timer? _timer;
 
   void startTimer() {
-    // Cancel any existing timer before starting a new one
     _timer?.cancel();
     timerNotifier.value = 20;
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
@@ -29,7 +28,6 @@ class OtpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Start the timer after widget build
     WidgetsBinding.instance.addPostFrameCallback((_) => startTimer());
 
     return Scaffold(
