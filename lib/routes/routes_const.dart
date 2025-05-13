@@ -3,6 +3,7 @@ class Routes {
   static const loginScreen = '/loginScreen';
   static const onBoardingScreen = '/onBoardingScreen';
   static const otpScreen = '/otpScreen';
+  static const appEntryScreen = '/appEntryScreen';
 
   static const signUpScreen = '/signUpScreen';
 

@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:partyspot/module/app_entry/binding/app_entry_binding.dart';
+import 'package:partyspot/module/app_entry/presentation/app_entry_screen.dart';
 import 'package:partyspot/module/explore/binding/explore_binding.dart';
 import 'package:partyspot/module/explore/view/explore_screen.dart';
 import 'package:partyspot/module/home/presentation/binding/home_binding.dart';
@@ -21,6 +23,12 @@ class AppRoutes {
         transition: Transition.circularReveal,
         page: () => SplashScreen(),
         binding: SplashBinding(),
+      ),
+
+      GetPage(
+        name: Routes.appEntryScreen,
+        page: () => AppEntryScreen(),
+        binding: AppEntryBinding(),
       ),
 
       GetPage(

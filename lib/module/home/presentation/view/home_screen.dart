@@ -65,6 +65,7 @@ class HomeScreen extends StatelessWidget {
               FeatureGrid(),
               PopularEventsList(),
               PartySportVipHome(),
+              SizedBox(height: 20,)
             ],
           ),
         ),
