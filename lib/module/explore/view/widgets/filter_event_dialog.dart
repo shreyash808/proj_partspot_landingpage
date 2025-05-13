@@ -33,15 +33,18 @@ class _FilterDialogWidgetState extends State<FilterDialogWidget> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      insetPadding: EdgeInsets.zero,
       backgroundColor: Colors.white,
+      insetPadding: EdgeInsets.symmetric(
+        horizontal: MediaQuery.of(context).size.width * 0.05,
+        vertical: 24,
+      ),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      child: Container(
-        width: MediaQuery.of(context).size.width * .90,
-        padding: const EdgeInsets.all(16.0),
-        child: IntrinsicHeight(
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
                 padding: const EdgeInsets.only(bottom: 5.0),
@@ -83,7 +86,6 @@ class _FilterDialogWidgetState extends State<FilterDialogWidget> {
                       color: const Color(0xff6F6F6F),
                     ),
                     iconSize: 20,
-                    itemHeight: null,
                     dropdownColor: const Color(0xffEDEDED),
                     items:
                         widget.months.map((String value) {
