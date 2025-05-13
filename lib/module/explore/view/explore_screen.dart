@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/get_instance.dart';
+import 'package:partyspot/module/explore/controller/explore_controller.dart';
+import 'package:partyspot/module/explore/view/widgets/filter_event_dialog.dart';
 import 'package:partyspot/module/home/presentation/view/widgets/popular_events_list.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
-import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/icon_constants.dart';
 import 'package:partyspot/utils/widgets/custom_svg_picture.dart';
 
 class ExploreScreen extends StatelessWidget {
   ExploreScreen({super.key});
   TextEditingController textController = TextEditingController();
+  final ExploreController controller = Get.put(ExploreController());
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
@@ -80,9 +85,9 @@ class ExploreScreen extends StatelessWidget {
                       decoration: InputDecoration(
                         isDense: true,
                         hintText: 'Search...',
-                        hintStyle: TextStyle(
-                          color: AppColor.blackRaisinColor.withOpacity(0.6),
-                        ),
+                        // hintStyle: TextStyle(
+                        //   color: AppColor.blackRaisinColor.withOpacity(0.6),
+                        // ),
                         filled: true,
                         fillColor: Colors.white,
                         contentPadding: const EdgeInsets.all(10),
@@ -100,14 +105,17 @@ class ExploreScreen extends StatelessWidget {
                                   color: Color.fromARGB(255, 0, 0, 0),
                                   size: 20,
                                 ),
-                                onPressed: () {
-                                  // _showFilterBottomSheet(context);
-                                },
+                                onPressed: () {},
                               ),
                             ],
                           ),
                         ),
-                        suffixIcon: Icon(Icons.filter_list),
+                        suffixIcon: InkWell(
+                          onTap: () {
+                            _showFilterDialog(context);
+                          },
+                          child: Icon(Icons.filter_list),
+                        ),
                         prefixIconConstraints: const BoxConstraints(
                           minWidth: 40,
                         ),
@@ -122,6 +130,23 @@ class ExploreScreen extends StatelessWidget {
 
         body: SingleChildScrollView(child: PopularEventsList()),
       ),
+    );
+  }
+
+  void _showFilterDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return FilterDialogWidget(
+          areaList: controller.areaList,
+          priceList: controller.priceList,
+          themeList: controller.themeList,
+          months: controller.months,
+          selectedArea: controller.selectedArea,
+          selectedPrice: controller.selectedPrice,
+          selectedTheme: controller.selectedTheme,
+        );
+      },
     );
   }
 }

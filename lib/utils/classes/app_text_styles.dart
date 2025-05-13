@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AppTextStyles {
+  static const double _px8 = 8.0;
   static const double _px10 = 10.0;
   static const double _px12 = 12.0;
   static const double _px13 = 13.0;
@@ -113,6 +114,33 @@ class AppTextStyles {
       fontFamily: _regular,
       decorationColor: color,
       decoration: _getDecoration(decoration),
+    );
+  }
+
+  static TextStyle get8RegularTextStyle({
+    Color? color,
+    TextDecoration? decoration,
+  }) {
+    return TextStyle(
+      color: color,
+      fontSize: _px8,
+      fontFamily: _regular,
+      decorationColor: color,
+      decoration: _getDecoration(decoration),
+    );
+  }
+
+  static TextStyle get8MediumTextStyle({
+    Color? color,
+    TextDecoration? decoration,
+    Color? decorationColor,
+  }) {
+    return TextStyle(
+      color: color,
+      fontSize: _px8,
+      fontFamily: _medium,
+      decoration: _getDecoration(decoration),
+      decorationColor: decorationColor,
     );
   }
 
