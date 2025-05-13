@@ -5,6 +5,7 @@ import 'package:partyspot/module/explore/controller/explore_controller.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
+import 'package:partyspot/utils/widgets/buttons.dart';
 
 class FilterDialogWidget extends StatelessWidget {
   final ExploreController controller = Get.find<ExploreController>();
@@ -102,30 +103,22 @@ class FilterDialogWidget extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 20),
-
-              GestureDetector(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Container(
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 18.0),
+                child: AppButton(
+                  StringConsts.apply,
+                  isCurve: true,
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   height: 50,
-                  decoration: BoxDecoration(
-                    color: AppColor.buttonOrange,
-                    borderRadius: BorderRadius.circular(40),
+                  padding: EdgeInsets.symmetric(vertical: 12),
+                  textStyle: AppTextStyles.get14BoldTextStyle(
+                    color: Colors.white,
                   ),
-                  child: Center(
-                    child: Text(
-                      StringConsts.apply,
-                      style: AppTextStyles.get14BoldTextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
+                  backgroundColor: AppColor.buttonOrange,
                 ),
               ),
-
-              const SizedBox(height: 10),
             ],
           ),
         ),

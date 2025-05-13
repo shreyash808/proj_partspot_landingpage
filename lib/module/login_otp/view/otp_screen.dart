@@ -7,8 +7,10 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:partyspot/routes/routes_const.dart';
 import 'package:partyspot/utils/buttons/custom_button.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
+import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/image_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
+import 'package:partyspot/utils/widgets/buttons.dart';
 import 'package:partyspot/utils/widgets/custom_image_asset.dart';
 
 class OtpScreen extends StatelessWidget {
@@ -132,12 +134,16 @@ class OtpScreen extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 15),
-                      CustomButton(
-                        onTap: () {
+
+                      AppButton(
+                        StringConsts.submit,
+                        backgroundColor: AppColor.buttonOrange,
+                        margin: const EdgeInsets.symmetric(vertical: 8),
+                        onPressed: () {
                           Get.offNamed(Routes.homeScreen);
                         },
-                        text: StringConsts.submit,
                       ),
+
                       const SizedBox(height: 10),
                     ],
                   ),

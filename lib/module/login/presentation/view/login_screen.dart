@@ -5,9 +5,11 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:partyspot/routes/routes_const.dart';
 import 'package:partyspot/utils/buttons/custom_button.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
+import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/image_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
 import 'package:partyspot/utils/text_fields/custom_text_field.dart';
+import 'package:partyspot/utils/widgets/buttons.dart';
 import 'package:partyspot/utils/widgets/custom_image_asset.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -115,13 +117,16 @@ class LoginScreen extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 15),
-                      CustomButton(
-                        onTap: () {
+
+                      AppButton(
+                        StringConsts.next,
+                        backgroundColor: AppColor.buttonOrange,
+                        margin: const EdgeInsets.symmetric(vertical: 8),
+                        onPressed: () {
                           Get.offNamed(Routes.otpScreen);
                         },
-                        text: StringConsts.next,
                       ),
-                      // const SizedBox(height: 10),
+
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 20.0),
                         child: Divider(color: Color(0xFFD9D9D9)),

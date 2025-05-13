@@ -76,6 +76,7 @@ class PartySportVipHome extends StatelessWidget {
             ),
             AppButton(
               StringConsts.learnMore,
+              backgroundColor: AppColor.buttonOrange,
               margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               onPressed: () {},
             ),

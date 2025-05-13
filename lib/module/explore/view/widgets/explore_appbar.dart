@@ -5,6 +5,7 @@ import 'package:partyspot/utils/constants/icon_constants.dart';
 import 'package:partyspot/utils/constants/image_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
+import 'package:partyspot/utils/widgets/custom_image_asset.dart';
 import 'package:partyspot/utils/widgets/custom_svg_picture.dart';
 
 class CustomExploreAppBar extends StatelessWidget
@@ -45,10 +46,7 @@ class CustomExploreAppBar extends StatelessWidget
             const Spacer(),
             InkWell(
               onTap: onNotificationTap,
-              child: CustomSvgPicture(
-                iconPath: AppIcons.notificationActiveIcon,
-                color: Colors.white,
-              ),
+              child: CustomImageAsset(image: AppIcons.exploreBell, height: 35),
             ),
           ],
         ),
