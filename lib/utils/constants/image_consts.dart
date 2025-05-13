@@ -24,4 +24,7 @@ class AppImages {
 
   static const loginImage = 'assets/images/png/login_image.png';
   static const otpImage = 'assets/images/png/otp_image.png';
+
+  ///   explore
+  static const appBarImg = 'assets/images/png/appbar_bg.png';
 }

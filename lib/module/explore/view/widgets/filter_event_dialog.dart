@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
+import 'package:partyspot/utils/constants/string_consts.dart';
 
 class FilterDialogWidget extends StatefulWidget {
   final List<String> areaList;
@@ -45,22 +46,22 @@ class _FilterDialogWidgetState extends State<FilterDialogWidget> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 5.0),
                 child: Text(
-                  'Filters',
+                  StringConsts.filters,
                   style: AppTextStyles.get24BoldTextStyle(),
                 ),
               ),
 
-              _buildSectionTitle('Area'),
+              _buildSectionTitle(StringConsts.area),
               _buildChips(
                 widget.areaList,
                 widget.selectedArea,
                 allowMultiple: true,
               ),
 
-              _buildSectionTitle('Price Range'),
+              _buildSectionTitle(StringConsts.priceRange),
               _buildChips(widget.priceList, widget.selectedPrice),
 
-              _buildSectionTitle('Select Theme'),
+              _buildSectionTitle(StringConsts.selTheme),
               _buildChips(widget.themeList, widget.selectedTheme),
 
               const SizedBox(height: 20),
@@ -118,7 +119,7 @@ class _FilterDialogWidgetState extends State<FilterDialogWidget> {
                 ),
                 child: Center(
                   child: Text(
-                    "Apply",
+                    StringConsts.apply,
                     style: AppTextStyles.get14BoldTextStyle(
                       color: Colors.white,
                     ),

@@ -34,4 +34,15 @@ class StringConsts {
 
   /// splash
   static const splashTxt = "Your One Spot for\nEvery Celebration";
+
+  /// explore
+  static const exploreEvnts = "Explore Events";
+  static const search = "Search...";
+
+  static const filters = "Filters";
+  static const area = "Area";
+
+  static const priceRange = "Price Range";
+  static const selTheme = "Select Theme";
+  static const apply = "Apply";
 }

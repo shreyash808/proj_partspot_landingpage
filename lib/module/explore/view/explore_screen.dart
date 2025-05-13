@@ -7,6 +7,8 @@ import 'package:partyspot/module/explore/view/widgets/filter_event_dialog.dart';
 import 'package:partyspot/module/home/presentation/view/widgets/popular_events_list.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/icon_constants.dart';
+import 'package:partyspot/utils/constants/image_consts.dart';
+import 'package:partyspot/utils/constants/string_consts.dart';
 import 'package:partyspot/utils/widgets/custom_svg_picture.dart';
 
 class ExploreScreen extends StatelessWidget {
@@ -40,7 +42,7 @@ class ExploreScreen extends StatelessWidget {
               title: Row(
                 children: [
                   Text(
-                    "Explore Events",
+                    StringConsts.exploreEvnts,
                     style: AppTextStyles.get20BoldTextStyle(
                       color: Colors.white,
                     ),
@@ -54,12 +56,7 @@ class ExploreScreen extends StatelessWidget {
               ),
               flexibleSpace: Stack(
                 fit: StackFit.expand,
-                children: [
-                  Image.asset(
-                    'assets/images/png/appbar_bg.png',
-                    fit: BoxFit.cover,
-                  ),
-                ],
+                children: [Image.asset(AppImages.appBarImg, fit: BoxFit.cover)],
               ),
               bottom: PreferredSize(
                 preferredSize: const Size.fromHeight(60.0),
@@ -84,7 +81,7 @@ class ExploreScreen extends StatelessWidget {
                       controller: textController,
                       decoration: InputDecoration(
                         isDense: true,
-                        hintText: 'Search...',
+                        hintText: StringConsts.search,
                         // hintStyle: TextStyle(
                         //   color: AppColor.blackRaisinColor.withOpacity(0.6),
                         // ),
@@ -149,24 +146,4 @@ class ExploreScreen extends StatelessWidget {
       },
     );
   }
-}
-
-class BottomCurvedClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    final path = Path();
-    path.lineTo(0, size.height - 30); // Left side
-    path.quadraticBezierTo(
-      size.width / 2,
-      size.height,
-      size.width,
-      size.height - 30,
-    ); // Curve
-    path.lineTo(size.width, 0); // Top right
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
 }
