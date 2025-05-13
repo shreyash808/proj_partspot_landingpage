@@ -14,12 +14,16 @@ class PartySportVipHome extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-          color: AppColor.whiteColor,
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(color: AppColor.blackColor.withOpacity(0.25),offset: Offset(2, 2), spreadRadius: 0,blurRadius: 8)
-          ]
-
+        color: AppColor.whiteColor,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: AppColor.blackColor.withOpacity(0.25),
+            offset: Offset(2, 2),
+            spreadRadius: 0,
+            blurRadius: 8,
+          ),
+        ],
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
@@ -27,22 +31,29 @@ class PartySportVipHome extends StatelessWidget {
           children: [
             Container(
               padding: const EdgeInsets.all(16.0),
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      AppColor.patriarchColor,
-                      AppColor.orangeColor,
-                    ]
-                  )
+              width: double.infinity,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [AppColor.patriarchColor, AppColor.orangeColor],
                 ),
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Upgrade to PartyPass VIP",style: AppTextStyles.get20BoldTextStyle(color: AppColor.whiteColor),),
-                  Text("Exclusive benefits & discounts",style: AppTextStyles.get14MediumTextStyle(color: AppColor.whiteColor),)
+                  Text(
+                    "Upgrade to PartyPass VIP",
+                    style: AppTextStyles.get20BoldTextStyle(
+                      color: AppColor.whiteColor,
+                    ),
+                  ),
+                  Text(
+                    "Exclusive benefits & discounts",
+                    style: AppTextStyles.get14MediumTextStyle(
+                      color: AppColor.whiteColor,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -50,41 +61,54 @@ class PartySportVipHome extends StatelessWidget {
               padding: const EdgeInsets.all(16),
               child: Column(
                 children: [
-                  _buildInfoItem(title: "Save up to 20%",subTitle: "On all event bookings & services",iconPath: AppImages.percentageImage),
-                  _buildInfoItem(title: "Early Access",subTitle: "Book premium events 24 hours before others.",iconPath: AppImages.waitingImage),
+                  _buildInfoItem(
+                    title: "Save up to 20%",
+                    subTitle: "On all event bookings & services",
+                    iconPath: AppImages.percentageImage,
+                  ),
+                  _buildInfoItem(
+                    title: "Early Access",
+                    subTitle: "Book premium events 24 hours before others.",
+                    iconPath: AppImages.waitingImage,
+                  ),
                 ],
               ),
             ),
             AppButton(
               StringConsts.learnMore,
-              margin: const EdgeInsets.symmetric(horizontal: 16,vertical: 8),
-              onPressed: (){
-              },
-            )
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              onPressed: () {},
+            ),
           ],
         ),
       ),
     );
   }
 
-  _buildInfoItem({String? title, String? subTitle, String? iconPath}){
+  _buildInfoItem({String? title, String? subTitle, String? iconPath}) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 2),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(flex: 1,child: CustomImageAsset(image: iconPath)),
+          Expanded(flex: 1, child: CustomImageAsset(image: iconPath)),
           const SizedBox(width: 6),
           Expanded(
             flex: 9,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title ?? '',style: AppTextStyles.get16SemiBoldTextStyle()),
-                Text(subTitle ?? '',style: AppTextStyles.get14RegularTextStyle()),
+                Text(
+                  title ?? '',
+                  style: AppTextStyles.get16SemiBoldTextStyle(),
+                ),
+                Text(
+                  subTitle ?? '',
+                  style: AppTextStyles.get14RegularTextStyle(),
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
