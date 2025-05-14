@@ -5,7 +5,8 @@ class AppColor {
   static const orangeColor = Color(0xFFFF4B20);
   static const lightOrangeColor = Color(0xFFFFE1DA);
   static const glossyGrape = Color(0xFFAC98BF);
-  static const buttonOrange = Color(0xFFFF7A5A);
+  static const buttonOrange = Color(0xFFFF4B20);
+  static const disableButtonOrange = Color(0xFFFF7A5A);
   static const textPurple = Color(0xFF9704C0);
   static const silverColor = Color(0xFFCECECE);
 

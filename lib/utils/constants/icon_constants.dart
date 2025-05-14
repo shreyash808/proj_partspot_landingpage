@@ -2,6 +2,9 @@ class AppIcons {
   static const notificationActiveIcon =
       'assets/icons/svg/notification_active_icon.svg';
   static const homeIcon = 'assets/icons/svg/home_ic.svg';
+  static const exploreIcon = 'assets/icons/svg/explore_ic.svg';
+  static const ticketIcon = 'assets/icons/svg/ticket_ic.svg';
+  static const settingsIcon = 'assets/icons/svg/settings_ic.svg';
 
   static const exploreBell = 'assets/icons/png/explore_bell.png';
   static const searchIcon = 'assets/icons/png/search_icon.png';

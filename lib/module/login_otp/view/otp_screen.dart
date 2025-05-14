@@ -5,7 +5,6 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:partyspot/routes/routes_const.dart';
-import 'package:partyspot/utils/buttons/custom_button.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/image_consts.dart';
@@ -137,7 +136,7 @@ class OtpScreen extends StatelessWidget {
 
                       AppButton(
                         StringConsts.submit,
-                        backgroundColor: AppColor.buttonOrange,
+                        backgroundColor: AppColor.    buttonOrange,
                         margin: const EdgeInsets.symmetric(vertical: 8),
                         onPressed: () {
                           Get.offNamed(Routes.homeScreen);
