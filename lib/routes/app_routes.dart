@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:partyspot/module/app_entry/binding/app_entry_binding.dart';
 import 'package:partyspot/module/app_entry/presentation/app_entry_screen.dart';
+import 'package:partyspot/module/events_list/presentation/events_list_screen.dart';
 import 'package:partyspot/module/explore/binding/explore_binding.dart';
 import 'package:partyspot/module/explore/view/explore_screen.dart';
 import 'package:partyspot/module/home/presentation/binding/home_binding.dart';
@@ -62,6 +63,12 @@ class AppRoutes {
         name: Routes.exploreScreen,
         transition: Transition.circularReveal,
         page: () => ExploreScreen(),
+        binding: ExploreBinding(),
+      ),
+      GetPage(
+        name: Routes.eventsListScreen,
+        transition: Transition.circularReveal,
+        page: () => EventsListScreen(),
         binding: ExploreBinding(),
       ),
     ];

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:partyspot/routes/routes_const.dart' show Routes;
 import 'package:partyspot/utils/classes/app_text_styles.dart' show AppTextStyles;
 import 'package:partyspot/utils/constants/app_size.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
@@ -43,38 +45,43 @@ class FeatureGrid extends StatelessWidget {
   }
   
   _featureItem({String? imagePath, String? title}){
-    return ClipRRect(
-        borderRadius: BorderRadius.circular(16),
-        child: Stack(
-          alignment: Alignment.bottomLeft,
-          children: [
-            CustomImageAsset(
-              image: imagePath,
-              width: AppSizes.width * 0.5 - 24,
-              height: AppSizes.width * 0.5 - 24,
-              fit: BoxFit.cover,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(title ?? '', style: AppTextStyles.get16BoldTextStyle(color: AppColor.whiteColor)),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text('Explore', style: AppTextStyles.get12MediumTextStyle(color: AppColor.whiteColor)),
-                      const SizedBox(width: 4),
-                      Icon(Icons.arrow_forward_ios_rounded,color: AppColor.whiteColor,size: 12,)
-                    ],
-                  )
-                ],
+    return GestureDetector(
+      onTap: (){
+        Get.toNamed(Routes.eventsListScreen);
+      },
+      child: ClipRRect(
+          borderRadius: BorderRadius.circular(16),
+          child: Stack(
+            alignment: Alignment.bottomLeft,
+            children: [
+              CustomImageAsset(
+                image: imagePath,
+                width: AppSizes.width * 0.5 - 24,
+                height: AppSizes.width * 0.5 - 24,
+                fit: BoxFit.cover,
               ),
-            )
-          ],
-        )
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(title ?? '', style: AppTextStyles.get16BoldTextStyle(color: AppColor.whiteColor)),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text('Explore', style: AppTextStyles.get12MediumTextStyle(color: AppColor.whiteColor)),
+                        const SizedBox(width: 4),
+                        Icon(Icons.arrow_forward_ios_rounded,color: AppColor.whiteColor,size: 12,)
+                      ],
+                    )
+                  ],
+                ),
+              )
+            ],
+          )
+      ),
     );
   }
 }

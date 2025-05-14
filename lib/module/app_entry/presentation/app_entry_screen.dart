@@ -99,7 +99,7 @@ class AppEntryScreen extends StatelessWidget {
                             if (isSelected)
                               Text(
                                 _labels[index],
-                                style: AppTextStyles.get10SemiBoldTextStyle(),
+                                style: AppTextStyles.get10BoldTextStyle(color: AppColor.orangeColor),
                               ),
                           ],
                         ),

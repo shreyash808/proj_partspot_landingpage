@@ -5,6 +5,7 @@ class AppIcons {
   static const exploreIcon = 'assets/icons/svg/explore_ic.svg';
   static const ticketIcon = 'assets/icons/svg/ticket_ic.svg';
   static const settingsIcon = 'assets/icons/svg/settings_ic.svg';
+  static const playIcon = 'assets/icons/svg/play_ic.svg';
 
   static const exploreBell = 'assets/icons/png/explore_bell.png';
   static const searchIcon = 'assets/icons/png/search_icon.png';
