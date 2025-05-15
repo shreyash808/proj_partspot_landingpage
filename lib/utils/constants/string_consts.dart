@@ -1,4 +1,3 @@
-import 'package:partyspot/module/onboarding/data/onboarding_model.dart';
 
 class StringConsts {
   static const welcomeToPartSpot = "Welcome to \nPartySpot!";
@@ -11,6 +10,9 @@ class StringConsts {
   static const events = "Events";
   static const partySportVip = "PartySpot VIP";
   static const settings = "Settings";
+  static const aboutEvent = "About Event";
+  static const bookNow = "Book Now";
+  static const noOfGuests = "No. of Guests";
 
 
 

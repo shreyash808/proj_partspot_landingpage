@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:partyspot/module/home/presentation/view/widgets/event_item.dart';
+import 'package:partyspot/routes/routes_const.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/color_consts.dart' show AppColor;
 import 'package:partyspot/utils/constants/icon_constants.dart';
@@ -40,7 +42,7 @@ class EventsListScreen extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: Text('CURATED PARTIES',
-                            style: AppTextStyles.get24BoldTextStyle(color: AppColor.whiteColor)
+                            style: AppTextStyles.get24BoldTextStyle(color: AppColor.whiteColor,letterSpacing: 7)
                         ),
                       ))
                 ],
@@ -63,7 +65,11 @@ class EventsListScreen extends StatelessWidget {
                     return SizedBox(height: 8);
                   },
                   itemBuilder: (context,index){
-                    return EventItem();
+                    return EventItem(
+                      onTap: (){
+                        Get.toNamed(Routes.eventInfoScreen);
+                      },
+                    );
                   },
                 ),
               ),

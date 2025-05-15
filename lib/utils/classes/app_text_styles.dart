@@ -14,6 +14,7 @@ class AppTextStyles {
   static const double _px22 = 22.0;
   static const double _px24 = 24.0;
   static const double _px26 = 26.0;
+  static const double _px30 = 30.0;
   static const double _px32 = 32.0;
   static const double _px36 = 36.0;
   static const double _px28 = 28.0;
@@ -656,10 +657,12 @@ class AppTextStyles {
 
   static TextStyle get24BoldTextStyle({
     Color? color,
+    double? letterSpacing,
     TextDecoration? decoration,
   }) {
     return TextStyle(
       color: color,
+      letterSpacing: letterSpacing,
       fontSize: _px24,
       fontFamily: _bold,
       decoration: _getDecoration(decoration),
@@ -781,6 +784,65 @@ class AppTextStyles {
     return TextStyle(
       color: color,
       fontSize: _px28,
+      fontFamily: _bold,
+      decoration: _getDecoration(decoration),
+    );
+  }
+  static TextStyle get30LightTextStyle({
+    Color? color,
+    TextDecoration? decoration,
+  }) {
+    return TextStyle(
+      color: color,
+      fontSize: _px30,
+      fontFamily: _light,
+      decoration: _getDecoration(decoration),
+    );
+  }
+
+  static TextStyle get30RegularTextStyle({
+    Color? color,
+    TextDecoration? decoration,
+  }) {
+    return TextStyle(
+      color: color,
+      fontSize: _px30,
+      fontFamily: _regular,
+      decoration: _getDecoration(decoration),
+    );
+  }
+
+  static TextStyle get30MediumTextStyle({
+    Color? color,
+    TextDecoration? decoration,
+  }) {
+    return TextStyle(
+      color: color,
+      fontSize: _px30,
+      fontFamily: _medium,
+      decoration: _getDecoration(decoration),
+    );
+  }
+
+  static TextStyle get30SemiBoldTextStyle({
+    Color? color,
+    TextDecoration? decoration,
+  }) {
+    return TextStyle(
+      color: color,
+      fontSize: _px30,
+      fontFamily: _semiBold,
+      decoration: _getDecoration(decoration),
+    );
+  }
+
+  static TextStyle get30BoldTextStyle({
+    Color? color,
+    TextDecoration? decoration,
+  }) {
+    return TextStyle(
+      color: color,
+      fontSize: _px30,
       fontFamily: _bold,
       decoration: _getDecoration(decoration),
     );

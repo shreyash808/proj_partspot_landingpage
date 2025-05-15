@@ -14,6 +14,7 @@ class Routes {
   static const homeScreen = '/homeScreen';
   static const exploreScreen = '/exploreScreen';
   static const eventsListScreen = '/eventsListScreen';
+  static const eventInfoScreen = '/eventInfoScreen';
 
 }
 

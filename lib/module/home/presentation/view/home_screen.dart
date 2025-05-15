@@ -35,11 +35,8 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: 8),
-                    Expanded(
-                      flex: 3,
-                      child: CustomSvgPicture(
-                        iconPath: AppIcons.notificationActiveIcon,
-                      ),
+                    CustomSvgPicture(
+                      iconPath: AppIcons.notificationActiveIcon,
                     ),
                   ],
                 ),

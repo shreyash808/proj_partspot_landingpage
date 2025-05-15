@@ -65,18 +65,7 @@ class AppButton extends StatelessWidget {
         decoration:
             isEnabled && onPressed != null
                 ? BoxDecoration(
-                  color: backgroundColor,
-                  gradient:
-                      backgroundColor == null
-                          ? LinearGradient(
-                            colors: [
-                              AppColor.steelPinkColor,
-                              AppColor.purpleDarkColor,
-                            ],
-                            begin: Alignment.centerLeft,
-                            end: Alignment.centerRight,
-                          )
-                          : null,
+                  color: backgroundColor ?? AppColor.buttonOrange,
                   borderRadius:
                       isCurve
                           ? BorderRadius.all(Radius.circular(40.0))
@@ -87,7 +76,7 @@ class AppButton extends StatelessWidget {
                       isCurve
                           ? BorderRadius.all(Radius.circular(40.0))
                           : BorderRadius.all(Radius.circular(8.0)),
-                  color: AppColor.silverColor,
+                  color: AppColor.lightOrangeColor,
                 ),
         child: TextButton(
           onPressed: (isEnabled && onPressed != null ? onPressed : null),
