@@ -12,21 +12,23 @@ class StringConsts {
   static const partySportVip = "PartySpot VIP";
   static const settings = "Settings";
 
-
-
-
   ///Error Texts
   static const passwordCannotBeEmpty = 'passwordCannotBeEmpty';
   static const passwordMustBeFourCharLong = 'passwordMustBeFourCharLong';
-  static const passwordMustContainAtLeastOneUppercase = 'passwordMustContainAtLeastOneUppercase';
-  static const passwordMustContainAtLeastOneLowercase = 'passwordMustContainAtLeastOneLowercase';
-  static const passwordMustContainAtLeastOneNumber = 'passwordMustContainAtLeastOneNumber';
-  static const passwordMustContainAtLeastOneSpecialChar = 'passwordMustContainAtLeastOneSpecialChar';
+  static const passwordMustContainAtLeastOneUppercase =
+      'passwordMustContainAtLeastOneUppercase';
+  static const passwordMustContainAtLeastOneLowercase =
+      'passwordMustContainAtLeastOneLowercase';
+  static const passwordMustContainAtLeastOneNumber =
+      'passwordMustContainAtLeastOneNumber';
+  static const passwordMustContainAtLeastOneSpecialChar =
+      'passwordMustContainAtLeastOneSpecialChar';
   static const enteredPasswordsDontMatch = 'enteredPasswordsDontMatch';
   static const enteredEmailIsIncorrect = 'enteredEmailIsIncorrect';
   static const enteredPhoneNumberIsIncorrect = 'enteredPhoneNumberIsIncorrect';
   static const userNameCannotBeEmpty = 'userNameCannotBeEmpty';
-  static const userNameMustBeBetweenTheseChar = 'userNameMustBeBetweenTheseChar';
+  static const userNameMustBeBetweenTheseChar =
+      'userNameMustBeBetweenTheseChar';
   static const userNameCannotStartWithNumber = 'userNameCannotStartWithNumber';
   static const userNameCanOnlyContain = 'userNameCanOnlyContain';
   static const userNameShouldBeAlphaNumeric = 'userNameShouldBeAlphaNumeric';
@@ -34,7 +36,6 @@ class StringConsts {
   static const nameMustBeBetween = 'nameMustBeBetween';
   static const invalidName = 'invalidName';
   // -------------
-
 
   // onBoarding
 
@@ -74,4 +75,36 @@ class StringConsts {
   static const priceRange = "Price Range";
   static const selTheme = "Select Theme";
   static const apply = "Apply";
+
+  /// Vip Screen
+  ///
+  static const joinVip = "Join PartySpot VIP";
+  static const vipSubscribe =
+      "The PartySpot VIP provides different offers to subscribers and provide benefits.";
+  static const vipBenfits = "Benefits of PartySpot VIP";
+  static const monthly = "Monthly";
+  static const annual = "Annual";
+  static const beast = "Beast";
+  static const monster = "Monster";
+
+  static const exclusiveDiscount = "Exclusive discounts";
+  static const discountDescription = "Get special discounts on party bookings.";
+
+  static const vipAccess = "VIP Access";
+  static const vipAccessDescription =
+      "Enjoy early entry to exclusive parties & events.";
+
+  static const prioritySupport = "Priority Support";
+  static const prioritySupportDescription =
+      "Get booking assistance & event planning.";
+
+  static const freeVoucher = "Free Vouchers";
+  static const freeVoucherDescription = "Receive free drinks/tickets vouchers.";
+
+  static const monthlyOffer1 = "10% off on all events";
+  static const monthlyOffer2 = "Early access to bookings";
+
+  static const yearlyOffer1 = "Unlimited Parties";
+  static const yearlyOffer2 = "Premium Lounge Access";
+  static const yearlyOffer3 = "₹ 100 reward on referrals";
 }

@@ -1,3 +1,5 @@
+import 'package:partyspot/module/party_spot_vip/view/vip_screen.dart';
+
 class Routes {
   static const splashScreen = '/splashScreen';
   static const loginScreen = '/loginScreen';
@@ -6,6 +8,7 @@ class Routes {
   static const appEntryScreen = '/appEntryScreen';
 
   static const signUpScreen = '/signUpScreen';
+  static const VipScreen = '/VipScreen';
 
   static const enterPhoneScreen = '/enterPhoneScreen';
   static const verifyPhoneScreen = '/verifyPhoneScreen';

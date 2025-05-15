@@ -5,6 +5,7 @@ import 'package:partyspot/module/explore/view/explore_screen.dart';
 import 'package:partyspot/module/home/presentation/view/home_screen.dart';
 import 'package:partyspot/module/login/presentation/view/login_screen.dart';
 import 'package:partyspot/module/login_otp/view/otp_screen.dart';
+import 'package:partyspot/module/party_spot_vip/view/vip_screen.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/color_consts.dart' show AppColor;
 import 'package:partyspot/utils/constants/string_consts.dart';
@@ -36,7 +37,12 @@ class AppEntryScreen extends StatelessWidget {
           return Scaffold(
             body: IndexedStack(
               index: controller.selectedIndex,
-              children: [HomeScreen(), ExploreScreen(), SizedBox(), SizedBox()],
+              children: [
+                HomeScreen(),
+                ExploreScreen(),
+                VipScreen(),
+                SizedBox(),
+              ],
             ),
             bottomNavigationBar: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
