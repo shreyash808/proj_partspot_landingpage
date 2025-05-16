@@ -25,7 +25,7 @@ class AppTextStyles {
   /// Semi-Bold -> 600W
   /// Bold -> 700W
 
-  static const String _light = 'Bold';
+  static const String _light = 'Light';
   static const String _bold = 'Bold';
 
   static const String _extraBold = 'ExtraBold';
