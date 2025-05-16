@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:partyspot/utils/constants/string_consts.dart';
 
 class NoInternetView extends StatelessWidget {
   final VoidCallback onRetry;
@@ -14,10 +13,7 @@ class NoInternetView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
-              Icons.wifi_off,
-              size: 100,
-            ),
+            const Icon(Icons.wifi_off, size: 100),
             // const SizedBox(height: 24),
             // Text(
             //   StringConsts.noInternetConnection,

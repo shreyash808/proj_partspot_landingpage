@@ -4,14 +4,13 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:partyspot/module/login/presentation/view/widgets/login_header.dart';
+import 'package:partyspot/module/login_otp/view/widgets/resend_otp_timer.dart';
 import 'package:partyspot/routes/routes_const.dart';
-import 'package:partyspot/utils/buttons/custom_button.dart';
-import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/image_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
 import 'package:partyspot/utils/widgets/buttons.dart';
-import 'package:partyspot/utils/widgets/custom_image_asset.dart';
 
 class OtpScreen extends StatelessWidget {
   OtpScreen({super.key});
@@ -70,19 +69,11 @@ class OtpScreen extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      CustomImageAsset(image: AppImages.otpImage, height: 200),
-                      // Image.asset(
-                      //   AppImages.otpImage,
-                      //   height: 200,
-                      // ),
-                      const SizedBox(height: 10),
-                      Text(
-                        StringConsts.enterOtp,
-                        style: AppTextStyles.get24SemiBoldTextStyle(
-                          color: Colors.black,
-                        ),
+                      LoginOtpImageHeader(
+                        imagePath: AppImages.otpImage,
+                        text: StringConsts.enterOtp,
                       ),
-                      const SizedBox(height: 20),
+
                       OtpTextField(
                         numberOfFields: 4,
                         borderRadius: BorderRadius.circular(10),
@@ -91,60 +82,23 @@ class OtpScreen extends StatelessWidget {
                         showFieldAsBox: true,
                         onCodeChanged: (String code) {},
                       ),
-                      const SizedBox(height: 15),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          ValueListenableBuilder<int>(
-                            valueListenable: timerNotifier,
-                            builder: (context, timeLeft, _) {
-                              return timeLeft > 0
-                                  ? RichText(
-                                    text: TextSpan(
-                                      style: AppTextStyles.get10MediumTextStyle(
-                                        color: Color(0xffBEBEBE),
-                                      ),
-                                      children: [
-                                        const TextSpan(
-                                          text: StringConsts.resendOtpIn,
-                                        ),
-                                        TextSpan(
-                                          text: "$timeLeft secs",
-                                          style:
-                                              AppTextStyles.get10MediumTextStyle(
-                                                color: Color(0xff05A65B),
-                                              ),
-                                        ),
-                                      ],
-                                    ),
-                                  )
-                                  : GestureDetector(
-                                    onTap: () {
-                                      startTimer();
-                                    },
-                                    child: Text(
-                                      StringConsts.resendOtp,
-                                      style: AppTextStyles.get10MediumTextStyle(
-                                        color: Color(0xff05A65B),
-                                      ),
-                                    ),
-                                  );
-                            },
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 15),
 
-                      AppButton(
-                        StringConsts.submit,
-                        backgroundColor: AppColor.buttonOrange,
-                        margin: const EdgeInsets.symmetric(vertical: 8),
-                        onPressed: () {
-                          Get.offNamed(Routes.homeScreen);
-                        },
+                      ResendOtpTimerWidget(
+                        timerNotifier: timerNotifier,
+                        onResendTap: startTimer,
                       ),
 
-                      const SizedBox(height: 10),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 15.0),
+                        child: AppButton(
+                          StringConsts.submit,
+                          backgroundColor: AppColor.buttonOrange,
+                          margin: const EdgeInsets.symmetric(vertical: 8),
+                          onPressed: () {
+                            Get.offNamed(Routes.homeScreen);
+                          },
+                        ),
+                      ),
                     ],
                   ),
                 ),

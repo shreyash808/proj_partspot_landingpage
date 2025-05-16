@@ -39,7 +39,16 @@ class _SlideToUnlockButtonState extends State<SlideToUnlockButton>
       child: Stack(
         alignment: Alignment.centerLeft,
         children: [
-          // Center Text
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 0),
+            width: _position + 65,
+            height: 70,
+            decoration: BoxDecoration(
+              color: Colors.deepOrangeAccent.withOpacity(0.3),
+              borderRadius: BorderRadius.circular(40),
+            ),
+          ),
+
           Center(
             child: AnimatedOpacity(
               opacity: (_isDragging || _isCompleted) ? 0.0 : 1.0,
@@ -52,7 +61,7 @@ class _SlideToUnlockButtonState extends State<SlideToUnlockButton>
               ),
             ),
           ),
-          // Thumb
+
           AnimatedPositioned(
             duration: const Duration(milliseconds: 0),
             left: _position,

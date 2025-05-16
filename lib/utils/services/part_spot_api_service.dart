@@ -8,7 +8,6 @@ import 'package:partyspot/utils/classes/language_controller.dart';
 import 'package:partyspot/utils/constants/app_enums.dart';
 import 'package:partyspot/utils/constants/key_constants.dart';
 import 'package:partyspot/utils/constants/service_const.dart';
-import 'package:partyspot/utils/constants/string_consts.dart';
 
 class PartySportApiService {
   final apiClient = locator<DioInjector>();

@@ -19,7 +19,7 @@ class AppImages {
   /// onBorading
 
   static const onBoardingImg1 = 'assets/images/png/onBoarding1.png';
-  static const onBoardingImg2 = 'assets/images/png/onBoarding2.png';
+  static const onBoardingImg2 = 'assets/images/png/onboarding2.png';
   static const onBoardingImg3 = 'assets/images/png/onBoarding3.png';
 
   /// login otp

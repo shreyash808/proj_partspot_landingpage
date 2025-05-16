@@ -1,5 +1,3 @@
-import 'package:partyspot/module/onboarding/data/onboarding_model.dart';
-
 class StringConsts {
   static const welcomeToPartSpot = "Welcome to \nPartySpot!";
   static const featured = "Featured";
