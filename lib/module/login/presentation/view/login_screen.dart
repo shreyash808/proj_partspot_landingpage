@@ -1,20 +1,16 @@
-import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:partyspot/routes/routes_const.dart';
-import 'package:partyspot/utils/buttons/custom_button.dart';
-import 'package:partyspot/utils/classes/app_text_styles.dart';
+
+import 'package:partyspot/module/login/presentation/view/widgets/login_header.dart';
+import 'package:partyspot/module/login/presentation/view/widgets/phone_input_textfield.dart';
+import 'package:partyspot/module/login/presentation/view/widgets/social_login_section.dart';
+
 import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/image_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
-import 'package:partyspot/utils/text_fields/custom_text_field.dart';
-import 'package:partyspot/utils/widgets/buttons.dart';
-import 'package:partyspot/utils/widgets/custom_image_asset.dart';
 
 class LoginScreen extends StatelessWidget {
   final TextEditingController numberController = TextEditingController();
-  final ValueNotifier<String> counter = ValueNotifier<String>("🇮🇳");
+  final ValueNotifier<String> selectedCountry = ValueNotifier<String>("🇮🇳");
 
   LoginScreen({super.key});
 
@@ -27,7 +23,7 @@ class LoginScreen extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [Color(0xFF70057A), Color(0xFFFF4B20)],
+                colors: [AppColor.patriarchColor, AppColor.orangeColor],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
@@ -55,140 +51,17 @@ class LoginScreen extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      CustomImageAsset(
-                        image: AppImages.loginImage,
-                        height: 200,
-                      ),
-                      // Image.asset(
-                      //  AppImages.loginImage,
-                      //   height: 200,
-                      // ),
-                      const SizedBox(height: 10),
-                      Text(
-                        StringConsts.Login,
-                        style: AppTextStyles.get24SemiBoldTextStyle(
-                          color: Colors.black,
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      Row(
-                        children: [
-                          ValueListenableBuilder<String>(
-                            valueListenable: counter,
-                            builder: (context, value, child) {
-                              return InkWell(
-                                onTap: () {
-                                  showCountryPicker(
-                                    context: context,
-                                    showPhoneCode: true,
-                                    onSelect: (Country country) {
-                                      counter.value = country.flagEmoji;
-                                    },
-                                  );
-                                },
-                                child: Container(
-                                  height: 60,
-                                  width: 60,
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFFEDEDED),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      value,
-                                      style: const TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 20,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              );
-                            },
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: CustomTextField(
-                              controller: numberController,
-                              keyboardType: TextInputType.number,
-                              hintText: StringConsts.enterPhNum,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 15),
-
-                      AppButton(
-                        StringConsts.next,
-                        backgroundColor: AppColor.buttonOrange,
-                        margin: const EdgeInsets.symmetric(vertical: 8),
-                        onPressed: () {
-                          Get.offNamed(Routes.otpScreen);
-                        },
+                      LoginOtpImageHeader(
+                        imagePath: AppImages.loginImage,
+                        text: StringConsts.Login,
                       ),
 
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 20.0),
-                        child: Divider(color: Color(0xFFD9D9D9)),
+                      PhoneInputField(
+                        controller: numberController,
+                        countryFlagNotifier: selectedCountry,
                       ),
-                      Container(
-                        height: 65,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Color(0xFFD9D9D9),
-                            width: 3,
-                          ),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Icon(Icons.apple, size: 30),
-                            ),
-                            Expanded(
-                              child: Center(
-                                child: Text(
-                                  StringConsts.conWithApple,
-                                  style: AppTextStyles.get14MediumTextStyle(
-                                    color: Color(0xff727272),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 10),
 
-                      Container(
-                        height: 65,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Color(0xFFD9D9D9),
-                            width: 3,
-                          ),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Icon(Icons.apple, size: 30),
-                            ),
-                            Expanded(
-                              child: Center(
-                                child: Text(
-                                  StringConsts.conWithGoogle,
-                                  style: AppTextStyles.get14MediumTextStyle(
-                                    color: Color(0xff727272),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                      SocialLoginSection(),
                     ],
                   ),
                 ),

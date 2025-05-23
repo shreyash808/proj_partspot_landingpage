@@ -10,8 +10,7 @@ class SplashScreen extends StatelessWidget {
 
   void _startNavigation(BuildContext context) {
     Future.delayed(const Duration(seconds: 3), () {
-      // Get.offNamed(Routes.onBoardingScreen);
-      Get.offNamed(Routes.exploreScreen);
+      Get.offNamed(Routes.onBoardingScreen);
     });
   }
 
@@ -48,7 +47,7 @@ class SplashScreen extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Image.asset(AppImages.logo, width: 150),
-                    const SizedBox(height: 16),
+
                     Text(
                       StringConsts.splashTxt,
                       textAlign: TextAlign.center,

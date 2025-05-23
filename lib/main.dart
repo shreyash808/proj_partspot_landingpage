@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:partyspot/module/splash/presentation/view/splash_screen.dart';
 import 'package:partyspot/routes/app_routes.dart';
 import 'package:partyspot/routes/routes_const.dart';
+
 import 'package:partyspot/utils/theme/light_theme.dart';
 
 void main() {
@@ -18,6 +20,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: Routes.appEntryScreen,
+
       getPages: AppRoutes.getRoutes(),
       title: 'Party Spot',
       theme: lightTheme.themeData(context),

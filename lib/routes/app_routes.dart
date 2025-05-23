@@ -13,6 +13,8 @@ import 'package:partyspot/module/login_otp/binding/otp_binding.dart';
 import 'package:partyspot/module/login_otp/view/otp_screen.dart';
 import 'package:partyspot/module/onboarding/presentation/binding/onboarding_binding.dart';
 import 'package:partyspot/module/onboarding/presentation/view/onboarding_screen.dart';
+import 'package:partyspot/module/party_spot_vip/binding/vip_binding.dart';
+import 'package:partyspot/module/party_spot_vip/view/vip_screen.dart';
 import 'package:partyspot/module/splash/presentation/binding/splash_binding.dart';
 import 'package:partyspot/module/splash/presentation/view/splash_screen.dart';
 import 'package:partyspot/routes/routes_const.dart';
@@ -77,6 +79,13 @@ class AppRoutes {
         transition: Transition.circularReveal,
         page: () => EventInfoScreen(),
         binding: ExploreBinding(),
+      ),
+
+      GetPage(
+        name: Routes.VipScreen,
+        transition: Transition.circularReveal,
+        page: () => VipScreen(),
+        binding: VipBinding(),
       ),
     ];
   }

@@ -10,4 +10,8 @@ class AppIcons {
   static const exploreBell = 'assets/icons/png/explore_bell.png';
   static const searchIcon = 'assets/icons/png/search_icon.png';
   static const filterIcon = 'assets/icons/png/filter_icon.png';
+
+  static const greenCheckIcon = 'assets/icons/svg/green_check_icon.svg';
+
+  static const yellowCheckIcon = 'assets/icons/svg/yellow_check_icon.svg';
 }

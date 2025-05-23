@@ -6,6 +6,7 @@ class Routes {
   static const appEntryScreen = '/appEntryScreen';
 
   static const signUpScreen = '/signUpScreen';
+  static const VipScreen = '/VipScreen';
 
   static const enterPhoneScreen = '/enterPhoneScreen';
   static const verifyPhoneScreen = '/verifyPhoneScreen';

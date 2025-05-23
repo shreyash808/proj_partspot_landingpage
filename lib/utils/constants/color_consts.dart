@@ -8,11 +8,15 @@ class AppColor {
   static const buttonOrange = Color(0xFFFF4B20);
   static const disableButtonOrange = Color(0xFFFF7A5A);
   static const textPurple = Color(0xFF9704C0);
+  static const deepPurple = Color(0xFF33006D);
+  static const deepOrange = Color(0xFFCD2C06);
   static const silverColor = Color(0xFFCECECE);
   static const lightGreyTextColor = Color(0xFFC4C4C4);
   static const yellowVibrantColor = Color(0xFFF3CE00);
   static const violet = Color(0xFF8C63FF);
   static const borderGreyColor = Color(0xFFD2D2D2);
+  static const planBlue = Color(0xFF8C63FF);
+  static const vipYellow = Color(0xFFF3CE00);
 
   static const blackColor = Color(0xFF000000);
   static const whiteColor = Color(0xFFFFFFFF);

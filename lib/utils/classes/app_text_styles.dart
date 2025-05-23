@@ -18,6 +18,7 @@ class AppTextStyles {
   static const double _px32 = 32.0;
   static const double _px36 = 36.0;
   static const double _px28 = 28.0;
+  static const double _px40 = 40.0;
 
   /// Light -> 300W
   /// Regular -> 400W
@@ -25,7 +26,7 @@ class AppTextStyles {
   /// Semi-Bold -> 600W
   /// Bold -> 700W
 
-  static const String _light = 'Bold';
+  static const String _light = 'Light';
   static const String _bold = 'Bold';
 
   static const String _extraBold = 'ExtraBold';
@@ -531,6 +532,42 @@ class AppTextStyles {
       color: color,
       fontSize: _px20,
       fontFamily: _semiBold,
+      decoration: _getDecoration(decoration),
+    );
+  }
+
+  static TextStyle get20ExtraBoldTextStyle({
+    Color? color,
+    TextDecoration? decoration,
+  }) {
+    return TextStyle(
+      color: color,
+      fontSize: _px20,
+      fontFamily: _extraBold,
+      decoration: _getDecoration(decoration),
+    );
+  }
+
+  static TextStyle get22ExtraBoldTextStyle({
+    Color? color,
+    TextDecoration? decoration,
+  }) {
+    return TextStyle(
+      color: color,
+      fontSize: _px22,
+      fontFamily: _extraBold,
+      decoration: _getDecoration(decoration),
+    );
+  }
+
+  static TextStyle get40ExtraBoldTextStyle({
+    Color? color,
+    TextDecoration? decoration,
+  }) {
+    return TextStyle(
+      color: color,
+      fontSize: _px40,
+      fontFamily: _extraBold,
       decoration: _getDecoration(decoration),
     );
   }
