@@ -25,16 +25,23 @@ class FeatureGrid extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _featureItem(imagePath: AppImages.curatedPartyFeatureImage,title: 'Curated Parties'),
-                  _featureItem(imagePath: AppImages.curatedPartyFeatureImage,title: 'Curated Parties'),
+                  _featureItem(imagePath: AppImages.curatedPartyFeatureImage,title: StringConsts.curatedParties,onTap: (){
+                    Get.toNamed(Routes.curatedEventsListScreen);
+
+                  }),
+                  _featureItem(imagePath: AppImages.selfHostedFeatureImage,title: StringConsts.selfHosted,onTap: (){
+                    Get.toNamed(Routes.selfHostedOverviewScreen);
+                  }),
                 ],
               ),
               const SizedBox(height: 16,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _featureItem(imagePath: AppImages.curatedPartyFeatureImage,title: 'Curated Parties'),
-                  _featureItem(imagePath: AppImages.curatedPartyFeatureImage,title: 'Curated Parties'),
+                  _featureItem(imagePath: AppImages.planAWeddingFeatureImage,title: StringConsts.planAWedding,onTap: (){
+                    Get.toNamed(Routes.planAWeddingOverviewScreen);
+                  }),
+                  _featureItem(imagePath: AppImages.multipleHostFeatureImage,title: StringConsts.multipleHost),
                 ],
               ),
             ],
@@ -44,11 +51,9 @@ class FeatureGrid extends StatelessWidget {
     );
   }
   
-  _featureItem({String? imagePath, String? title}){
+  _featureItem({String? imagePath, String? title,Function()? onTap}){
     return GestureDetector(
-      onTap: (){
-        Get.toNamed(Routes.eventsListScreen);
-      },
+      onTap: onTap,
       child: ClipRRect(
           borderRadius: BorderRadius.circular(16),
           child: Stack(

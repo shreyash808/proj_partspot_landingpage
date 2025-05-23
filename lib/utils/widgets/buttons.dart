@@ -9,7 +9,6 @@ class AppButton extends StatelessWidget {
   final Color? textColor;
   final Color? backgroundColor;
   final void Function()? onPressed;
-  final bool isCurve;
   final bool takeFullWidth;
   final bool isEnabled;
   final EdgeInsets? padding;
@@ -30,7 +29,6 @@ class AppButton extends StatelessWidget {
     this.width,
     this.side,
     this.isEnabled = true,
-    this.isCurve = false,
     this.color,
     this.textColor,
     this.backgroundColor,
@@ -67,15 +65,10 @@ class AppButton extends StatelessWidget {
                 ? BoxDecoration(
                   color: backgroundColor ?? AppColor.buttonOrange,
                   borderRadius:
-                      isCurve
-                          ? BorderRadius.all(Radius.circular(40.0))
-                          : BorderRadius.all(Radius.circular(8.0)),
+                      BorderRadius.all(Radius.circular(50.0)),
                 )
                 : BoxDecoration(
-                  borderRadius:
-                      isCurve
-                          ? BorderRadius.all(Radius.circular(40.0))
-                          : BorderRadius.all(Radius.circular(8.0)),
+                  borderRadius: BorderRadius.all(Radius.circular(50.0)),
                   color: AppColor.lightOrangeColor,
                 ),
         child: TextButton(
@@ -83,11 +76,7 @@ class AppButton extends StatelessWidget {
           style: TextButton.styleFrom(
             shape: RoundedRectangleBorder(
               side: side ?? const BorderSide(color: Colors.transparent),
-              borderRadius:
-                  isCurve
-                      ? BorderRadius.circular(100)
-                      : BorderRadius.circular(8),
-            ),
+              borderRadius: BorderRadius.circular(100)),
             padding:
                 padding ??
                 const EdgeInsets.symmetric(vertical: 16, horizontal: 26),

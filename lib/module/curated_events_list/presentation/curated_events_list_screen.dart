@@ -8,8 +8,8 @@ import 'package:partyspot/utils/constants/icon_constants.dart';
 import 'package:partyspot/utils/widgets/custom_image_asset.dart';
 import 'package:partyspot/utils/widgets/custom_svg_picture.dart';
 
-class EventsListScreen extends StatelessWidget {
-  const EventsListScreen({super.key});
+class CuratedEventsListScreen extends StatelessWidget {
+  const CuratedEventsListScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +67,7 @@ class EventsListScreen extends StatelessWidget {
                   itemBuilder: (context,index){
                     return EventItem(
                       onTap: (){
-                        Get.toNamed(Routes.eventInfoScreen);
+                        Get.toNamed(Routes.curatedEventInfoScreen);
                       },
                     );
                   },

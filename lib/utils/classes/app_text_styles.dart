@@ -671,11 +671,13 @@ class AppTextStyles {
   static TextStyle get24MediumTextStyle({
     Color? color,
     TextDecoration? decoration,
+    double? letterSpacing,
   }) {
     return TextStyle(
       color: color,
       fontSize: _px24,
       fontFamily: _medium,
+      letterSpacing: letterSpacing,
       decoration: _getDecoration(decoration),
     );
   }

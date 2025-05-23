@@ -14,4 +14,6 @@ class AppIcons {
   static const greenCheckIcon = 'assets/icons/svg/green_check_icon.svg';
 
   static const yellowCheckIcon = 'assets/icons/svg/yellow_check_icon.svg';
+  static const discountIcon = 'assets/icons/svg/discount_ic.svg';
+  static const earlyAccessIcon = 'assets/icons/svg/early_access_ic.svg';
 }

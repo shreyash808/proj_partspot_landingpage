@@ -150,7 +150,7 @@ class EventInfoScreen extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(height: 6),
-                          AppButton(StringConsts.bookNow, onPressed: (){},isCurve: true,backgroundColor: AppColor.violet),
+                          AppButton(StringConsts.bookNow, onPressed: (){},backgroundColor: AppColor.violet),
                         ],
                       ),
                     )

@@ -14,8 +14,10 @@ class Routes {
   static const createProfilePictureScreen = '/createProfilePictureScreen';
   static const homeScreen = '/homeScreen';
   static const exploreScreen = '/exploreScreen';
-  static const eventsListScreen = '/eventsListScreen';
-  static const eventInfoScreen = '/eventInfoScreen';
+  static const curatedEventsListScreen = '/curatedEventsListScreen';
+  static const curatedEventInfoScreen = '/curatedEventInfoScreen';
+  static const selfHostedOverviewScreen = '/selfHostedOverviewScreen';
+  static const planAWeddingOverviewScreen = '/planAWeddingOverviewScreen';
 
 }
 
