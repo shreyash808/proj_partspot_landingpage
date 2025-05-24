@@ -171,23 +171,26 @@ class AppOutlinedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String title = text;
-    Widget? icon = suffixIcon;
+    final bool hasIcon = suffixIcon != null;
 
     final _text = Text(
-      title,
+      text,
       textAlign: TextAlign.center,
       style:
           textStyle ??
-          AppTextStyles.get18SemiBoldTextStyle(
+          AppTextStyles.get14MediumTextStyle(
             color:
                 isEnabled && onPressed != null
-                    ? AppColor.primaryColor
+                    ? (textColor ?? AppColor.primaryColor)
                     : AppColor.greyColor,
           ),
+      overflow: TextOverflow.ellipsis,
+      maxLines: 1,
+      softWrap: false,
     );
 
-    return SizedBox(
+    return Container(
+      margin: margin,
       width: width ?? (takeFullWidth ? double.infinity : null),
       height: height,
       child: TextButton(
@@ -195,31 +198,33 @@ class AppOutlinedButton extends StatelessWidget {
         style: TextButton.styleFrom(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100),
-            side: BorderSide(
-              color:
-                  isEnabled && onPressed != null
-                      ? (borderColor ?? AppColor.primaryColor)
-                      : AppColor.disabledBorderColor,
-              width: borderWidth,
-            ),
+            side:
+                side ??
+                BorderSide(
+                  color:
+                      isEnabled && onPressed != null
+                          ? (borderColor ?? AppColor.primaryColor)
+                          : AppColor.disabledBorderColor,
+                  width: borderWidth,
+                ),
           ),
           backgroundColor: color ?? AppColor.whiteColor,
           padding:
               padding ??
-              const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+              const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
         ),
         child:
-            icon != null
+            hasIcon
                 ? FittedBox(
                   fit: BoxFit.none,
                   child: Row(
                     mainAxisSize:
                         takeFullWidth ? MainAxisSize.max : MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [icon, const SizedBox(width: 8), _text],
+                    children: [suffixIcon!, const SizedBox(width: 8), _text],
                   ),
                 )
-                : _text,
+                : Center(child: _text),
       ),
     );
   }

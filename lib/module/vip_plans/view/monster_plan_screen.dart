@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:partyspot/module/vip_plans/view/widget/faq_card.dart';
 import 'package:partyspot/module/vip_plans/view/widget/planDetailCard.dart';
 import 'package:partyspot/module/vip_plans/view/widget/vip_header.dart';
 import 'package:partyspot/module/vip_plans/view/widget/vip_info_card.dart';
+import 'package:partyspot/utils/alert_dialogs/image_popup.dart';
+import 'package:partyspot/utils/alert_dialogs/subscription_dialog.dart';
+import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
+import 'package:partyspot/utils/constants/image_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
+import 'package:partyspot/utils/widgets/buttons.dart';
 
 class monsterPlanScreen extends StatelessWidget {
   const monsterPlanScreen({super.key});
@@ -55,7 +61,38 @@ class monsterPlanScreen extends StatelessWidget {
                       buttonText: StringConsts.getYearlyPass,
                       buttonTextColor: AppColor.bluePurple,
                       onPressed: () {
-                        // handle tap
+                        Get.dialog(
+                          SubscriptionDialog(
+                            description:
+                                "You’re about to subscribe to the Yearly Pass (MONSTER) for ₹999.",
+                            imagePath: AppImages.monsterImage,
+                            membershipTitle: StringConsts.monsterMembership,
+                            plan: StringConsts.yearlyPass,
+                            price: "₹999 /${StringConsts.month}",
+
+                            themeColor: AppColor.planBlue,
+                            onConfirm: () {
+                              Get.back();
+                              Get.dialog(
+                                ImageDialog(
+                                  title: StringConsts.vipWelcome,
+                                  imagePath: AppImages.bluePopup,
+                                  buttonText: StringConsts.done,
+                                  onConfirm: () {
+                                    Get.back();
+                                  },
+
+                                  themeColor: AppColor.planBlue,
+                                ),
+                              );
+
+                              // Get.back();
+                            },
+                            onCancel: () {
+                              Get.back();
+                            },
+                          ),
+                        );
                       },
                     ),
 

@@ -107,6 +107,7 @@ class FilterDialogWidget extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 18.0),
                 child: AppButton(
                   StringConsts.apply,
+
                   isCurve: true,
                   onPressed: () {
                     Navigator.pop(context);

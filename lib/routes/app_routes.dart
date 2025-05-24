@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:partyspot/module/app_entry/binding/app_entry_binding.dart';
 import 'package:partyspot/module/app_entry/presentation/app_entry_screen.dart';
+import 'package:partyspot/module/representative/binding/representative_binding.dart';
+import 'package:partyspot/module/representative/view/representative_screen.dart';
 import 'package:partyspot/module/vip_plans/binding/beast_binding.dart';
 import 'package:partyspot/module/vip_plans/view/beast_plan.dart';
 import 'package:partyspot/module/explore/binding/explore_binding.dart';
@@ -98,6 +100,13 @@ class AppRoutes {
         transition: Transition.circularReveal,
         page: () => monsterPlanScreen(),
         binding: BeastMonsterBinding(),
+      ),
+
+      GetPage(
+        name: Routes.representativeScreen,
+        transition: Transition.circularReveal,
+        page: () => RepresentativeScreen(),
+        binding: RepresentativeBinding(),
       ),
     ];
   }

@@ -146,4 +146,21 @@ class StringConsts {
   static const getYearlyPass = "Get Yearly Pass";
 
   static const faq = "Frequently Asked Questions";
+
+  static const confirmSubs = "Confirm Subscription?";
+  static const beastMembership = "BEAST MEMBERSHIP";
+  static const monsterMembership = "MONSTER MEMBERSHIP";
+
+  static const confirm = "Confirm";
+  static const cancel = "Cancel";
+
+  static const plan = "Plan";
+  static const price = "Price";
+
+  static const monthlyPass = "Monthly Pass";
+  static const yearlyPass = "Yearly Pass";
+
+  static const done = "Done";
+  static const vipWelcome =
+      "Welcome to the PartySpot VIP Family!  We’re thrilled to have you on board.";
 }
