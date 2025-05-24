@@ -17,6 +17,7 @@ class Routes {
   static const createProfilePictureScreen = '/createProfilePictureScreen';
   static const homeScreen = '/homeScreen';
   static const exploreScreen = '/exploreScreen';
+  static const representativeScreen = '/RepresentativeScreen';
 
   static const bottomNavigationView = '/bottomNavigationView';
   static const settingsScreen = '/settingsScreen';

@@ -163,4 +163,8 @@ class StringConsts {
   static const done = "Done";
   static const vipWelcome =
       "Welcome to the PartySpot VIP Family!  We’re thrilled to have you on board.";
+
+  static const getOnCall = "Get on a call";
+  static const about = "About";
+  static const connectOnWhatsapp = "Connect on WhatsApp";
 }
