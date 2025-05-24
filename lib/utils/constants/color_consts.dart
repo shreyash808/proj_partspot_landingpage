@@ -12,6 +12,8 @@ class AppColor {
   static const silverColor = Color(0xFFCECECE);
   static const planBlue = Color(0xFF8C63FF);
   static const vipYellow = Color(0xFFF3CE00);
+  static const planDescBox = Color(0xffFF956B);
+  static const bluePurple = Color(0xff591EFF);
 
   static const blackColor = Color(0xFF000000);
   static const whiteColor = Color(0xFFFFFFFF);

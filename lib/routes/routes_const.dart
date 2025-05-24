@@ -8,6 +8,9 @@ class Routes {
   static const signUpScreen = '/signUpScreen';
   static const VipScreen = '/VipScreen';
 
+  static const beastPlanScreen = '/BeastPlanScreen';
+  static const monsterPlanScreen = '/MonsterPlanScreen';
+
   static const enterPhoneScreen = '/enterPhoneScreen';
   static const verifyPhoneScreen = '/verifyPhoneScreen';
   static const enterNameScreen = '/enterNameScreen';
@@ -16,6 +19,7 @@ class Routes {
   static const exploreScreen = '/exploreScreen';
 
   static const bottomNavigationView = '/bottomNavigationView';
+  static const settingsScreen = '/settingsScreen';
 
   static const aboutYourselfScreen = '/aboutYourselfScreen';
   static const congratsScreen = '/congratsScreen';
@@ -25,7 +29,7 @@ class Routes {
   static const reportScreen = '/reportScreen';
   static const repostScreen = '/repostScreen';
   static const cropImageScreen = '/cropImageScreen';
-  static const settingsScreen = '/settingsScreen';
+
   static const profileStatusScreen = '/profileStatusScreen';
   static const updateLanguageScreen = '/updateLanguageScreen';
   static const notificationSettingsScreen = '/notificationSettingsScreen';

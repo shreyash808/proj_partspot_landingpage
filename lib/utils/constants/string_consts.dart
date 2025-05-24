@@ -105,4 +105,45 @@ class StringConsts {
   static const yearlyOffer1 = "Unlimited Parties";
   static const yearlyOffer2 = "Premium Lounge Access";
   static const yearlyOffer3 = "₹ 100 reward on referrals";
+
+  /// beast plan screen
+
+  static const joinBeast = "PartySpot VIP BEAST";
+  static const vipBeastSubscribe =
+      "Unlock exclusive benefits with our monthly subscription plan.";
+
+  static const beastCaps = "BEAST";
+  static const beastDesc =
+      "Perfect for college students and occasional party people.";
+  static const month = "month";
+
+  static const beast1 = "10% off on all events bookings";
+  static const beast2 = "Early access to bookings";
+  static const beast3 = "₹100 off on every hosted party";
+  static const beast4 = "Priority customer support";
+
+  static const whyVip = "Why PartySpot VIP?";
+  static const whyVipDesc =
+      "PartySpot VIP provides you with exclusive benefits and savings. It’s more than just a subscription - it’s your ticket to premium experiences, priority services, and a community of party enthusiasts.";
+
+  static const getMonthyPass = "Get Monthly Pass";
+
+  static const joinMonster = "PartySpot VIP MONSTER";
+  static const vipMonsterSubscribe =
+      "Unlock exclusive benefits with our yearly subscription plan..";
+
+  static const monsterCaps = "MONSTER";
+  static const monsterDesc =
+      "Perfect for college students and occasional party people.";
+  static const year = "year";
+
+  static const monster1 = "Early access to curated parties";
+  static const monster2 = "25% off on all events bookings";
+  static const monster3 = "2 free DJ voucher every month";
+  static const monster4 = "₹100 off on every hosted party";
+  static const monster5 = "Free pass to 1 premium event";
+
+  static const getYearlyPass = "Get Yearly Pass";
+
+  static const faq = "Frequently Asked Questions";
 }
