@@ -44,7 +44,7 @@ export default function Home() {
       position: 'relative'
     }}>
       <Head>
-        <title>Party Spot – Coming Soon!</title>
+        <title>PartyWalah – Coming Soon!</title>
       </Head>
 
       {showConfetti && (
@@ -107,14 +107,31 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 1 }}
         style={{
-          fontSize: isMobile ? '2rem' : isTablet ? '2.5rem' : '3rem',
+          fontSize: isMobile ? '2.5rem' : isTablet ? '3rem' : '3.8rem',
           marginTop: '1rem',
           transition: 'color 0.3s',
+          fontWeight: '900',
+          color: '#FFFFFF', // default text color for dark theme
+          textAlign: 'center',
+          textShadow: '0 0 10px #ff4d00, 0 0 20px #ff4d00', // subtle glow
         }}
-        whileHover={{ color: '#ff9e00' }}
+        whileHover={{
+          color: '#FFEA00', // bright neon yellow on hover
+          textShadow: '0 0 20px #FFEA00, 0 0 40px #FFEA00', // glow effect
+          scale: 1.1, // optional pop effect
+        }}
       >
-        🎉 Party Spot 🎉
+        🎉 <span style={{
+          background: 'linear-gradient(90deg, #ff4d00, #ff9e00, #ffea00)', 
+          WebkitBackgroundClip: 'text', 
+          WebkitTextFillColor: 'transparent',
+          fontWeight: '900',
+          textTransform: 'uppercase',
+          letterSpacing: '3px',
+          textShadow: 'none',
+        }}>PartyWalah</span> by Partyspot 🎉
       </motion.h1>
+
 
       <motion.p
         initial={{ opacity: 0, y: 20 }}
