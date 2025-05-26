@@ -205,7 +205,7 @@ class _AppTextFieldState extends State<AppTextField> {
                 Obx((){
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: Text('${wordLength.value}/${widget.maxLength}',style: AppTextStyles.get14RegularTextStyle(color: AppColor.lightTextColor)),
+                    child: Text('${wordLength.value}/${widget.maxLength}',style: AppTextStyles.get14RegularTextStyle(color: AppColor.lightGreyTextColor)),
                   );
                 })
               ],

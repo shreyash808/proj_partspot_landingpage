@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:partyspot/module/app_entry/binding/app_entry_binding.dart';
 import 'package:partyspot/module/app_entry/presentation/app_entry_screen.dart';
+import 'package:partyspot/module/curated_events_list/presentation/curated_events_list_screen.dart';
+import 'package:partyspot/module/event_info/presentation/curated_event_info_screen.dart';
 import 'package:partyspot/module/representative/binding/representative_binding.dart';
 import 'package:partyspot/module/representative/view/representative_screen.dart';
 import 'package:partyspot/module/vip_plans/binding/beast_binding.dart';
@@ -17,6 +19,8 @@ import 'package:partyspot/module/onboarding/presentation/binding/onboarding_bind
 import 'package:partyspot/module/onboarding/presentation/view/onboarding_screen.dart';
 import 'package:partyspot/module/party_spot_vip/binding/vip_binding.dart';
 import 'package:partyspot/module/party_spot_vip/view/vip_screen.dart';
+import 'package:partyspot/module/plan_a_wedding/presentation/plan_a_wedding_overview_screen.dart';
+import 'package:partyspot/module/self_hosted_party/presentation/self_hosted_overview_screen.dart';
 import 'package:partyspot/module/settings/binding/settings_binding.dart';
 import 'package:partyspot/module/settings/view/settings_screen.dart';
 import 'package:partyspot/module/splash/presentation/binding/splash_binding.dart';
@@ -73,7 +77,29 @@ class AppRoutes {
         page: () => ExploreScreen(),
         binding: ExploreBinding(),
       ),
+      GetPage(
+        name: Routes.curatedEventsListScreen,
+        transition: Transition.circularReveal,
+        page: () => CuratedEventsListScreen(),
+        binding: ExploreBinding(),
+      ),
+      GetPage(
+        name: Routes.curatedEventInfoScreen,
+        transition: Transition.circularReveal,
+        page: () => EventInfoScreen(),
+        binding: ExploreBinding(),
+      ),
 
+      GetPage(
+        name: Routes.selfHostedOverviewScreen,
+        transition: Transition.circularReveal,
+        page: () => SelfHostedOverviewScreen(),
+      ),
+      GetPage(
+        name: Routes.planAWeddingOverviewScreen,
+        transition: Transition.circularReveal,
+        page: () => PlanAWeddingOverviewScreen(),
+      ),
       GetPage(
         name: Routes.VipScreen,
         transition: Transition.circularReveal,

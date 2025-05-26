@@ -7,7 +7,7 @@ class CustomImageAsset extends StatelessWidget {
   final double? width;
   final BorderRadiusGeometry? borderRadius;
   final BoxFit? fit;
-  const     CustomImageAsset({super.key, this.image, this.height, this.width,this.borderRadius,this.fit});
+  const CustomImageAsset({super.key, this.image, this.height, this.width,this.borderRadius,this.fit});
 
   @override
   Widget build(BuildContext context) {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
-import 'package:partyspot/utils/constants/image_consts.dart';
+import 'package:partyspot/utils/constants/icon_constants.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
 import 'package:partyspot/utils/widgets/buttons.dart';
-import 'package:partyspot/utils/widgets/custom_image_asset.dart';
+import 'package:partyspot/utils/widgets/custom_svg_picture.dart';
 
 class PartySportVipHome extends StatelessWidget {
   const PartySportVipHome({super.key});
@@ -64,12 +64,12 @@ class PartySportVipHome extends StatelessWidget {
                   _buildInfoItem(
                     title: "Save up to 20%",
                     subTitle: "On all event bookings & services",
-                    iconPath: AppImages.percentageImage,
+                    iconPath: AppIcons.discountIcon,
                   ),
                   _buildInfoItem(
                     title: "Early Access",
                     subTitle: "Book premium events 24 hours before others.",
-                    iconPath: AppImages.waitingImage,
+                    iconPath: AppIcons.earlyAccessIcon,
                   ),
                 ],
               ),
@@ -92,7 +92,7 @@ class PartySportVipHome extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(flex: 1, child: CustomImageAsset(image: iconPath)),
+          Expanded(flex: 1, child: CustomSvgPicture(iconPath: iconPath)),
           const SizedBox(width: 6),
           Expanded(
             flex: 9,

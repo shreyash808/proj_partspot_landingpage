@@ -55,7 +55,7 @@ void showSuccessfulAlertDialog(
               TextView(
                 subtitle,
                 textAlign: TextAlign.center,
-                style: AppTextStyles.get14RegularTextStyle(color: AppColor.lightTextColor),
+                style: AppTextStyles.get14RegularTextStyle(color: AppColor.lightGreyTextColor),
               ),
             AppSizes.heightBox(boxHeight: 30),
             AppButton(

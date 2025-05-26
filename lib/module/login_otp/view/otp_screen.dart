@@ -7,6 +7,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:partyspot/module/login/presentation/view/widgets/login_header.dart';
 import 'package:partyspot/module/login_otp/view/widgets/resend_otp_timer.dart';
 import 'package:partyspot/routes/routes_const.dart';
+import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/image_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';

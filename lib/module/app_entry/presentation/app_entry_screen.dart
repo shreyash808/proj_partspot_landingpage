@@ -8,18 +8,20 @@ import 'package:partyspot/module/representative/view/representative_screen.dart'
 import 'package:partyspot/module/settings/view/settings_screen.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/color_consts.dart' show AppColor;
+import 'package:partyspot/utils/constants/icon_constants.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
+import 'package:partyspot/utils/widgets/custom_svg_picture.dart';
 
 class AppEntryScreen extends StatelessWidget {
   AppEntryScreen({super.key});
 
   final AppEntryController controller = Get.find<AppEntryController>();
 
-  final List<IconData> _icons = [
-    Icons.home_outlined,
-    Icons.dashboard_outlined,
-    Icons.confirmation_num_outlined,
-    Icons.settings_outlined,
+  final List<String> _icons = [
+    AppIcons.homeIcon,
+    AppIcons.exploreIcon,
+    AppIcons.ticketIcon,
+    AppIcons.settingsIcon
   ];
 
   final List<String> _labels = [
@@ -97,18 +99,16 @@ class AppEntryScreen extends StatelessWidget {
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Icon(
-                              _icons[index],
-                              color:
-                                  isSelected
-                                      ? AppColor.orangeColor
-                                      : AppColor.blackColor,
-                              size: 28,
+                            CustomSvgPicture(
+                              iconPath: _icons[index],
+                              color: isSelected
+                                  ? AppColor.orangeColor
+                                  : AppColor.blackColor,
                             ),
                             if (isSelected)
                               Text(
                                 _labels[index],
-                                style: AppTextStyles.get10SemiBoldTextStyle(),
+                                style: AppTextStyles.get10BoldTextStyle(color: AppColor.orangeColor),
                               ),
                           ],
                         ),

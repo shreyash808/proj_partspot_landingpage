@@ -107,7 +107,6 @@ class RepresentativeScreen extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 10.0),
                         child: AppButton(
                           StringConsts.getOnCall,
-                          isCurve: true,
                           onPressed: () {},
                           height: 50,
                           padding: const EdgeInsets.symmetric(vertical: 12),
@@ -120,7 +119,6 @@ class RepresentativeScreen extends StatelessWidget {
 
                       AppButton(
                         StringConsts.connectOnWhatsapp,
-                        isCurve: true,
                         onPressed: () {},
                         height: 50,
                         padding: const EdgeInsets.symmetric(vertical: 12),

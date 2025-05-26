@@ -6,10 +6,19 @@ class AppImages {
   static const dummyCarousel = 'assets/images/png/dummy_carousel.png';
   static const curatedPartyFeatureImage =
       'assets/images/png/curated_party_feature_img.png';
+  static const selfHostedFeatureImage =
+      'assets/images/png/self_hosted_feature_image.png';
+  static const planAWeddingFeatureImage =
+      'assets/images/png/plan_a_wedding_feature_image.png';
+  static const multipleHostFeatureImage =
+      'assets/images/png/multiple_host_feature_image.png';
+  static const selfHostedOverviewImage =
+      'assets/images/png/self_hosted_overview_image.png';
+  static const planAWeddingOverviewImage =
+      'assets/images/png/plan_a_wedding_overview_image.png';
   static const popularEventImage1 =
       'assets/images/png/popular_event_image1.png';
-  static const percentageImage = 'assets/images/png/percentage_img.png';
-  static const waitingImage = 'assets/images/png/waiting_img.png';
+
 
   ///  splash
   static const splashImage = 'assets/images/png/splash.png';

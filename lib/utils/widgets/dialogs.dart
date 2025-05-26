@@ -87,7 +87,7 @@ Future<void> showPermissionDeniedDialog({String? title, Function? onYes}) async 
         ),
         content: Text(
           title ?? 'Please allow permission from settings to continue using this feature.',
-          style: AppTextStyles.get14MediumTextStyle(color: AppColor.lightTextColor),
+          style: AppTextStyles.get14MediumTextStyle(color: AppColor.lightGreyTextColor),
         ),
         actions: <CupertinoDialogAction>[
           CupertinoDialogAction(

@@ -1,3 +1,4 @@
+
 class StringConsts {
   static const welcomeToPartSpot = "Welcome to \nPartySpot!";
   static const featured = "Featured";
@@ -9,6 +10,16 @@ class StringConsts {
   static const events = "Events";
   static const partySportVip = "PartySpot VIP";
   static const settings = "Settings";
+  static const aboutEvent = "About Event";
+  static const bookNow = "Book Now";
+  static const noOfGuests = "No. of Guests";
+  static const curatedParties = "Curated Parties";
+  static const selfHosted = "Self-Hosted";
+  static const planAWedding = "Plan a wedding";
+  static const multipleHost = "Multiple Host";
+  static const selfHostedParties = "SELF HOSTED PARTIES";
+  static const selfHostedPartiesDesc = "Plan your own unforgettable party with ease, your way, your style!";
+  static const planAWeddingDesc = "Plan your dream wedding, stress-free and your style!";
 
   ///Error Texts
   static const passwordCannotBeEmpty = 'passwordCannotBeEmpty';
