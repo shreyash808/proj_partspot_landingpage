@@ -1,1 +1,1 @@
-# DF_PartySpot
+# partyspot landing page.

@@ -1,0 +1,24 @@
+{
+  "name": "proj_partspot_landingpage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^22.15.21",
+    "@types/react": "^19.1.5",
+    "framer-motion": "^12.12.2",
+    "next": "^15.3.2",
+    "react": "^19.1.0",
+    "react-confetti": "^6.4.0",
+    "react-dom": "^19.1.0",
+    "typescript": "^5.8.3"
+  }
+}
