@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "983633691528",
+    "project_id": "partyspot-85ffe",
+    "storage_bucket": "partyspot-85ffe.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:983633691528:android:4acbd5ef741d773682703d",
+        "android_client_info": {
+          "package_name": "com.app.partyspot.partyspot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWniKz9yI8P-mO50dlv-DpnQeshebFtJ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
