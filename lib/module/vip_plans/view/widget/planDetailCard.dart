@@ -3,7 +3,6 @@ import 'package:partyspot/module/party_spot_vip/view/widgets/vip_plan_cards.dart
 import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/widgets/buttons.dart';
 
-import 'package:partyspot/utils/widgets/custom_svg_picture.dart';
 
 class PlanDetailCard extends StatelessWidget {
   final Color containerColor;
@@ -73,7 +72,6 @@ class PlanDetailCard extends StatelessWidget {
                   .toList(),
               AppButton(
                 buttonText,
-                isCurve: true,
                 onPressed: onPressed,
                 height: 50,
                 padding: const EdgeInsets.symmetric(vertical: 12),

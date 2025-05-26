@@ -57,7 +57,6 @@ class ImageDialog extends StatelessWidget {
             const SizedBox(height: 18),
             AppButton(
               buttonText,
-              isCurve: true,
               onPressed: onConfirm,
               height: 50,
               padding: const EdgeInsets.symmetric(vertical: 12),

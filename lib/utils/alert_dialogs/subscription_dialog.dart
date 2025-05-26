@@ -104,7 +104,6 @@ class SubscriptionDialog extends StatelessWidget {
             const SizedBox(height: 18),
             AppButton(
               StringConsts.confirm,
-              isCurve: true,
               onPressed: onConfirm,
               height: 50,
               padding: const EdgeInsets.symmetric(vertical: 12),
