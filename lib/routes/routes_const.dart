@@ -8,6 +8,9 @@ class Routes {
   static const signUpScreen = '/signUpScreen';
   static const VipScreen = '/VipScreen';
 
+  static const beastPlanScreen = '/BeastPlanScreen';
+  static const monsterPlanScreen = '/MonsterPlanScreen';
+
   static const enterPhoneScreen = '/enterPhoneScreen';
   static const verifyPhoneScreen = '/verifyPhoneScreen';
   static const enterNameScreen = '/enterNameScreen';
@@ -18,6 +21,10 @@ class Routes {
   static const curatedEventInfoScreen = '/curatedEventInfoScreen';
   static const selfHostedOverviewScreen = '/selfHostedOverviewScreen';
   static const planAWeddingOverviewScreen = '/planAWeddingOverviewScreen';
+  static const representativeScreen = '/RepresentativeScreen';
+
+  static const bottomNavigationView = '/bottomNavigationView';
+  static const settingsScreen = '/settingsScreen';
 
 }
 

@@ -38,4 +38,14 @@ class AppImages {
 
   ///   explore
   static const appBarImg = 'assets/images/png/appbar_bg.png';
+
+  static const beastImage = 'assets/images/png/beast.png';
+  static const monsterImage = 'assets/images/png/monster.png';
+
+  static const orangePopup = 'assets/images/png/orange_popup.png';
+  static const bluePopup = 'assets/images/png/blue_popup.png';
+
+  static const deleteAccountImage =
+      'assets/images/png/delete_account_image.png';
+  static const logoutImage = 'assets/images/png/logout_image.png';
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:partyspot/module/splash/presentation/view/splash_screen.dart';
 import 'package:partyspot/routes/app_routes.dart';
 import 'package:partyspot/routes/routes_const.dart';
 

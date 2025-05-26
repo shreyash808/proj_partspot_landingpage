@@ -644,6 +644,18 @@ class AppTextStyles {
     );
   }
 
+  // static TextStyle get22ExtraBoldTextStyle({
+  //   Color? color,
+  //   TextDecoration? decoration,
+  // }) {
+  //   return TextStyle(
+  //     color: color,
+  //     fontSize: _px22,
+  //     fontFamily: _bold,
+  //     decoration: _getDecoration(decoration),
+  //   );
+  // }
+
   static TextStyle get24LightTextStyle({
     Color? color,
     TextDecoration? decoration,

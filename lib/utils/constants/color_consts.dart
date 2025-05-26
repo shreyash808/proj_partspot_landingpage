@@ -17,6 +17,8 @@ class AppColor {
   static const borderGreyColor = Color(0xFFD2D2D2);
   static const planBlue = Color(0xFF8C63FF);
   static const vipYellow = Color(0xFFF3CE00);
+  static const planDescBox = Color(0xffFF956B);
+  static const bluePurple = Color(0xff591EFF);
 
   static const blackColor = Color(0xFF000000);
   static const whiteColor = Color(0xFFFFFFFF);
@@ -44,6 +46,7 @@ class AppColor {
   static const bottomBarBlackColor = Color(0XFF131313);
   static const colorB64DA0 = Color(0XFFB64DA0);
   static const colorB1B1B1 = Color(0XFFB1B1B1);
+  static const colorE4E4E4 = Color(0XFFE4E4E4);
   static const colorBD8DCA = Color(0XFFBD8DCA);
   static const colorB8B8B8 = Color(0XFFB8B8B8);
   static const color909090 = Color(0xFF909090);

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:partyspot/module/party_spot_vip/view/widgets/vip_plan_cards.dart';
+import 'package:partyspot/routes/routes_const.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/icon_constants.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
@@ -24,6 +27,9 @@ class VipPlansRow extends StatelessWidget {
             backgroundColor: AppColor.buttonOrange,
             borderColor: AppColor.buttonOrange,
             planName: StringConsts.beast,
+            onTap: () {
+              Get.toNamed(Routes.beastPlanScreen);
+            },
           ),
           const SizedBox(width: 16),
           VipPlanCard(
@@ -38,6 +44,9 @@ class VipPlansRow extends StatelessWidget {
             backgroundColor: AppColor.planBlue,
             borderColor: AppColor.planBlue,
             planName: StringConsts.monster,
+            onTap: () {
+              Get.toNamed(Routes.monsterPlanScreen);
+            },
           ),
         ],
       ),

@@ -3,6 +3,10 @@ import 'package:partyspot/module/app_entry/binding/app_entry_binding.dart';
 import 'package:partyspot/module/app_entry/presentation/app_entry_screen.dart';
 import 'package:partyspot/module/curated_events_list/presentation/curated_events_list_screen.dart';
 import 'package:partyspot/module/event_info/presentation/curated_event_info_screen.dart';
+import 'package:partyspot/module/representative/binding/representative_binding.dart';
+import 'package:partyspot/module/representative/view/representative_screen.dart';
+import 'package:partyspot/module/vip_plans/binding/beast_binding.dart';
+import 'package:partyspot/module/vip_plans/view/beast_plan.dart';
 import 'package:partyspot/module/explore/binding/explore_binding.dart';
 import 'package:partyspot/module/explore/view/explore_screen.dart';
 import 'package:partyspot/module/home/presentation/binding/home_binding.dart';
@@ -17,8 +21,11 @@ import 'package:partyspot/module/party_spot_vip/binding/vip_binding.dart';
 import 'package:partyspot/module/party_spot_vip/view/vip_screen.dart';
 import 'package:partyspot/module/plan_a_wedding/presentation/plan_a_wedding_overview_screen.dart';
 import 'package:partyspot/module/self_hosted_party/presentation/self_hosted_overview_screen.dart';
+import 'package:partyspot/module/settings/binding/settings_binding.dart';
+import 'package:partyspot/module/settings/view/settings_screen.dart';
 import 'package:partyspot/module/splash/presentation/binding/splash_binding.dart';
 import 'package:partyspot/module/splash/presentation/view/splash_screen.dart';
+import 'package:partyspot/module/vip_plans/view/monster_plan_screen.dart';
 import 'package:partyspot/routes/routes_const.dart';
 
 class AppRoutes {
@@ -98,6 +105,34 @@ class AppRoutes {
         transition: Transition.circularReveal,
         page: () => VipScreen(),
         binding: VipBinding(),
+      ),
+
+      GetPage(
+        name: Routes.settingsScreen,
+        transition: Transition.circularReveal,
+        page: () => SettingsScreen(),
+        binding: SettingsBinding(),
+      ),
+
+      GetPage(
+        name: Routes.beastPlanScreen,
+        transition: Transition.circularReveal,
+        page: () => BeastPlanScreen(),
+        binding: BeastMonsterBinding(),
+      ),
+
+      GetPage(
+        name: Routes.monsterPlanScreen,
+        transition: Transition.circularReveal,
+        page: () => monsterPlanScreen(),
+        binding: BeastMonsterBinding(),
+      ),
+
+      GetPage(
+        name: Routes.representativeScreen,
+        transition: Transition.circularReveal,
+        page: () => RepresentativeScreen(),
+        binding: RepresentativeBinding(),
       ),
     ];
   }

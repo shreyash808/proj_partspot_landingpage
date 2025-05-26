@@ -50,7 +50,7 @@ class PlanBenefits extends StatelessWidget {
         children: [
           SvgPicture.asset(AppIcons.yellowCheckIcon, height: 24, width: 24),
           const SizedBox(width: 10),
-          Expanded(
+          Flexible(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

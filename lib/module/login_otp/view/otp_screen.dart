@@ -96,7 +96,7 @@ class OtpScreen extends StatelessWidget {
                           backgroundColor: AppColor.buttonOrange,
                           margin: const EdgeInsets.symmetric(vertical: 8),
                           onPressed: () {
-                            Get.offNamed(Routes.homeScreen);
+                            Get.offNamed(Routes.appEntryScreen);
                           },
                         ),
                       ),
