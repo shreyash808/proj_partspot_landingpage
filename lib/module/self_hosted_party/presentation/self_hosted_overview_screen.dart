@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:partyspot/module/self_hosted_party/presentation/widgets/party_overview.dart';
+import 'package:partyspot/routes/routes_const.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/image_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
@@ -17,6 +19,9 @@ class SelfHostedOverviewScreen extends StatelessWidget {
           title: StringConsts.selfHostedParties,
           desc: StringConsts.selfHostedPartiesDesc,
           image: AppImages.selfHostedOverviewImage,
+          onNext: (){
+            Get.toNamed(Routes.selfHostedPartySelectionScreen);
+          },
         ),
       ),
     );

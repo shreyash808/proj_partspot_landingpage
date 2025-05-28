@@ -61,15 +61,14 @@ class PlanDetailCard extends StatelessWidget {
                   ),
                   children: [
                     TextSpan(
-                      text: '/${duration}',
+                      text: '/$duration',
                       style: AppTextStyles.get14BoldTextStyle(),
                     ),
                   ],
                 ),
-              ),
+              ), 
               ...offers
-                  .map((offer) => buildOfferRow(offer, morepadding: true))
-                  .toList(),
+                  .map((offer) => buildOfferRow(offer, morepadding: true)),
               AppButton(
                 buttonText,
                 onPressed: onPressed,

@@ -8,8 +8,12 @@ class AppImages {
       'assets/images/png/curated_party_feature_img.png';
   static const selfHostedFeatureImage =
       'assets/images/png/self_hosted_feature_image.png';
+  static const selfHostedFeatureImage2 =
+      'assets/images/png/self_hosted_feature_image_2.png';
   static const planAWeddingFeatureImage =
       'assets/images/png/plan_a_wedding_feature_image.png';
+  static const weddingWayFeatureImage =
+      'assets/images/png/wedding_way_feature_image.png';
   static const multipleHostFeatureImage =
       'assets/images/png/multiple_host_feature_image.png';
   static const selfHostedOverviewImage =

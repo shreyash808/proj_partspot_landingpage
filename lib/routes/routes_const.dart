@@ -22,6 +22,8 @@ class Routes {
   static const selfHostedOverviewScreen = '/selfHostedOverviewScreen';
   static const planAWeddingOverviewScreen = '/planAWeddingOverviewScreen';
   static const representativeScreen = '/RepresentativeScreen';
+  static const selfHostedPartySelectionScreen = '/selfHostedPartySelectionScreen';
+  static const weddingWaySelectionScreen = '/weddingWaySelectionScreen';
 
   static const bottomNavigationView = '/bottomNavigationView';
   static const settingsScreen = '/settingsScreen';

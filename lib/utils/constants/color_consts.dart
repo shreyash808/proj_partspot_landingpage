@@ -19,10 +19,10 @@ class AppColor {
   static const vipYellow = Color(0xFFF3CE00);
   static const planDescBox = Color(0xffFF956B);
   static const bluePurple = Color(0xff591EFF);
+  static const disabledColor = Color(0xffD4D4D4);
 
   static const blackColor = Color(0xFF000000);
   static const whiteColor = Color(0xFFFFFFFF);
-  static const disabledColor = Color(0xFF9C9797);
   static const disabledBorderColor = Color(0xFFC3B6CA);
   static const steelPinkColor = Color(0xFFC637E5);
   static const purpleDarkColor = Color(0xFF4B2663);

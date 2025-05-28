@@ -20,6 +20,10 @@ class StringConsts {
   static const selfHostedParties = "SELF HOSTED PARTIES";
   static const selfHostedPartiesDesc = "Plan your own unforgettable party with ease, your way, your style!";
   static const planAWeddingDesc = "Plan your dream wedding, stress-free and your style!";
+  static const hostYourPartyWithUs = "Host your parties, with us.";
+  static const selectTheTypeOfEvent = "Select the type of event you want to organize.";
+  static const yourWeddingYourWay = "Your Wedding, Your Way";
+  static const selectTheTypeOfWedding = "Select the types of wedding event you want to organize.";
 
   ///Error Texts
   static const passwordCannotBeEmpty = 'passwordCannotBeEmpty';

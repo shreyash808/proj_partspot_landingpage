@@ -3,8 +3,10 @@ import 'package:partyspot/module/app_entry/binding/app_entry_binding.dart';
 import 'package:partyspot/module/app_entry/presentation/app_entry_screen.dart';
 import 'package:partyspot/module/curated_events_list/presentation/curated_events_list_screen.dart';
 import 'package:partyspot/module/event_info/presentation/curated_event_info_screen.dart';
+import 'package:partyspot/module/plan_a_wedding/presentation/wedding_way_selection_screen.dart';
 import 'package:partyspot/module/representative/binding/representative_binding.dart';
 import 'package:partyspot/module/representative/view/representative_screen.dart';
+import 'package:partyspot/module/self_hosted_party/presentation/self_host_part_selection_screen.dart';
 import 'package:partyspot/module/vip_plans/binding/beast_binding.dart';
 import 'package:partyspot/module/vip_plans/view/beast_plan.dart';
 import 'package:partyspot/module/explore/binding/explore_binding.dart';
@@ -127,12 +129,21 @@ class AppRoutes {
         page: () => monsterPlanScreen(),
         binding: BeastMonsterBinding(),
       ),
-
       GetPage(
         name: Routes.representativeScreen,
         transition: Transition.circularReveal,
         page: () => RepresentativeScreen(),
         binding: RepresentativeBinding(),
+      ),
+      GetPage(
+        name: Routes.selfHostedPartySelectionScreen,
+        transition: Transition.circularReveal,
+        page: () => SelfHostPartSelectionScreen(),
+      ),
+      GetPage(
+        name: Routes.weddingWaySelectionScreen,
+        transition: Transition.circularReveal,
+        page: () => WeddingWaySelectionScreen(),
       ),
     ];
   }
