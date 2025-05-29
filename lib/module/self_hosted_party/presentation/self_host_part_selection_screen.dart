@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:partyspot/module/self_hosted_party/presentation/widgets/party_type_selection.dart';
+import 'package:partyspot/routes/routes_const.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/image_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
@@ -21,6 +23,7 @@ class SelfHostPartSelectionScreen extends StatelessWidget {
           isMultiSelect: false,
           onSelectionDone: (selectedItems) {
             print("Selected items: $selectedItems");
+            Get.toNamed(Routes.planEventScreen,arguments: {RoutesArgument.title: "Plan your Birthday Party"});
           },
         )
       ),

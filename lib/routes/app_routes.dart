@@ -4,6 +4,7 @@ import 'package:partyspot/module/app_entry/presentation/app_entry_screen.dart';
 import 'package:partyspot/module/curated_events_list/presentation/curated_events_list_screen.dart';
 import 'package:partyspot/module/event_info/presentation/curated_event_info_screen.dart';
 import 'package:partyspot/module/plan_a_wedding/presentation/wedding_way_selection_screen.dart';
+import 'package:partyspot/module/plan_your_event/presentation/plan_your_event_screen.dart';
 import 'package:partyspot/module/representative/binding/representative_binding.dart';
 import 'package:partyspot/module/representative/view/representative_screen.dart';
 import 'package:partyspot/module/self_hosted_party/presentation/self_host_part_selection_screen.dart';
@@ -144,6 +145,14 @@ class AppRoutes {
         name: Routes.weddingWaySelectionScreen,
         transition: Transition.circularReveal,
         page: () => WeddingWaySelectionScreen(),
+      ),
+      GetPage(
+        name: Routes.planEventScreen,
+        transition: Transition.circularReveal,
+        page: () {
+          final String? title = Get.arguments?[RoutesArgument.title] ?? '';
+          return PlanYourEventScreen(title: title);
+        },
       ),
     ];
   }

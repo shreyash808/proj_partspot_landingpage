@@ -24,6 +24,14 @@ class StringConsts {
   static const selectTheTypeOfEvent = "Select the type of event you want to organize.";
   static const yourWeddingYourWay = "Your Wedding, Your Way";
   static const selectTheTypeOfWedding = "Select the types of wedding event you want to organize.";
+  static const planYourEvents = "Plan Your Events";
+  static const chooseDate = "Choose date";
+  static const numberOfGuests = "Number of Guests";
+  static const custom = "Custom";
+  static const venueType = "Venue Type";
+  static const foodPreferences = "Food Preferences";
+  static const specialRequirements = "Special Requirements";
+  static const uploadPDF = "uploadPDF";
 
   ///Error Texts
   static const passwordCannotBeEmpty = 'passwordCannotBeEmpty';

@@ -24,6 +24,7 @@ class Routes {
   static const representativeScreen = '/RepresentativeScreen';
   static const selfHostedPartySelectionScreen = '/selfHostedPartySelectionScreen';
   static const weddingWaySelectionScreen = '/weddingWaySelectionScreen';
+  static const planEventScreen = '/planEventScreen';
 
   static const bottomNavigationView = '/bottomNavigationView';
   static const settingsScreen = '/settingsScreen';
@@ -31,5 +32,5 @@ class Routes {
 }
 
 class RoutesArgument {
-
+  static const title = 'title';
 }

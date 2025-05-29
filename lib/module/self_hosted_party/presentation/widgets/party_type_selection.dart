@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:partyspot/module/self_hosted_party/presentation/controller/part_selection_controller.dart';
+import 'package:partyspot/module/self_hosted_party/presentation/widgets/selection_item.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/app_size.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
@@ -112,10 +113,13 @@ class PartyTypeSelection extends StatelessWidget {
                       children: List.generate(items?.length ?? 0, (index) {
                         final item = items![index];
                         final isSelected = controller.isSelected(item);
-                        return _buildSelectionItem(
+                        return SelectionItem(
                           text: item,
                           isSelected: isSelected,
                           onTap: () => controller.toggleSelection(item),
+                          constraints: BoxConstraints(
+                            minWidth: (AppSizes.width * 0.5) - 35.spW, // Ensure spW is defined
+                          ),
                         );
                       }),
                     )),
@@ -138,33 +142,4 @@ class PartyTypeSelection extends StatelessWidget {
     );
   }
 
-  Widget _buildSelectionItem({
-    required String text,
-    required bool isSelected,
-    required Function() onTap,
-  }) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        constraints: BoxConstraints(
-          minWidth: (AppSizes.width * 0.5) - 35.spW,
-        ),
-        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(
-            color: isSelected ? AppColor.orangeColor : AppColor.disabledColor,
-            width: 2,
-          ),
-        ),
-        child: Text(
-          text,
-          style: AppTextStyles.get14SemiBoldTextStyle(
-            color: isSelected ? AppColor.orangeColor : AppColor.disabledColor,
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ),
-    );
-  }
 }
