@@ -119,7 +119,7 @@ class PlanYourEventScreen extends StatelessWidget {
                           return Obx(() => Wrap(
                             spacing: 5.spW,
                             runSpacing: 12,
-                            children: List.generate(items.length ?? 0, (index) {
+                            children: List.generate(items.length, (index) {
                               final item = items[index];
                               final isSelected = controller.isSelected(item);
                               return SelectionItem(
@@ -170,7 +170,7 @@ class PlanYourEventScreen extends StatelessWidget {
                           return Obx(() => Wrap(
                             spacing: 5.spW,
                             runSpacing: 12,
-                            children: List.generate(items.length ?? 0, (index) {
+                            children: List.generate(items.length, (index) {
                               final item = items[index];
                               final isSelected = controller.isSelected(item);
                               return SelectionItem(
@@ -217,6 +217,7 @@ class PlanYourEventScreen extends StatelessWidget {
                       children: [
                         SelectionItem(
                             borderWidth: 1,
+                            icon: AppIcons.uploadIcon,
                             textStyle: AppTextStyles.get14RegularTextStyle(
                               color:  AppColor.disabledColor,
                             ),

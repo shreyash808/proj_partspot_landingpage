@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
+import 'package:partyspot/utils/widgets/custom_svg_picture.dart';
 
 class SelectionItem extends StatelessWidget {
   final String text;
+  final String? icon;
   final bool isSelected;
   final VoidCallback onTap;
   final EdgeInsets? padding;
@@ -18,6 +20,7 @@ class SelectionItem extends StatelessWidget {
     required this.isSelected,
     required this.onTap,
     this.padding,
+    this.icon,
     this.constraints,
     this.borderWidth,
     this.borderRadius,
@@ -38,12 +41,22 @@ class SelectionItem extends StatelessWidget {
             width: borderWidth ?? 2,
           ),
         ),
-        child: Text(
-          text,
-          style: textStyle ?? AppTextStyles.get14SemiBoldTextStyle(
-            color: isSelected ? AppColor.orangeColor : AppColor.disabledColor,
-          ),
-          textAlign: TextAlign.center,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if(icon != null)
+              CustomSvgPicture(
+                iconPath: icon,
+              ),
+            Text(
+              text,
+              style: textStyle ?? AppTextStyles.get14SemiBoldTextStyle(
+                color: isSelected ? AppColor.orangeColor : AppColor.disabledColor,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ],
         ),
       ),
     );

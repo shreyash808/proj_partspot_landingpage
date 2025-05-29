@@ -17,4 +17,5 @@ class AppIcons {
   static const discountIcon = 'assets/icons/svg/discount_ic.svg';
   static const earlyAccessIcon = 'assets/icons/svg/early_access_ic.svg';
   static const calendarIcon = 'assets/icons/svg/calendar_ic.svg';
+  static const uploadIcon = 'assets/icons/svg/upload_ic.svg';
 }
