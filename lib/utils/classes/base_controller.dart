@@ -46,6 +46,7 @@ class BaseController extends GetxController {
   final Rx<String> _errorMessage = ''.obs;
 
   String get errorMessage => _errorMessage.value;
+  Rx<String> get errorMessageRx => _errorMessage;
 
   void setErrorMessage(String? val) {
     _errorMessage.value = val ?? '';
@@ -65,3 +66,4 @@ class BaseController extends GetxController {
     super.onClose();
   }
 }
+

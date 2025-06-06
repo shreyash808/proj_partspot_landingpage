@@ -4,14 +4,11 @@ import 'package:dio/dio.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:partyspot/networking/dio_injector.dart';
 import 'package:partyspot/networking/model/error_response_model.dart';
-import 'package:partyspot/utils/classes/language_controller.dart';
-import 'package:partyspot/utils/constants/app_enums.dart';
 import 'package:partyspot/utils/constants/key_constants.dart';
 import 'package:partyspot/utils/constants/service_const.dart';
 
 class PartySportApiService {
   final apiClient = locator<DioInjector>();
-  final languageController = locator<LanguageController>();
 
   Map<String, dynamic> getHeaders({String? token}) {
     String accessToken =
@@ -19,10 +16,6 @@ class PartySportApiService {
     log('Access Token :: $accessToken');
     return {
       'Authorization': 'Bearer $accessToken',
-      'Accept-Language':
-          languageController.getCurrentLanguage == Language.english
-              ? 'en'
-              : 'ar',
     };
   }
 

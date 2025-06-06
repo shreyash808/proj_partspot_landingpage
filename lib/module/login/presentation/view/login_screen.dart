@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:partyspot/module/login/presentation/controller/login_controller.dart';
 
 import 'package:partyspot/module/login/presentation/view/widgets/login_header.dart';
 import 'package:partyspot/module/login/presentation/view/widgets/phone_input_textfield.dart';
@@ -11,6 +13,8 @@ import 'package:partyspot/utils/constants/string_consts.dart';
 class LoginScreen extends StatelessWidget {
   final TextEditingController numberController = TextEditingController();
   final ValueNotifier<String> selectedCountry = ValueNotifier<String>("🇮🇳");
+
+  final LoginController loginController = Get.find<LoginController>();
 
   LoginScreen({super.key});
 

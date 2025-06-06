@@ -2,16 +2,28 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:partyspot/firebase_options.dart';
+import 'package:partyspot/module/login/data/login_repository_impl.dart';
+import 'package:partyspot/module/login/domain/repositories/login_repository.dart';
 import 'package:partyspot/routes/app_routes.dart';
 import 'package:partyspot/routes/routes_const.dart';
+import 'package:partyspot/utils/constants/service_const.dart';
 
 import 'package:partyspot/utils/theme/light_theme.dart';
+
+import 'networking/dio_injector.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-
+  await _setupRepo();
+  await _setupService();
   runApp(const MyApp());
+}
+_setupService(){
+  locator.registerLazySingleton<DioInjector>(() => DioInjector());
+}
+_setupRepo(){
+  locator.registerLazySingleton<LoginRepository>(()=>LoginRepositoryImpl());
 }
 
 class MyApp extends StatelessWidget {
@@ -23,7 +35,7 @@ class MyApp extends StatelessWidget {
     final lightTheme = LightTheme();
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: Routes.appEntryScreen,
+      initialRoute: Routes.splashScreen,
 
       getPages: AppRoutes.getRoutes(),
       title: 'Party Spot',

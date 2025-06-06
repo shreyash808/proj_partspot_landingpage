@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:partyspot/module/login/presentation/controller/login_controller.dart';
+import 'package:partyspot/routes/routes_const.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
 
 class SocialLoginSection extends StatelessWidget {
-  const SocialLoginSection({super.key});
+  SocialLoginSection({super.key});
+  final LoginController loginController = Get.find<LoginController>();
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +26,11 @@ class SocialLoginSection extends StatelessWidget {
         SocialLoginButton(
           text: StringConsts.conWithGoogle,
           icon: const Icon(Icons.apple, size: 30),
-          onTap: () => print("Google login tapped"),
+          onTap: (){
+            loginController.onGoogleSignIn(onSuccess: (){
+              Get.toNamed(Routes.appEntryScreen);
+            });
+          },
         ),
       ],
     );

@@ -30,7 +30,7 @@ class OnboardingScreen extends StatelessWidget {
             itemBuilder: (context, index) {
               return Image.asset(
                 controller.onBoardingList[index].image ?? '',
-                fit: BoxFit.fill,
+                fit: BoxFit.cover,
                 width: double.infinity,
                 height: double.infinity,
               );
