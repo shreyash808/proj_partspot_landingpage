@@ -11,4 +11,6 @@ class ApiUrl {
   static const socketProdUrl = 'https://devop-partyspot.approd.ca/';
 
   static const socialLogin = '/auth/social-login';
+  static const loginPhone = '/auth/login-phone';
+  static const verifyOtp = '/auth/verify-otp';
 }

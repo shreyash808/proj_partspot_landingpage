@@ -3,18 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:partyspot/module/login/presentation/controller/otp_controller.dart';
 import 'package:partyspot/module/login/presentation/view/widgets/login_header.dart';
-import 'package:partyspot/module/login_otp/view/widgets/resend_otp_timer.dart';
+import 'package:partyspot/module/login/presentation/view/widgets/resend_otp_timer.dart';
 import 'package:partyspot/routes/routes_const.dart';
-import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/image_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
 import 'package:partyspot/utils/widgets/buttons.dart';
 
 class OtpScreen extends StatelessWidget {
-  OtpScreen({super.key});
+  final String? phoneNumber;
+  OtpScreen({super.key,required this.phoneNumber});
 
   final ValueNotifier<int> timerNotifier = ValueNotifier<int>(20);
   Timer? _timer;
@@ -30,6 +30,8 @@ class OtpScreen extends StatelessWidget {
       }
     });
   }
+
+  final OtpController controller = Get.find<OtpController>();
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +83,9 @@ class OtpScreen extends StatelessWidget {
                         fillColor: const Color(0xffEDEDED),
                         fieldWidth: 60,
                         showFieldAsBox: true,
-                        onCodeChanged: (String code) {},
+                        onCodeChanged: (String code) {
+                          controller.code = code;
+                        },
                       ),
 
                       ResendOtpTimerWidget(
@@ -91,14 +95,19 @@ class OtpScreen extends StatelessWidget {
 
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 15.0),
-                        child: AppButton(
-                          StringConsts.submit,
-                          backgroundColor: AppColor.buttonOrange,
-                          margin: const EdgeInsets.symmetric(vertical: 8),
-                          onPressed: () {
-                            Get.offNamed(Routes.appEntryScreen);
-                          },
-                        ),
+                        child: Obx((){
+                          return AppButton(
+                            StringConsts.submit,
+                            isEnabled: controller.code.isNotEmpty,
+                            backgroundColor: AppColor.buttonOrange,
+                            margin: const EdgeInsets.symmetric(vertical: 8),
+                            onPressed: () {
+                              controller.onVerifyOtp(phoneNumber,onSuccess: (){
+                                Get.offNamed(Routes.appEntryScreen);
+                              });
+                            },
+                          );
+                        }),
                       ),
                     ],
                   ),

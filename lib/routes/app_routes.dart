@@ -3,6 +3,7 @@ import 'package:partyspot/module/app_entry/binding/app_entry_binding.dart';
 import 'package:partyspot/module/app_entry/presentation/app_entry_screen.dart';
 import 'package:partyspot/module/curated_events_list/presentation/curated_events_list_screen.dart';
 import 'package:partyspot/module/event_info/presentation/curated_event_info_screen.dart';
+import 'package:partyspot/module/login/presentation/binding/otp_binding.dart';
 import 'package:partyspot/module/plan_a_wedding/presentation/wedding_way_selection_screen.dart';
 import 'package:partyspot/module/plan_your_event/presentation/plan_your_event_screen.dart';
 import 'package:partyspot/module/representative/binding/representative_binding.dart';
@@ -16,8 +17,7 @@ import 'package:partyspot/module/home/presentation/binding/home_binding.dart';
 import 'package:partyspot/module/home/presentation/view/home_screen.dart';
 import 'package:partyspot/module/login/presentation/binding/login_binding.dart';
 import 'package:partyspot/module/login/presentation/view/login_screen.dart';
-import 'package:partyspot/module/login_otp/binding/otp_binding.dart';
-import 'package:partyspot/module/login_otp/view/otp_screen.dart';
+import 'package:partyspot/module/login/presentation/view/otp_screen.dart';
 import 'package:partyspot/module/onboarding/presentation/binding/onboarding_binding.dart';
 import 'package:partyspot/module/onboarding/presentation/view/onboarding_screen.dart';
 import 'package:partyspot/module/party_spot_vip/binding/vip_binding.dart';
@@ -64,7 +64,10 @@ class AppRoutes {
       GetPage(
         name: Routes.otpScreen,
         transition: Transition.circularReveal,
-        page: () => OtpScreen(),
+        page: (){
+          final String? phoneNumber = Get.arguments?[RoutesArgument.phoneNumber] ?? '';
+          return OtpScreen(phoneNumber: phoneNumber);
+        },
         binding: OtpBinding(),
       ),
       GetPage(

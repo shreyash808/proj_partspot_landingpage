@@ -32,6 +32,7 @@ class StringConsts {
   static const foodPreferences = "Food Preferences";
   static const specialRequirements = "Special Requirements";
   static const uploadPDF = "uploadPDF";
+  static const unExpectedError = "Unexpected Error";
 
   ///Error Texts
   static const passwordCannotBeEmpty = 'passwordCannotBeEmpty';
