@@ -22,4 +22,5 @@ class AppIcons {
   static const uploadIcon = 'assets/icons/svg/upload_ic.svg';
   static const googleIcon = 'assets/icons/svg/google_ic.svg';
   static const appleIcon = 'assets/icons/svg/apple_ic.svg';
+  static const backArrowIcon = 'assets/icons/svg/back_arrow_ic.svg';
 }

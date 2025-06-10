@@ -30,6 +30,7 @@ class Routes {
 
   static const bottomNavigationView = '/bottomNavigationView';
   static const settingsScreen = '/settingsScreen';
+  static const userDetailScreen = '/userDetailScreen';
 }
 
 class RoutesArgument {

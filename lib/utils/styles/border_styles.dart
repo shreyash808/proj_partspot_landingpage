@@ -4,27 +4,27 @@ import 'package:partyspot/utils/constants/color_consts.dart';
 class BorderStyles {
   BorderStyles();
 
-  static OutlineInputBorder disableTextFieldBorderStyle({double radius = 100}) => OutlineInputBorder(
+  static OutlineInputBorder disableTextFieldBorderStyle({double radius = 12}) => OutlineInputBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(radius),
         ),
         borderSide: const BorderSide(
-          color: AppColor.disabledBorderColor,
+          color: AppColor.transparent,
           width: 1.0,
         ),
       );
 
-  static OutlineInputBorder focusedTextFieldBorderStyle({double radius = 100}) => OutlineInputBorder(
+  static OutlineInputBorder focusedTextFieldBorderStyle({double radius = 12}) => OutlineInputBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(radius),
         ),
         borderSide: const BorderSide(
-          color: AppColor.primaryColor,
+          color: AppColor.transparent,
           width: 1.0,
         ),
       );
 
-  static OutlineInputBorder errorBorder({double radius = 100}) => OutlineInputBorder(
+  static OutlineInputBorder errorBorder({double radius = 12}) => OutlineInputBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(radius),
         ),

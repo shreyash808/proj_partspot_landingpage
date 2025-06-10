@@ -32,7 +32,7 @@ class LoginScreen extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [AppColor.patriarchColor, AppColor.orangeColor],
+                colors: [AppColor.deepPurple, AppColor.deepOrange],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),

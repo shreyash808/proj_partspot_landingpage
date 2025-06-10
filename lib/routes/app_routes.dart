@@ -6,10 +6,12 @@ import 'package:partyspot/module/bookings/view/booking_screen.dart';
 import 'package:partyspot/module/curated_events_list/presentation/curated_events_list_screen.dart';
 import 'package:partyspot/module/event_info/presentation/curated_event_info_screen.dart';
 import 'package:partyspot/module/profile/binding/profile_binding.dart';
+import 'package:partyspot/module/profile/binding/user_detail_binding.dart';
 import 'package:partyspot/module/profile/view/profile_screen.dart';
 import 'package:partyspot/module/login/presentation/binding/otp_binding.dart';
 import 'package:partyspot/module/plan_a_wedding/presentation/wedding_way_selection_screen.dart';
 import 'package:partyspot/module/plan_your_event/presentation/plan_your_event_screen.dart';
+import 'package:partyspot/module/profile/view/user_detail_screen.dart';
 import 'package:partyspot/module/representative/binding/representative_binding.dart';
 import 'package:partyspot/module/representative/view/representative_screen.dart';
 import 'package:partyspot/module/self_hosted_party/presentation/self_host_part_selection_screen.dart';
@@ -174,6 +176,13 @@ class AppRoutes {
         transition: Transition.circularReveal,
         page: () => BookingScreen(),
         binding: BookingBinding(),
+      ),
+
+      GetPage(
+        name: Routes.userDetailScreen,
+        transition: Transition.circularReveal,
+        page: () => UserDetailScreen(),
+        binding: UserDetailBinding(),
       ),
     ];
   }

@@ -34,6 +34,13 @@ class StringConsts {
   static const specialRequirements = "Special Requirements";
   static const uploadPDF = "uploadPDF";
   static const unExpectedError = "Unexpected Error";
+  static const fillUpYourDetails = "Fill up your details";
+  static const enterYourName = "Enter your Name";
+  static const enterYourEmail = "Enter your Email";
+  static const enterYourWhatsAppNo = "Enter your WhatsApp No.";
+  static const agree = "Agree";
+  static const tnc = "T&C";
+  static const andContinue = "and continue";
 
   ///Error Texts
   static const passwordCannotBeEmpty = 'passwordCannotBeEmpty';

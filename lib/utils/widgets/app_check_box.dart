@@ -22,12 +22,8 @@ class AppCheckBox extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(2),
         decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: value ? AppColor.primaryColor : AppColor.transparent,
-          border: Border.all(
-            color: AppColor.primaryColor,
-            width: 1,
-          ),
+          color: value ? AppColor.primaryColor : AppColor.fieldBgColor,
+          borderRadius: BorderRadius.circular(4)
         ),
         child: Icon(
           Icons.check_rounded,

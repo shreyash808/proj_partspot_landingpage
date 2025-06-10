@@ -1,0 +1,154 @@
+import 'package:country_picker/country_picker.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:partyspot/utils/classes/app_text_styles.dart';
+import 'package:partyspot/utils/classes/value_controller.dart';
+import 'package:partyspot/utils/constants/app_size.dart';
+import 'package:partyspot/utils/constants/color_consts.dart';
+import 'package:partyspot/utils/constants/icon_constants.dart';
+import 'package:partyspot/utils/constants/string_consts.dart';
+import 'package:partyspot/utils/widgets/app_check_box.dart';
+import 'package:partyspot/utils/widgets/app_text_field.dart';
+import 'package:partyspot/utils/widgets/buttons.dart';
+import 'package:partyspot/utils/widgets/custom_svg_picture.dart';
+
+class UserDetailScreen extends StatelessWidget {
+  UserDetailScreen({super.key});
+
+  final ValueController<String?> countryFlagController = ValueController<String?>("🇮🇳");
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        alignment: Alignment.center,
+        children: [
+          Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [AppColor.deepPurple, AppColor.deepOrange],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: AppColor.whiteColor,
+            ),
+            width: double.infinity,
+            margin: const EdgeInsets.symmetric(horizontal: 28),
+            padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  children: [
+                    CustomSvgPicture(iconPath: AppIcons.backArrowIcon),
+                    const SizedBox(width: 6,),
+                    Text(StringConsts.fillUpYourDetails,style: AppTextStyles.get24SemiBoldTextStyle())
+                  ],
+                ),
+                const SizedBox(height: 24),
+                AppTextField(
+                  title: StringConsts.enterYourName,
+                ),
+                const SizedBox(height: 16),
+                AppTextField(
+                  title: StringConsts.enterYourEmail,
+                ),
+                const SizedBox(height: 16),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16,right: 8,bottom: 8),
+                      child: Text(
+                        StringConsts.enterYourWhatsAppNo,
+                        style: AppTextStyles.get14MediumTextStyle(color: AppColor.violetLightColor),
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            showCountryPicker(
+                              context: context,
+                              showPhoneCode: true,
+                              onSelect: (Country country) {
+                                countryFlagController.updateValue(country.flagEmoji);
+                                // countryFlagNotifier.value = country.flagEmoji;
+                                // countryFlagNotifier.value = country.countryCode;
+                              },
+                            );
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(vertical: 12,horizontal: 16),
+                            decoration: BoxDecoration(
+                              color: const Color(0xFFEDEDED),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Center(
+                              child: GetX<ValueController<String?>>(
+                                  init: countryFlagController,
+                                  builder: (value){
+                                    return Text(
+                                      '${countryFlagController.value}',
+                                      style: const TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 20,
+                                      ),
+                                    );
+                                  }
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 4),
+                        Expanded(child: AppTextField())
+                      ],
+                    ),
+                  ],
+                ),
+                AppSizes.heightBox(boxHeight: 36),
+                Row(
+                  children: [
+                    AppCheckBox(
+                      value: true,
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    RichText(
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        text: '',
+                        children: <TextSpan>[
+                          TextSpan(
+                              text: StringConsts.agree,
+                              style: AppTextStyles.get14MediumTextStyle(color: AppColor.violetLightColor)),
+                          TextSpan(
+                              text: " ${StringConsts.tnc} ",
+                              style: AppTextStyles.get14MediumTextStyle(
+                                color: AppColor.blueLinkColor,
+                              )),
+                          TextSpan(
+                              text: StringConsts.andContinue,
+                              style: AppTextStyles.get14MediumTextStyle(color: AppColor.violetLightColor)),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 16),
+                AppButton(StringConsts.submit, onPressed: (){})
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}

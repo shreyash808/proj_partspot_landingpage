@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppColor {
+  static const primaryColor = Color(0xFFFF4B20);
   static const patriarchColor = Color(0xFF70057A);
   static const orangeColor = Color(0xFFFF4B20);
   static const lightOrangeColor = Color(0xFFFFE1DA);
@@ -18,6 +19,7 @@ class AppColor {
   static const borderGreyColor = Color(0xFFD2D2D2);
   static const borderB0B0B0 = Color(0xffB0B0B0);
   static const colorA1A1A1 = Color(0xffA1A1A1);
+  static const fieldBgColor = Color(0xffEFEFEF);
 
   static const planBlue = Color(0xFF8C63FF);
   static const vipYellow = Color(0xFFF3CE00);
@@ -32,7 +34,6 @@ class AppColor {
   static const steelPinkColor = Color(0xFFC637E5);
   static const purpleDarkColor = Color(0xFF4B2663);
   static const darkTextColor = Color(0xFF320449);
-  static const primaryColor = Color(0xFF9638B2);
   static const purpleImperial = Color(0xFF9638B2);
   static const tertiaryColor = Color(0xFF562370);
   static const errorColor = Color(0xFFFF3B30);

@@ -129,10 +129,10 @@ class _AppTextFieldState extends State<AppTextField> {
         children: [
           if (widget.title != null && widget.title!.isNotEmpty)
             Padding(
-              padding: const EdgeInsets.only(left: 8,right: 8,bottom: 8),
+              padding: const EdgeInsets.only(left: 16,right: 8,bottom: 8),
               child: Text(
                 '${widget.title}',
-                style: AppTextStyles.get16BoldTextStyle(color: AppColor.violetLightColor),
+                style: AppTextStyles.get14MediumTextStyle(color: AppColor.violetLightColor),
               ),
             ),
           Obx((){
@@ -183,22 +183,22 @@ class _AppTextFieldState extends State<AppTextField> {
                     )
                         : widget.suffixWidget,
                     contentPadding: widget.contentPadding ?? const EdgeInsets.symmetric(horizontal: 18.0, vertical: 16),
-                    border: BorderStyles.disableTextFieldBorderStyle(radius: widget.maxLines != 1 ? 24 : 50),
+                    border: BorderStyles.disableTextFieldBorderStyle(),
                     enabledBorder: hasData.value == true
-                        ? BorderStyles.focusedTextFieldBorderStyle(radius: widget.maxLines != 1 ? 24 : 50)
-                        : BorderStyles.disableTextFieldBorderStyle(radius: widget.maxLines != 1 ? 24 : 50),
-                    disabledBorder: BorderStyles.disableTextFieldBorderStyle(radius: widget.maxLines != 1 ? 24 : 50),
-                    focusedBorder: BorderStyles.focusedTextFieldBorderStyle(radius: widget.maxLines != 1 ? 24 : 50),
+                        ? BorderStyles.focusedTextFieldBorderStyle()
+                        : BorderStyles.disableTextFieldBorderStyle(),
+                    disabledBorder: BorderStyles.disableTextFieldBorderStyle(),
+                    focusedBorder: BorderStyles.focusedTextFieldBorderStyle(),
                     errorText: widget.error,
                     errorMaxLines: 3,
-                    errorBorder: BorderStyles.errorBorder(radius: widget.maxLines != 1 ? 24 : 50),
+                    errorBorder: BorderStyles.errorBorder(),
                     errorStyle: AppTextStyles.get14MediumTextStyle(
                         color: AppColor.errorColor),
                     hintStyle:
                     widget.hintTextStyle ?? AppTextStyles.get16RegularTextStyle(color: AppColor.disabledBorderColor),
                     filled: true,
                     hintText: widget.hint ?? '',
-                    fillColor: widget.backgroundColor ?? Colors.transparent,
+                    fillColor: widget.backgroundColor ?? AppColor.fieldBgColor
                   ),
                 ),
                 if(widget.maxLength != null && widget.showMaxLength)
