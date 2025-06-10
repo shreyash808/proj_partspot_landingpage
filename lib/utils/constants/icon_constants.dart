@@ -20,4 +20,6 @@ class AppIcons {
   static const crownIcon = 'assets/images/png/crown_icon.png';
   static const calendarIcon = 'assets/icons/svg/calendar_ic.svg';
   static const uploadIcon = 'assets/icons/svg/upload_ic.svg';
+  static const googleIcon = 'assets/icons/svg/google_ic.svg';
+  static const appleIcon = 'assets/icons/svg/apple_ic.svg';
 }

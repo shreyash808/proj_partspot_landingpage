@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:partyspot/module/login/presentation/controller/login_controller.dart';
 import 'package:partyspot/routes/routes_const.dart';
+import 'package:partyspot/utils/constants/icon_constants.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
+import 'package:partyspot/utils/widgets/custom_svg_picture.dart';
 
 class SocialLoginSection extends StatelessWidget {
   SocialLoginSection({super.key});
@@ -19,13 +21,13 @@ class SocialLoginSection extends StatelessWidget {
 
         SocialLoginButton(
           text: StringConsts.conWithApple,
-          icon: const Icon(Icons.apple, size: 30),
+          iconPath: AppIcons.appleIcon,
           onTap: () => print("Apple login tapped"),
         ),
         const SizedBox(height: 10),
         SocialLoginButton(
           text: StringConsts.conWithGoogle,
-          icon: const Icon(Icons.apple, size: 30),
+          iconPath: AppIcons.googleIcon,
           onTap: (){
             loginController.onGoogleSignIn(onSuccess: (){
               Get.toNamed(Routes.appEntryScreen);
@@ -38,20 +40,20 @@ class SocialLoginSection extends StatelessWidget {
 
   SocialLoginButton({
     required String text,
-    required Icon icon,
+    required String? iconPath,
     required void Function() onTap,
   }) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 65,
+        padding: const EdgeInsets.symmetric(vertical: 16,horizontal: 12),
         decoration: BoxDecoration(
           border: Border.all(color: const Color(0xFFD9D9D9), width: 3),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Row(
           children: [
-            Padding(padding: const EdgeInsets.only(left: 8.0), child: icon),
+            CustomSvgPicture(iconPath: iconPath,height: 24,width: 24,fit: BoxFit.fitHeight),
             Expanded(
               child: Center(
                 child: Text(
