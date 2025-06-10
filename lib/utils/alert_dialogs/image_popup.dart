@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
+import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/widgets/buttons.dart';
 
 class ImageDialog extends StatelessWidget {
@@ -35,7 +36,12 @@ class ImageDialog extends StatelessWidget {
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
+        decoration: BoxDecoration(
+          color: AppColor.whiteColor,
+          borderRadius: BorderRadius.circular(20),
+        ),
         width: dialogWidth,
+
         padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -44,7 +50,7 @@ class ImageDialog extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 18.0),
               child: SizedBox(
                 height: 100,
-                child: Image.asset(imagePath, fit: BoxFit.contain),
+                child: Image.asset(imagePath, fit: BoxFit.cover),
               ),
             ),
 

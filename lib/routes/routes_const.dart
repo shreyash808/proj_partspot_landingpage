@@ -16,7 +16,9 @@ class Routes {
   static const enterNameScreen = '/enterNameScreen';
   static const createProfilePictureScreen = '/createProfilePictureScreen';
   static const homeScreen = '/homeScreen';
+  static const profileScreen = '/profileScreen';
   static const exploreScreen = '/exploreScreen';
+  static const bookingScreen = '/BookingScreen';
   static const curatedEventsListScreen = '/curatedEventsListScreen';
   static const curatedEventInfoScreen = '/curatedEventInfoScreen';
   static const selfHostedOverviewScreen = '/selfHostedOverviewScreen';
@@ -25,9 +27,6 @@ class Routes {
 
   static const bottomNavigationView = '/bottomNavigationView';
   static const settingsScreen = '/settingsScreen';
-
 }
 
-class RoutesArgument {
-
-}
+class RoutesArgument {}

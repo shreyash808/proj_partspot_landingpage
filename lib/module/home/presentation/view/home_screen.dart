@@ -35,9 +35,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: 8),
-                    CustomSvgPicture(
-                      iconPath: AppIcons.notificationActiveIcon,
-                    ),
+                    CustomSvgPicture(iconPath: AppIcons.notificationActiveIcon),
                   ],
                 ),
               ),
@@ -62,7 +60,7 @@ class HomeScreen extends StatelessWidget {
               FeatureGrid(),
               PopularEventsList(),
               PartySportVipHome(),
-              SizedBox(height: 20,)
+              SizedBox(height: 20),
             ],
           ),
         ),

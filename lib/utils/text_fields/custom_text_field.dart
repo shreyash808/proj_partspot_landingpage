@@ -6,13 +6,14 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController? controller;
   final TextInputType keyboardType;
   final bool obscureText;
-
+  final bool isSmall;
   const CustomTextField({
     Key? key,
     this.hintText = 'Enter text',
     this.controller,
     this.keyboardType = TextInputType.text,
     this.obscureText = false,
+    this.isSmall = false,
   }) : super(key: key);
 
   @override
@@ -31,7 +32,10 @@ class CustomTextField extends StatelessWidget {
         ),
         hintText: hintText,
         hintStyle: AppTextStyles.get10MediumTextStyle(color: Color(0xffBEBEBE)),
-        contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: isSmall ? 16 : 20,
+        ),
       ),
     );
   }

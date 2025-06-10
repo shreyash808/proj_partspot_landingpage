@@ -1,8 +1,12 @@
 import 'package:get/get.dart';
 import 'package:partyspot/module/app_entry/binding/app_entry_binding.dart';
 import 'package:partyspot/module/app_entry/presentation/app_entry_screen.dart';
+import 'package:partyspot/module/bookings/binding/booking_binding.dart';
+import 'package:partyspot/module/bookings/view/booking_screen.dart';
 import 'package:partyspot/module/curated_events_list/presentation/curated_events_list_screen.dart';
 import 'package:partyspot/module/event_info/presentation/curated_event_info_screen.dart';
+import 'package:partyspot/module/profile/binding/profile_binding.dart';
+import 'package:partyspot/module/profile/view/profile_screen.dart';
 import 'package:partyspot/module/representative/binding/representative_binding.dart';
 import 'package:partyspot/module/representative/view/representative_screen.dart';
 import 'package:partyspot/module/vip_plans/binding/beast_binding.dart';
@@ -133,6 +137,20 @@ class AppRoutes {
         transition: Transition.circularReveal,
         page: () => RepresentativeScreen(),
         binding: RepresentativeBinding(),
+      ),
+
+      GetPage(
+        name: Routes.profileScreen,
+        transition: Transition.circularReveal,
+        page: () => ProfileScreen(),
+        binding: ProfileBinding(),
+      ),
+
+      GetPage(
+        name: Routes.bookingScreen,
+        transition: Transition.circularReveal,
+        page: () => BookingScreen(),
+        binding: BookingBinding(),
       ),
     ];
   }

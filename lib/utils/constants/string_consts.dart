@@ -1,4 +1,3 @@
-
 class StringConsts {
   static const welcomeToPartSpot = "Welcome to \nPartySpot!";
   static const featured = "Featured";
@@ -18,8 +17,10 @@ class StringConsts {
   static const planAWedding = "Plan a wedding";
   static const multipleHost = "Multiple Host";
   static const selfHostedParties = "SELF HOSTED PARTIES";
-  static const selfHostedPartiesDesc = "Plan your own unforgettable party with ease, your way, your style!";
-  static const planAWeddingDesc = "Plan your dream wedding, stress-free and your style!";
+  static const selfHostedPartiesDesc =
+      "Plan your own unforgettable party with ease, your way, your style!";
+  static const planAWeddingDesc =
+      "Plan your dream wedding, stress-free and your style!";
 
   ///Error Texts
   static const passwordCannotBeEmpty = 'passwordCannotBeEmpty';
@@ -124,6 +125,7 @@ class StringConsts {
       "Unlock exclusive benefits with our monthly subscription plan.";
 
   static const beastCaps = "BEAST";
+  static const monthlySubs = "Monthly Subscription";
   static const beastDesc =
       "Perfect for college students and occasional party people.";
   static const month = "month";
@@ -178,4 +180,50 @@ class StringConsts {
   static const getOnCall = "Get on a call";
   static const about = "About";
   static const connectOnWhatsapp = "Connect on WhatsApp";
+
+  //// Settings screen
+
+  static const logout = "Log Out";
+  static const myReviews = "My Reviews";
+  static const helpSupport = "Help & Support";
+
+  static const editProfile = "Edit Your Profile";
+  static const myBookings = "My Bookings";
+
+  static const paymentMethods = "Payment Methods";
+  static const upgrade = "Upgrade";
+  static const delAccount = "Delete my Account";
+
+  static const reallyWantLogout = "Do you really want to logout?";
+  static const reallyWantDeleteAccount =
+      "Do you really want to delete your account?";
+
+  /// profile page
+
+  static const fillDetails = "Fill up your details";
+  static const enterName = "Enter your Name";
+  static const enterEmail = "Enter your Email";
+
+  static const selectGender = "Select your Gender";
+  static const enterWhatsappNo = "Enter your Whatsapp No.";
+  static const agreeTC = "Agree T&C and continue";
+
+  static const select = "Select";
+
+  static const male = "Male";
+  static const female = "Female";
+
+  //// My Bookings
+
+  static const myBooking = "My Bookings";
+  static const myDocuments = "My documents";
+  static const choose = "Choose";
+
+  static const selectJpgPng = "Select jpg,png or pdf";
+
+  static const fileToUpload = "a file to upload";
+  static const docUGive = "Docs which you give us";
+
+  static const docsFromUs = "Docs, Quotations,Bills from us";
+  static const reqCallBack = "Request a call back";
 }

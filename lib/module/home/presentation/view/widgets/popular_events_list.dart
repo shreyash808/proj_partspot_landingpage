@@ -5,7 +5,8 @@ import 'package:partyspot/utils/classes/app_text_styles.dart'
 import 'package:partyspot/utils/constants/string_consts.dart' show StringConsts;
 
 class PopularEventsList extends StatelessWidget {
-  const PopularEventsList({super.key});
+  bool showText;
+  PopularEventsList({super.key, this.showText = true});
 
   @override
   Widget build(BuildContext context) {
@@ -14,13 +15,15 @@ class PopularEventsList extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            StringConsts.popularEvents,
-            style: AppTextStyles.get20MediumTextStyle(),
-          ),
+          showText
+              ? Text(
+                StringConsts.popularEvents,
+                style: AppTextStyles.get20MediumTextStyle(),
+              )
+              : SizedBox(),
           const SizedBox(height: 8),
           Column(
-            children: List.generate(3, (index) {
+            children: List.generate(13, (index) {
               return EventItem();
             }),
           ),
@@ -28,5 +31,4 @@ class PopularEventsList extends StatelessWidget {
       ),
     );
   }
-
 }

@@ -19,7 +19,6 @@ class AppImages {
   static const popularEventImage1 =
       'assets/images/png/popular_event_image1.png';
 
-
   ///  splash
   static const splashImage = 'assets/images/png/splash.png';
   static const splashOverlay = 'assets/images/png/splash_overlay.png';
@@ -48,4 +47,19 @@ class AppImages {
   static const deleteAccountImage =
       'assets/images/png/delete_account_image.png';
   static const logoutImage = 'assets/images/png/logout_image.png';
+
+  /// profile page
+
+  static const logoutIcon = 'assets/images/png/logout_icon.png';
+  static const profileIcon = 'assets/images/png/profile_icon.png';
+  static const bookingIcon = 'assets/images/png/booking_icon.png';
+
+  static const payIcon = 'assets/images/png/pay_icon.png';
+  static const reviewIcon = 'assets/images/png/review_icon.png';
+  static const supportIcon = 'assets/images/png/support_icon.png';
+  static const deleteAccountIcon = 'assets/images/png/delete_account_icon.png';
+
+  static const settingsBackground = 'assets/images/png/settings_bg.png';
+
+  static const supportImage = 'assets/images/png/support_image.png';
 }
