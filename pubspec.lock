@@ -549,6 +549,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.0"
+  percentages_with_animation:
+    dependency: "direct main"
+    description:
+      name: percentages_with_animation
+      sha256: f0b75a33fe213bb89063da7a4138018080bd3157a6c75c67b2b63c21dff14bbf
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.1"
+  percentify:
+    dependency: "direct main"
+    description:
+      name: percentify
+      sha256: "113a3dc97760b38820f5ae020abc65a80f15d2c045e93914c5f4c60eb3fc2857"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.3"
   permission_handler:
     dependency: "direct main"
     description:
