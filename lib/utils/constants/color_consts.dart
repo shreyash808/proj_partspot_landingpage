@@ -43,6 +43,8 @@ class AppColor {
   static const bluePurple = Color(0xff591EFF);
   static const color2196F3 = Color(0xff2196F3);
   static const disabledColor = Color(0xffD4D4D4);
+  static const darkGreyTextColor = Color(0xff3C3C3C);
+  static const bgVioletColor = Color(0xffEDE6FF);
 
   static const dividerColor = Color(0xffDCDCDC);
   static const blackColor = Color(0xFF000000);

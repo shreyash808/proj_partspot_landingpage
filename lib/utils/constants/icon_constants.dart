@@ -11,7 +11,7 @@ class AppIcons {
   static const searchIcon = 'assets/icons/png/search_icon.png';
   static const filterIcon = 'assets/icons/png/filter_icon.png';
 
-  static const greenCheckIcon = 'assets/icons/svg/green_check_icon.svg';
+  static const greenCheckIcon = 'assets/icons/svg/green_check_ic.svg';
 
   static const yellowCheckIcon = 'assets/icons/svg/yellow_check_icon.svg';
   static const discountIcon = 'assets/icons/svg/discount_ic.svg';
@@ -23,4 +23,8 @@ class AppIcons {
   static const googleIcon = 'assets/icons/svg/google_ic.svg';
   static const appleIcon = 'assets/icons/svg/apple_ic.svg';
   static const backArrowIcon = 'assets/icons/svg/back_arrow_ic.svg';
+  static const eventCalendarIcon = 'assets/icons/svg/event_calendar_ic.svg';
+  static const guestIcon = 'assets/icons/svg/guest_ic.svg';
+  static const locationIcon = 'assets/icons/svg/location_ic.svg';
+  static const infoIcon = 'assets/icons/svg/info_ic.svg';
 }
