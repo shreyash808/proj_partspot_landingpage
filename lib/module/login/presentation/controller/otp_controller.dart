@@ -11,7 +11,37 @@ import 'package:partyspot/utils/widgets/loader.dart';
 import 'package:partyspot/utils/widgets/snackbars.dart';
 
 class OtpController extends BaseController {
+  final RxInt timer = 20.obs;
+  Timer? _timer;
+
+  @override
+  void onInit() {
+    super.onInit();
+    startTimer();
+  }
+
   Timer? _debounce;
+
+  void startTimer() {
+    _timer?.cancel();
+    timer.value = 20;
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      if (this.timer.value <= 0) {
+        timer.cancel();
+      } else {
+        this.timer.value--;
+      }
+    });
+    ever<String>(errorMessageRx, (String msg) {
+      Future.microtask((){
+        if (msg.isNotEmpty) {
+          showSnackBar(text: errorMessage, isError: true);
+          setErrorMessage('');
+        }
+      });
+    });
+  }
+
   final AuthRepository _loginRepository = locator<AuthRepository>();
 
   final Rx<String> _searchKey = Rx<String>('');
@@ -22,18 +52,6 @@ class OtpController extends BaseController {
   String get code => _code.value;
   set code(String val) => _code.value = val;
 
-  @override
-  Future<void> onInit() async {
-    super.onInit();
-    ever<String>(errorMessageRx, (String msg) {
-      Future.microtask((){
-        if (msg.isNotEmpty) {
-          showSnackBar(text: errorMessage, isError: true);
-          setErrorMessage('');
-        }
-      });
-    });
-  }
 
   onChangedSearch(String val) {
     searchKey = '';
@@ -70,6 +88,7 @@ class OtpController extends BaseController {
   @override
   void dispose() {
     super.dispose();
+    _timer?.cancel();
     _debounce?.cancel();
   }
 }

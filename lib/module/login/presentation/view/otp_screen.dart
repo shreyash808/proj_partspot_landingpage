@@ -14,7 +14,6 @@ class OtpScreen extends StatelessWidget {
   final String? phoneNumber;
   OtpScreen({super.key,required this.phoneNumber});
 
-  final OtpController controller = Get.put(OtpController());
 
   final OtpController controller = Get.find<OtpController>();
 
