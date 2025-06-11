@@ -40,7 +40,7 @@ class BookYourTicketCard extends StatelessWidget {
             ),
           ),
           Divider(
-            height: 24,
+            height: 32,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

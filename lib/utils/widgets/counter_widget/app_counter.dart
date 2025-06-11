@@ -19,32 +19,47 @@ class AppCounter extends StatelessWidget {
     controller.counterRx.listen((value) => onChanged(value));
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12),
+      padding: const EdgeInsets.all(1),
       decoration: BoxDecoration(
+        color: AppColor.disableButtonOrange,
         border: Border.all(color: AppColor.borderGreyColor),
-        borderRadius: BorderRadius.circular(40),
+        borderRadius: BorderRadius.circular(4),
       ),
       child: Obx(() => Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           GestureDetector(
             onTap: controller.decrement,
-            child: Icon(
-              Icons.remove,
-              size: 18,
+            child: Container(
+              padding: const EdgeInsets.all(6),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4),
+                  color: AppColor.whiteColor
+              ),
+              child: Icon(
+                Icons.remove,
+                size: 16,
+              ),
             ),
           ),
-          const SizedBox(width: 8),
+          const SizedBox(width: 16),
           Text(
             '${controller.counter}',
-            style: AppTextStyles.get20BoldTextStyle(),
+            style: AppTextStyles.get16SemiBoldTextStyle(),
           ),
-          const SizedBox(width: 8),
-          GestureDetector(
-            onTap: controller.increment,
-            child: Icon(
-              size: 18,
-              Icons.add,
+          const SizedBox(width: 16),
+          Container(
+            padding: const EdgeInsets.all(6),
+            decoration: BoxDecoration(
+              color: AppColor.whiteColor,
+              borderRadius: BorderRadius.circular(4),
+            ),
+            child: GestureDetector(
+              onTap: controller.increment,
+              child: Icon(
+                size: 16,
+                Icons.add,
+              ),
             ),
           ),
         ],
