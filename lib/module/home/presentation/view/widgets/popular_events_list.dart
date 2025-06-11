@@ -5,7 +5,7 @@ import 'package:partyspot/utils/classes/app_text_styles.dart'
 import 'package:partyspot/utils/constants/string_consts.dart' show StringConsts;
 
 class PopularEventsList extends StatelessWidget {
-  bool showText;
+  final bool showText;
   PopularEventsList({super.key, this.showText = true});
 
   @override

@@ -15,16 +15,37 @@ class AppColor {
   static const lightGreyTextColor = Color(0xFFC4C4C4);
   static const yellowVibrantColor = Color(0xFFF3CE00);
   static const violet = Color(0xFF8C63FF);
+  static const colorEDEDED = Color(0xFFEDEDED);
+  static const colorBEBEBE = Color(0xffBEBEBE);
+  static const timerGreen = Color(0xff05A65B);
+  static const colorD9D9D9 = Color(0xFFD9D9D9);
+  static const selectedFilterColor = Color(0xffB79DFF);
+
+  static const selectedFilterBorder = Color(0xff8C63FF);
+
+  static const color7A7A7A = Color(0xff7A7A7A);
+  static const darkPurple = Color(0XFF9E3488);
+  static const colorD1D1D1 = Color(0xffD1D1D1);
+  static const color727272 = Color(0xff727272);
+  static const color6F6F6F = Color(0xff6F6F6F);
   static const borderGreyColor = Color(0xFFD2D2D2);
   static const borderB0B0B0 = Color(0xffB0B0B0);
   static const colorA1A1A1 = Color(0xffA1A1A1);
+  static const colorE1E1E1 = Color(0xffE1E1E1);
+  static const lightPurple = Color(0xffDED2FF);
+  static const lightPink = Color(0xffFFD3C9);
 
   static const planBlue = Color(0xFF8C63FF);
   static const vipYellow = Color(0xFFF3CE00);
   static const planDescBox = Color(0xffFF956B);
   static const bluePurple = Color(0xff591EFF);
+  static const color2196F3 = Color(0xff2196F3);
   static const dividerColor = Color(0xffDCDCDC);
   static const blackColor = Color(0xFF000000);
+  static const color636363 = Color(0xff636363);
+  static const colorB9B9B9 = Color(0xffB9B9B9);
+
+  static const colorEFEFEF = Color(0xffEFEFEF);
   static const whiteColor = Color(0xFFFFFFFF);
   static const disabledColor = Color(0xFF9C9797);
   static const disabledBorderColor = Color(0xFFC3B6CA);

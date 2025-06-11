@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
+import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/icon_constants.dart';
 import 'package:partyspot/utils/widgets/custom_svg_picture.dart';
 
@@ -44,23 +45,25 @@ class VipPlanCard extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: AppTextStyles.get22BoldTextStyle(color: Colors.white),
+                style: AppTextStyles.get22BoldTextStyle(
+                  color: AppColor.whiteColor,
+                ),
               ),
               Text(
                 price,
                 style: AppTextStyles.get40ExtraBoldTextStyle(
-                  color: Colors.white,
+                  color: AppColor.whiteColor,
                 ),
               ),
               const SizedBox(height: 8),
               ...offerTexts.map((text) => buildOfferRow(text)),
 
               const Spacer(),
-              const Divider(color: Colors.white),
+              const Divider(color: AppColor.whiteColor),
               Text(
                 planName,
                 style: AppTextStyles.get22ExtraBoldTextStyle(
-                  color: Colors.white,
+                  color: AppColor.whiteColor,
                 ),
               ),
             ],
@@ -82,7 +85,9 @@ Widget buildOfferRow(String text, {bool morepadding = false}) {
         Expanded(
           child: Text(
             text,
-            style: AppTextStyles.get12MediumTextStyle(color: Colors.white),
+            style: AppTextStyles.get12MediumTextStyle(
+              color: AppColor.whiteColor,
+            ),
           ),
         ),
       ],

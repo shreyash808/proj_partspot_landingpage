@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
+import 'package:partyspot/utils/constants/color_consts.dart';
 
 class FaqCard extends StatelessWidget {
   final Color backgroundColor;
@@ -32,7 +33,9 @@ class FaqCard extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: Text(
                   title,
-                  style: AppTextStyles.get20BoldTextStyle(color: Colors.white),
+                  style: AppTextStyles.get20BoldTextStyle(
+                    color: AppColor.whiteColor,
+                  ),
                 ),
               ),
               ...faqList.map(
@@ -44,13 +47,13 @@ class FaqCard extends StatelessWidget {
                       Text(
                         item.question,
                         style: AppTextStyles.get14MediumTextStyle(
-                          color: Colors.white,
+                          color: AppColor.whiteColor,
                         ),
                       ),
                       Text(
                         item.answer,
                         style: AppTextStyles.get12RegularTextStyle(
-                          color: Colors.white,
+                          color: AppColor.whiteColor,
                         ),
                       ),
                     ],

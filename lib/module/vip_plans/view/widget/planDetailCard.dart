@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:partyspot/module/party_spot_vip/view/widgets/vip_plan_cards.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
+import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/widgets/buttons.dart';
-
 
 class PlanDetailCard extends StatelessWidget {
   final Color containerColor;
@@ -46,18 +46,20 @@ class PlanDetailCard extends StatelessWidget {
               Text(
                 title,
                 style: AppTextStyles.get22ExtraBoldTextStyle(
-                  color: Colors.white,
+                  color: AppColor.whiteColor,
                 ),
               ),
               Text(
                 subtitle,
-                style: AppTextStyles.get14RegularTextStyle(color: Colors.white),
+                style: AppTextStyles.get14RegularTextStyle(
+                  color: AppColor.whiteColor,
+                ),
               ),
               RichText(
                 text: TextSpan(
                   text: price,
                   style: AppTextStyles.get40ExtraBoldTextStyle(
-                    color: Colors.white,
+                    color: AppColor.whiteColor,
                   ),
                   children: [
                     TextSpan(
@@ -78,7 +80,7 @@ class PlanDetailCard extends StatelessWidget {
                 textStyle: AppTextStyles.get14BoldTextStyle(
                   color: buttonTextColor,
                 ),
-                backgroundColor: Colors.white,
+                backgroundColor: AppColor.whiteColor,
               ),
             ],
           ),

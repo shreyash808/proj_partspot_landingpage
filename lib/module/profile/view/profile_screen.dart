@@ -46,7 +46,7 @@ class ProfileScreen extends StatelessWidget {
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.9,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: AppColor.whiteColor,
                     borderRadius: BorderRadius.circular(20),
                   ),
                   padding: const EdgeInsets.only(
@@ -148,14 +148,14 @@ class ProfileScreen extends StatelessWidget {
                                   height: 50,
                                   width: 60,
                                   decoration: BoxDecoration(
-                                    color: const Color(0xFFEDEDED),
+                                    color: AppColor.colorEDEDED,
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: Center(
                                     child: Text(
                                       value,
                                       style: const TextStyle(
-                                        color: Colors.black,
+                                        color: AppColor.blackColor,
                                         fontSize: 20,
                                       ),
                                     ),
@@ -196,7 +196,7 @@ class ProfileScreen extends StatelessWidget {
                                   text: TextSpan(
                                     style: const TextStyle(
                                       fontSize: 16,
-                                      color: Colors.black,
+                                      color: AppColor.blackColor,
                                     ),
                                     children: [
                                       TextSpan(
@@ -209,7 +209,7 @@ class ProfileScreen extends StatelessWidget {
                                       TextSpan(
                                         text: 'T&C',
                                         style: const TextStyle(
-                                          color: Colors.blue,
+                                          color: AppColor.blueAccent,
                                           fontSize: 12,
                                           fontFamily: 'Medium',
                                           decoration: TextDecoration.underline,
@@ -243,7 +243,7 @@ class ProfileScreen extends StatelessWidget {
                         height: 50,
                         padding: const EdgeInsets.symmetric(vertical: 12),
                         textStyle: AppTextStyles.get14BoldTextStyle(
-                          color: Colors.white,
+                          color: AppColor.whiteColor,
                         ),
                         // backgroundColor: themeColor,
                       ),

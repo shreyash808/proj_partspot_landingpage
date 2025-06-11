@@ -7,14 +7,14 @@ class ImageDialog extends StatelessWidget {
   final String buttonText;
   final String title;
   final String imagePath;
-  String? outlineText;
+  final String? outlineText;
 
   final Color themeColor;
 
-  Color? buttonColor;
+  final Color? buttonColor;
 
   final VoidCallback onConfirm;
-  VoidCallback? onCancel;
+  final VoidCallback? onCancel;
 
   ImageDialog({
     super.key,
@@ -66,7 +66,9 @@ class ImageDialog extends StatelessWidget {
               onPressed: onConfirm,
               height: 50,
               padding: const EdgeInsets.symmetric(vertical: 12),
-              textStyle: AppTextStyles.get14BoldTextStyle(color: Colors.white),
+              textStyle: AppTextStyles.get14BoldTextStyle(
+                color: AppColor.whiteColor,
+              ),
               backgroundColor: buttonColor ?? themeColor,
             ),
             outlineText != null

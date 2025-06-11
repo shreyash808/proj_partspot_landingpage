@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:partyspot/module/app_entry/controller/app_entry_controller.dart';
+import 'package:partyspot/module/bookings/view/booking_bottom_sheet.dart';
+import 'package:partyspot/module/bookings/view/widgets/doc_row_card.dart';
+import 'package:partyspot/module/bookings/view/widgets/my_plan_header.dart';
 import 'package:partyspot/module/explore/view/explore_screen.dart';
 import 'package:partyspot/module/home/presentation/view/home_screen.dart';
 import 'package:partyspot/module/party_spot_vip/view/vip_screen.dart';
@@ -9,7 +12,9 @@ import 'package:partyspot/module/settings/view/settings_screen.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/color_consts.dart' show AppColor;
 import 'package:partyspot/utils/constants/icon_constants.dart';
+import 'package:partyspot/utils/constants/image_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
+import 'package:partyspot/utils/widgets/buttons.dart';
 import 'package:partyspot/utils/widgets/custom_svg_picture.dart';
 
 class AppEntryScreen extends StatelessWidget {
@@ -21,7 +26,7 @@ class AppEntryScreen extends StatelessWidget {
     AppIcons.homeIcon,
     AppIcons.exploreIcon,
     AppIcons.ticketIcon,
-    AppIcons.settingsIcon
+    AppIcons.settingsIcon,
   ];
 
   final List<String> _labels = [
@@ -37,21 +42,44 @@ class AppEntryScreen extends StatelessWidget {
       child: GetBuilder<AppEntryController>(
         builder: (controller) {
           return Scaffold(
-            body: IndexedStack(
-              index: controller.selectedIndex,
+            body: Stack(
               children: [
-                HomeScreen(),
-                ExploreScreen(),
-                VipScreen(),
-                SettingsScreen(),
-                // RepresentativeScreen(),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 60.0),
+                  child: IndexedStack(
+                    index: controller.selectedIndex,
+                    children: [
+                      HomeScreen(),
+                      ExploreScreen(),
+                      VipScreen(),
+                      SettingsScreen(),
+                    ],
+                  ),
+                ),
+
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  child: MyPlanHeader(
+                    title: StringConsts.myWedPlan,
+                    backgroundColor: AppColor.buttonOrange,
+                    textColor: AppColor.whiteColor,
+                    onSeeMoreTap: () {
+                      _showBottomSheet();
+                    },
+                  ),
+                ),
               ],
             ),
+
             bottomNavigationBar: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               decoration: BoxDecoration(
                 color: AppColor.whiteColor,
-                borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+                borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(16),
+                ),
                 boxShadow: [
                   BoxShadow(color: AppColor.silverColor, blurRadius: 8),
                 ],
@@ -95,20 +123,23 @@ class AppEntryScreen extends StatelessWidget {
                                     ),
                                   ],
                                 )
-                                : BoxDecoration(),
+                                : const BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             CustomSvgPicture(
                               iconPath: _icons[index],
-                              color: isSelected
-                                  ? AppColor.orangeColor
-                                  : AppColor.blackColor,
+                              color:
+                                  isSelected
+                                      ? AppColor.orangeColor
+                                      : AppColor.blackColor,
                             ),
                             if (isSelected)
                               Text(
                                 _labels[index],
-                                style: AppTextStyles.get10BoldTextStyle(color: AppColor.orangeColor),
+                                style: AppTextStyles.get10BoldTextStyle(
+                                  color: AppColor.orangeColor,
+                                ),
                               ),
                           ],
                         ),
@@ -121,6 +152,13 @@ class AppEntryScreen extends StatelessWidget {
           );
         },
       ),
+    );
+  }
+
+  void _showBottomSheet() {
+    Get.bottomSheet(
+      BookingBottomSheet(onDonePressed: () {}),
+      isScrollControlled: true,
     );
   }
 }

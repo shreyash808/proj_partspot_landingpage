@@ -15,7 +15,7 @@ class FilterDialogWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColor.whiteColor,
       insetPadding: EdgeInsets.symmetric(
         horizontal: MediaQuery.of(context).size.width * 0.05,
         vertical: 24,
@@ -64,8 +64,8 @@ class FilterDialogWidget extends StatelessWidget {
                   height: 50,
                   padding: const EdgeInsets.symmetric(horizontal: 12),
                   decoration: BoxDecoration(
-                    color: const Color(0xffEDEDED),
-                    border: Border.all(color: const Color(0xffD1D1D1)),
+                    color: AppColor.colorEDEDED,
+                    border: Border.all(color: AppColor.colorD1D1D1),
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: DropdownButtonHideUnderline(
@@ -74,10 +74,10 @@ class FilterDialogWidget extends StatelessWidget {
                       value: controller.selectedMonth.value,
                       hint: const Text('All Months-'),
                       style: AppTextStyles.get8MediumTextStyle(
-                        color: const Color(0xff6F6F6F),
+                        color: AppColor.color6F6F6F,
                       ),
                       iconSize: 20,
-                      dropdownColor: const Color(0xffEDEDED),
+                      dropdownColor: AppColor.colorEDEDED,
                       items:
                           controller.months.map((String value) {
                             return DropdownMenuItem<String>(
@@ -89,7 +89,7 @@ class FilterDialogWidget extends StatelessWidget {
                                 child: Text(
                                   value,
                                   style: AppTextStyles.get8MediumTextStyle(
-                                    color: const Color(0xff6F6F6F),
+                                    color: AppColor.color6F6F6F,
                                   ),
                                 ),
                               ),
@@ -113,7 +113,7 @@ class FilterDialogWidget extends StatelessWidget {
                   height: 50,
                   padding: EdgeInsets.symmetric(vertical: 12),
                   textStyle: AppTextStyles.get14BoldTextStyle(
-                    color: Colors.white,
+                    color: AppColor.whiteColor,
                   ),
                   backgroundColor: AppColor.buttonOrange,
                 ),
@@ -130,9 +130,7 @@ class FilterDialogWidget extends StatelessWidget {
       padding: const EdgeInsets.only(top: 16.0, bottom: 10),
       child: Text(
         title,
-        style: AppTextStyles.get14MediumTextStyle(
-          color: const Color(0xff6F6F6F),
-        ),
+        style: AppTextStyles.get14MediumTextStyle(color: AppColor.color6F6F6F),
       ),
     );
   }
@@ -164,18 +162,22 @@ class FilterDialogWidget extends StatelessWidget {
                 decoration: BoxDecoration(
                   color:
                       isSelected
-                          ? const Color(0xffB79DFF)
-                          : const Color(0xffEDEDED),
+                          ? AppColor.selectedFilterColor
+                          : AppColor.colorEDEDED,
                   border:
                       isSelected
-                          ? Border.all(color: const Color(0xff8C63FF), width: 1)
+                          ? Border.all(
+                            color: AppColor.selectedFilterBorder,
+                            width: 1,
+                          )
                           : null,
                   borderRadius: BorderRadius.circular(4),
                 ),
                 child: Text(
                   item,
                   style: AppTextStyles.get8RegularTextStyle(
-                    color: isSelected ? Colors.white : const Color(0xff6F6F6F),
+                    color:
+                        isSelected ? AppColor.whiteColor : AppColor.color6F6F6F,
                   ),
                 ),
               ),

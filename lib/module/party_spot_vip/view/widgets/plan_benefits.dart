@@ -56,12 +56,16 @@ class PlanBenefits extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: AppTextStyles.get16BoldTextStyle(color: Colors.white),
+                  style: AppTextStyles.get16BoldTextStyle(
+                    color: AppColor.whiteColor,
+                  ),
                 ),
                 const SizedBox(height: 2),
                 Text(
                   subtitle,
-                  style: AppTextStyles.get14LightTextStyle(color: Colors.white),
+                  style: AppTextStyles.get14LightTextStyle(
+                    color: AppColor.whiteColor,
+                  ),
                 ),
               ],
             ),

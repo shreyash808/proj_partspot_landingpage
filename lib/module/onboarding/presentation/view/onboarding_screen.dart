@@ -18,7 +18,7 @@ class OnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColor.whiteColor,
       body: Stack(
         children: [
           PageView.builder(
@@ -70,7 +70,7 @@ class OnboardingScreen extends StatelessWidget {
               child: Container(
                 height: MediaQuery.of(context).size.height * 0.42,
                 width: double.infinity,
-                color: Colors.white,
+                color: AppColor.whiteColor,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 24.0,

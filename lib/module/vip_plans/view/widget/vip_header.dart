@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
+import 'package:partyspot/utils/constants/color_consts.dart';
 
 class VipHeader extends StatelessWidget {
   final String title;
@@ -18,13 +19,15 @@ class VipHeader extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () => Get.back(),
-                child: const Icon(Icons.arrow_back, color: Colors.white),
+                child: const Icon(Icons.arrow_back, color: AppColor.whiteColor),
               ),
               const Spacer(),
               Text(
                 title,
                 textAlign: TextAlign.center,
-                style: AppTextStyles.get24BoldTextStyle(color: Colors.white),
+                style: AppTextStyles.get24BoldTextStyle(
+                  color: AppColor.whiteColor,
+                ),
               ),
               const Spacer(),
             ],
@@ -33,7 +36,9 @@ class VipHeader extends StatelessWidget {
           Text(
             subtitle,
             textAlign: TextAlign.center,
-            style: AppTextStyles.get16RegularTextStyle(color: Colors.white),
+            style: AppTextStyles.get16RegularTextStyle(
+              color: AppColor.whiteColor,
+            ),
           ),
         ],
       ),

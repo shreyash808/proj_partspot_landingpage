@@ -3,6 +3,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:partyspot/module/home/presentation/view/widgets/popular_events_list.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
+import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
 
 class BookingScreen extends StatelessWidget {
@@ -13,7 +14,7 @@ class BookingScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         surfaceTintColor: Colors.transparent,
-        backgroundColor: Colors.white,
+        backgroundColor: AppColor.whiteColor,
         elevation: 0,
         leading: InkWell(
           onTap: () {
@@ -23,7 +24,9 @@ class BookingScreen extends StatelessWidget {
         ),
         title: Text(
           StringConsts.myBooking,
-          style: AppTextStyles.get24SemiBoldTextStyle(color: Colors.black),
+          style: AppTextStyles.get24SemiBoldTextStyle(
+            color: AppColor.blackColor,
+          ),
         ),
       ),
       body: SafeArea(

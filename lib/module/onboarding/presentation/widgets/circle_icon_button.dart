@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:partyspot/utils/constants/color_consts.dart';
 
 class CircularIconButton extends StatelessWidget {
   final double size;
@@ -11,9 +12,9 @@ class CircularIconButton extends StatelessWidget {
   const CircularIconButton({
     super.key,
     this.size = 65,
-    this.backgroundColor = Colors.deepOrangeAccent,
+    this.backgroundColor = AppColor.orangeColor,
     required this.icon,
-    this.iconColor = Colors.white,
+    this.iconColor = AppColor.whiteColor,
     this.iconSize = 30,
     this.onTap,
   });

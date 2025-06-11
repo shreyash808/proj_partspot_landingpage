@@ -6,17 +6,18 @@ import 'package:partyspot/module/explore/controller/explore_controller.dart';
 import 'package:partyspot/module/explore/view/widgets/explore_appbar.dart';
 import 'package:partyspot/module/explore/view/widgets/filter_event_dialog.dart';
 import 'package:partyspot/module/home/presentation/view/widgets/popular_events_list.dart';
+import 'package:partyspot/utils/constants/color_consts.dart';
 
 class ExploreScreen extends StatelessWidget {
   ExploreScreen({super.key});
-  TextEditingController textController = TextEditingController();
+  final TextEditingController textController = TextEditingController();
   final ExploreController controller = Get.put(ExploreController());
 
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        statusBarColor: Colors.white,
+        statusBarColor: AppColor.whiteColor,
         statusBarIconBrightness: Brightness.light,
       ),
     );

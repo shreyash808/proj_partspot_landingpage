@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:partyspot/module/explore/view/widgets/explore_text_field.dart';
+import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/icon_constants.dart';
 import 'package:partyspot/utils/constants/image_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
@@ -39,7 +40,9 @@ class CustomExploreAppBar extends StatelessWidget
           children: [
             Text(
               StringConsts.exploreEvnts,
-              style: AppTextStyles.get20BoldTextStyle(color: Colors.white),
+              style: AppTextStyles.get20BoldTextStyle(
+                color: AppColor.whiteColor,
+              ),
             ),
             const Spacer(),
             InkWell(
@@ -58,11 +61,11 @@ class CustomExploreAppBar extends StatelessWidget
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: AppColor.whiteColor,
                 borderRadius: BorderRadius.circular(30),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
+                    color: AppColor.blackColor.withOpacity(0.1),
                     blurRadius: 6,
                     offset: const Offset(4, 8),
                   ),

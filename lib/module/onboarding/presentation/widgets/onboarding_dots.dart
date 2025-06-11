@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:partyspot/utils/constants/color_consts.dart';
 
 class OnboardingDot extends StatelessWidget {
   final bool isActive;
@@ -13,7 +14,8 @@ class OnboardingDot extends StatelessWidget {
       width: isActive ? 18 : 8,
       height: 8,
       decoration: BoxDecoration(
-        color: isActive ? Colors.deepOrangeAccent : Colors.grey.shade300,
+        color:
+            isActive ? AppColor.disableButtonOrange : AppColor.borderGreyColor,
         borderRadius: BorderRadius.circular(20),
       ),
     );
