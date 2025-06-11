@@ -94,6 +94,7 @@ class EventInfoScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: AppButton(StringConsts.bookNow, onPressed: (){},backgroundColor: AppColor.violet),
               ),
+              const SizedBox(height: 24,),
             ],
           ),
         ),
