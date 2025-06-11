@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
+import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/icon_constants.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
 import 'package:partyspot/utils/widgets/custom_image_asset.dart';
@@ -27,7 +28,7 @@ class ExploreTextField extends StatelessWidget {
         hintStyle: AppTextStyles.get16RegularTextStyle(),
         hintText: StringConsts.search,
         filled: true,
-        fillColor: Colors.white,
+        fillColor: AppColor.whiteColor,
         contentPadding: const EdgeInsets.all(12),
         border: OutlineInputBorder(
           borderSide: BorderSide.none,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
+import 'package:partyspot/utils/constants/color_consts.dart';
 
 class CustomTextField extends StatelessWidget {
   final String hintText;
@@ -25,13 +26,15 @@ class CustomTextField extends StatelessWidget {
 
       decoration: InputDecoration(
         filled: true,
-        fillColor: Color(0xFFEDEDED),
+        fillColor: AppColor.colorEDEDED,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide.none,
         ),
         hintText: hintText,
-        hintStyle: AppTextStyles.get10MediumTextStyle(color: Color(0xffBEBEBE)),
+        hintStyle: AppTextStyles.get10MediumTextStyle(
+          color: AppColor.colorBEBEBE,
+        ),
         contentPadding: EdgeInsets.symmetric(
           horizontal: 16,
           vertical: isSmall ? 16 : 20,

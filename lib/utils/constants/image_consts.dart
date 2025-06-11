@@ -66,4 +66,9 @@ class AppImages {
   static const settingsBackground = 'assets/images/png/settings_bg.png';
 
   static const supportImage = 'assets/images/png/support_image.png';
+
+  static const planIcon = 'assets/images/png/plan_icon.png';
+  static const bookingImg = 'assets/images/png/booking_img.png';
+  static const docIcon = 'assets/images/png/doc_icon.png';
+  static const uploadIcon = 'assets/images/png/upload_icon.png';
 }

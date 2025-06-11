@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
+import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
 import 'package:partyspot/utils/widgets/buttons.dart';
 
@@ -53,7 +54,7 @@ class SubscriptionDialog extends StatelessWidget {
               description,
               textAlign: TextAlign.center,
               style: AppTextStyles.get12RegularTextStyle(
-                color: const Color(0xff7A7A7A),
+                color: AppColor.color7A7A7A,
               ),
             ),
             const SizedBox(height: 16),
@@ -107,7 +108,9 @@ class SubscriptionDialog extends StatelessWidget {
               onPressed: onConfirm,
               height: 50,
               padding: const EdgeInsets.symmetric(vertical: 12),
-              textStyle: AppTextStyles.get14BoldTextStyle(color: Colors.white),
+              textStyle: AppTextStyles.get14BoldTextStyle(
+                color: AppColor.whiteColor,
+              ),
               backgroundColor: themeColor,
             ),
             Padding(

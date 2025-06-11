@@ -232,6 +232,7 @@ class StringConsts {
 
   static const male = "Male";
   static const female = "Female";
+  static const yrProfile = "Your Profile";
 
   //// My Bookings
 
@@ -246,4 +247,10 @@ class StringConsts {
 
   static const docsFromUs = "Docs, Quotations,Bills from us";
   static const reqCallBack = "Request a call back";
+  static const weddingPlaning = "WeddingPlaning";
+
+  ///
+
+  static const myWedPlan = "MY WEDDING PLAN";
+  static const seeMore = "See More";
 }

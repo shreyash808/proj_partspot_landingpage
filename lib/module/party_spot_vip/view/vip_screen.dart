@@ -36,39 +36,41 @@ class VipScreen extends StatelessWidget {
           ),
 
           SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        StringConsts.joinVip,
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          StringConsts.joinVip,
+                          textAlign: TextAlign.center,
+                          style: AppTextStyles.get24BoldTextStyle(
+                            color: AppColor.whiteColor,
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 14.0),
+                      child: Text(
+                        StringConsts.vipSubscribe,
                         textAlign: TextAlign.center,
-                        style: AppTextStyles.get24BoldTextStyle(
-                          color: Colors.white,
+                        style: AppTextStyles.get16RegularTextStyle(
+                          color: AppColor.whiteColor,
                         ),
                       ),
-                    ],
-                  ),
-
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 14.0),
-                    child: Text(
-                      StringConsts.vipSubscribe,
-                      textAlign: TextAlign.center,
-                      style: AppTextStyles.get16RegularTextStyle(
-                        color: Colors.white,
-                      ),
                     ),
-                  ),
 
-                  VipPlansRow(),
+                    VipPlansRow(),
 
-                  PlanBenefits(),
-                ],
+                    PlanBenefits(),
+                  ],
+                ),
               ),
             ),
           ),

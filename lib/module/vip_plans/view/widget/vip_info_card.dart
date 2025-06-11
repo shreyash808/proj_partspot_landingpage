@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
+import 'package:partyspot/utils/constants/color_consts.dart';
 
 class InfoCard extends StatelessWidget {
   final Color backgroundColor;
@@ -32,12 +33,16 @@ class InfoCard extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: Text(
                   title,
-                  style: AppTextStyles.get20BoldTextStyle(color: Colors.white),
+                  style: AppTextStyles.get20BoldTextStyle(
+                    color: AppColor.whiteColor,
+                  ),
                 ),
               ),
               Text(
                 description,
-                style: AppTextStyles.get14RegularTextStyle(color: Colors.white),
+                style: AppTextStyles.get14RegularTextStyle(
+                  color: AppColor.whiteColor,
+                ),
               ),
             ],
           ),

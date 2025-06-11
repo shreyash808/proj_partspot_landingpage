@@ -33,7 +33,7 @@ class _SlideToUnlockButtonState extends State<SlideToUnlockButton>
       width: trackWidth,
       height: 70,
       decoration: BoxDecoration(
-        color: Colors.grey.shade300,
+        color: AppColor.borderGreyColor,
         borderRadius: BorderRadius.circular(40),
       ),
       child: Stack(
@@ -103,7 +103,10 @@ class _SlideToUnlockButtonState extends State<SlideToUnlockButton>
                   color: Colors.deepOrangeAccent,
                   shape: BoxShape.circle,
                 ),
-                child: const Icon(Icons.arrow_forward, color: Colors.white),
+                child: const Icon(
+                  Icons.arrow_forward,
+                  color: AppColor.whiteColor,
+                ),
               ),
             ),
           ),

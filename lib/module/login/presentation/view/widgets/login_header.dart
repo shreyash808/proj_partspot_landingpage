@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
+import 'package:partyspot/utils/constants/color_consts.dart';
 
 import 'package:partyspot/utils/widgets/custom_image_asset.dart';
 
@@ -18,7 +19,9 @@ class LoginOtpImageHeader extends StatelessWidget {
           const SizedBox(height: 10),
           Text(
             text,
-            style: AppTextStyles.get24SemiBoldTextStyle(color: Colors.black),
+            style: AppTextStyles.get24SemiBoldTextStyle(
+              color: AppColor.blackColor,
+            ),
           ),
         ],
       ),

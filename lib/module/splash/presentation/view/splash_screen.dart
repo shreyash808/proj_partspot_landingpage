@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:partyspot/routes/routes_const.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
+import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/image_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
 
@@ -52,7 +53,7 @@ class SplashScreen extends StatelessWidget {
                       StringConsts.splashTxt,
                       textAlign: TextAlign.center,
                       style: AppTextStyles.get20SemiBoldTextStyle(
-                        color: Colors.white,
+                        color: AppColor.whiteColor,
                       ),
                     ),
                   ],

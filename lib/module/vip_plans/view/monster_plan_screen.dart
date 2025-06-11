@@ -6,11 +6,9 @@ import 'package:partyspot/module/vip_plans/view/widget/vip_header.dart';
 import 'package:partyspot/module/vip_plans/view/widget/vip_info_card.dart';
 import 'package:partyspot/utils/alert_dialogs/image_popup.dart';
 import 'package:partyspot/utils/alert_dialogs/subscription_dialog.dart';
-import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/image_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
-import 'package:partyspot/utils/widgets/buttons.dart';
 
 class monsterPlanScreen extends StatelessWidget {
   const monsterPlanScreen({super.key});

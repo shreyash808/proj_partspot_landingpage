@@ -1,29 +1,19 @@
-
 import 'package:flutter/material.dart';
 import 'package:partyspot/utils/constants/app_size.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/widgets/custom_svg_picture.dart';
 import 'package:partyspot/utils/widgets/text_view.dart';
 
-
 PopUpMenuDividerWidget get popUpDivider => const PopUpMenuDividerWidget(
-    child: Divider(
-      height: 0,
-      endIndent: 10,
-      indent: 10,
-    ),
-  );
+  child: Divider(height: 0, endIndent: 10, indent: 10),
+);
 
 class PopUpMenuDividerWidget extends PopupMenuItem<Widget> {
-  const PopUpMenuDividerWidget({
-    super.key,
-    required super.child,
-  });
+  const PopUpMenuDividerWidget({super.key, required super.child});
 
   @override
   double get height => 0;
 }
-
 
 class AppPopUpMenu extends StatelessWidget {
   final List<PopupMenuItem<Widget>> items;
@@ -48,7 +38,7 @@ class AppPopUpMenu extends StatelessWidget {
     this.color,
     this.onOpened,
     this.onClosed,
-    this.onSelected
+    this.onSelected,
   });
 
   @override
@@ -56,13 +46,12 @@ class AppPopUpMenu extends StatelessWidget {
     return PopupMenuButton<Widget>(
       onOpened: onOpened,
       onCanceled: onClosed,
-      surfaceTintColor: surfaceTintColor ?? Colors.white,
-      color: color ?? Colors.white,
+      surfaceTintColor: surfaceTintColor ?? AppColor.whiteColor,
+      color: color ?? AppColor.whiteColor,
       onSelected: onSelected,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18),
-      ),
-      icon: icon ??
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+      icon:
+          icon ??
           Icon(
             Icons.more_horiz,
             size: iconSize ?? 32,
@@ -90,9 +79,9 @@ class PopUpMenuItemText extends PopupMenuItem<Widget> {
     this.textColor,
     this.iconColor,
   }) : super(
-    padding: const EdgeInsets.symmetric(horizontal: 20),
-    child: null, // The child will be set dynamically
-  );
+         padding: const EdgeInsets.symmetric(horizontal: 20),
+         child: null, // The child will be set dynamically
+       );
 
   @override
   PopupMenuItemState<Widget, PopupMenuItem<Widget>> createState() {
@@ -100,7 +89,8 @@ class PopUpMenuItemText extends PopupMenuItem<Widget> {
   }
 }
 
-class _CustomPopupMenuItemState extends PopupMenuItemState<Widget, PopUpMenuItemText> {
+class _CustomPopupMenuItemState
+    extends PopupMenuItemState<Widget, PopUpMenuItemText> {
   @override
   Widget buildChild() {
     return Row(
@@ -109,7 +99,7 @@ class _CustomPopupMenuItemState extends PopupMenuItemState<Widget, PopUpMenuItem
         TextView(
           widget.text,
           style: TextStyle(
-            color: widget.textColor ?? Colors.black,
+            color: widget.textColor ?? AppColor.blackColor,
             fontSize: 16,
             fontWeight: FontWeight.w400,
           ),

@@ -16,7 +16,7 @@ class SocialLoginSection extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 20.0),
-          child: Divider(color: Color(0xFFD9D9D9)),
+          child: Divider(color: AppColor.colorD9D9D9),
         ),
 
         SocialLoginButton(
@@ -48,7 +48,7 @@ class SocialLoginSection extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 16,horizontal: 12),
         decoration: BoxDecoration(
-          border: Border.all(color: const Color(0xFFD9D9D9), width: 3),
+          border: Border.all(color: AppColor.colorD9D9D9, width: 3),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Row(
@@ -61,7 +61,7 @@ class SocialLoginSection extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
-                    color: Color(0xff727272),
+                    color: AppColor.color727272,
                   ),
                 ),
               ),

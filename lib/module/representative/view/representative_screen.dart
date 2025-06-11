@@ -35,7 +35,7 @@ class RepresentativeScreen extends StatelessWidget {
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.9,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: AppColor.whiteColor,
                     borderRadius: BorderRadius.circular(20),
                   ),
                   padding: const EdgeInsets.only(
@@ -111,7 +111,7 @@ class RepresentativeScreen extends StatelessWidget {
                           height: 50,
                           padding: const EdgeInsets.symmetric(vertical: 12),
                           textStyle: AppTextStyles.get14BoldTextStyle(
-                            color: Colors.white,
+                            color: AppColor.whiteColor,
                           ),
                           backgroundColor: AppColor.buttonOrange,
                         ),
@@ -123,7 +123,7 @@ class RepresentativeScreen extends StatelessWidget {
                         height: 50,
                         padding: const EdgeInsets.symmetric(vertical: 12),
                         textStyle: AppTextStyles.get14BoldTextStyle(
-                          color: Colors.white,
+                          color: AppColor.whiteColor,
                         ),
                         backgroundColor: AppColor.buttonOrange,
                       ),

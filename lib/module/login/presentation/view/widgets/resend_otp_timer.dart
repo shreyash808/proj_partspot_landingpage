@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
+import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
 
 class ResendOtpTimerWidget extends StatelessWidget {
-  final ValueNotifier<int> timerNotifier;
   final VoidCallback onResendTap;
+  final int Function() timeBuilder;
 
   const ResendOtpTimerWidget({
     super.key,
-    required this.timerNotifier,
     required this.onResendTap,
+    required this.timeBuilder,
   });
 
   @override
@@ -19,37 +21,35 @@ class ResendOtpTimerWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          ValueListenableBuilder<int>(
-            valueListenable: timerNotifier,
-            builder: (context, timeLeft, _) {
-              return timeLeft > 0
-                  ? RichText(
-                    text: TextSpan(
-                      style: AppTextStyles.get10MediumTextStyle(
-                        color: const Color(0xffBEBEBE),
-                      ),
-                      children: [
-                        const TextSpan(text: StringConsts.resendOtpIn),
-                        TextSpan(
-                          text: "$timeLeft secs",
-                          style: AppTextStyles.get10MediumTextStyle(
-                            color: const Color(0xff05A65B),
-                          ),
+          Obx(() {
+            final timeLeft = timeBuilder();
+            return timeLeft > 0
+                ? RichText(
+                  text: TextSpan(
+                    style: AppTextStyles.get10MediumTextStyle(
+                      color: AppColor.colorBEBEBE,
+                    ),
+                    children: [
+                      const TextSpan(text: StringConsts.resendOtpIn),
+                      TextSpan(
+                        text: "$timeLeft secs",
+                        style: AppTextStyles.get10MediumTextStyle(
+                          color: AppColor.timerGreen,
                         ),
-                      ],
-                    ),
-                  )
-                  : GestureDetector(
-                    onTap: onResendTap,
-                    child: Text(
-                      StringConsts.resendOtp,
-                      style: AppTextStyles.get10MediumTextStyle(
-                        color: const Color(0xff05A65B),
                       ),
+                    ],
+                  ),
+                )
+                : GestureDetector(
+                  onTap: onResendTap,
+                  child: Text(
+                    StringConsts.resendOtp,
+                    style: AppTextStyles.get10MediumTextStyle(
+                      color: AppColor.timerGreen,
                     ),
-                  );
-            },
-          ),
+                  ),
+                );
+          }),
         ],
       ),
     );

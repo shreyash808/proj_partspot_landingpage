@@ -1,4 +1,3 @@
-
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -28,14 +27,15 @@ class CustomNetworkImage extends StatefulWidget {
     this.boxFit,
     this.imageWidgetBuilder,
     this.placeholderWidgetBuilder,
-    this.constraints
+    this.constraints,
   });
 
   @override
   State<CustomNetworkImage> createState() => _CustomNetworkImageState();
 }
 
-class _CustomNetworkImageState extends State<CustomNetworkImage>  with SingleTickerProviderStateMixin {
+class _CustomNetworkImageState extends State<CustomNetworkImage>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _fadeInAnimation;
 
@@ -60,7 +60,9 @@ class _CustomNetworkImageState extends State<CustomNetworkImage>  with SingleTic
 
   @override
   Widget build(BuildContext context) {
-    if (widget.imageUrl == null || widget.imageUrl!.isEmpty || Utility.isVideo(widget.imageUrl!)) {
+    if (widget.imageUrl == null ||
+        widget.imageUrl!.isEmpty ||
+        Utility.isVideo(widget.imageUrl!)) {
       return ClipRRect(
         borderRadius: widget.borderRadius ?? BorderRadius.zero,
         child: Container(
@@ -69,10 +71,7 @@ class _CustomNetworkImageState extends State<CustomNetworkImage>  with SingleTic
           constraints: widget.constraints,
           decoration: const BoxDecoration(color: AppColor.silverColor),
           padding: const EdgeInsets.all(16),
-          child: Image.asset(
-            AppImages.placeholderImage,
-            fit: widget.boxFit,
-          ),
+          child: Image.asset(AppImages.placeholderImage, fit: widget.boxFit),
         ),
       );
     }
@@ -86,25 +85,27 @@ class _CustomNetworkImageState extends State<CustomNetworkImage>  with SingleTic
           width: widget.width,
           fit: widget.boxFit,
           imageBuilder: widget.imageWidgetBuilder,
-          placeholder: widget.placeholderWidgetBuilder ??
+          placeholder:
+              widget.placeholderWidgetBuilder ??
               (context, url) => Shimmer.fromColors(
-                    baseColor: Colors.grey[300]!,
-                    highlightColor: Colors.grey[100]!,
-                    child: Container(
-                      width: widget.width,
-                      height: widget.height,
-                      color: Colors.white,
-                    ),
-                  ),
-          errorWidget: (context, url, error) => ClipRRect(
-            borderRadius: widget.borderRadius ?? BorderRadius.zero,
-            child: Image.asset(
-              AppImages.placeholderImage,
-              width: widget.width,
-              height: widget.height,
-              fit: widget.boxFit,
-            ),
-          ),
+                baseColor: Colors.grey[300]!,
+                highlightColor: Colors.grey[100]!,
+                child: Container(
+                  width: widget.width,
+                  height: widget.height,
+                  color: AppColor.whiteColor,
+                ),
+              ),
+          errorWidget:
+              (context, url, error) => ClipRRect(
+                borderRadius: widget.borderRadius ?? BorderRadius.zero,
+                child: Image.asset(
+                  AppImages.placeholderImage,
+                  width: widget.width,
+                  height: widget.height,
+                  fit: widget.boxFit,
+                ),
+              ),
         ),
       ),
     );
@@ -129,16 +130,15 @@ class CustomFileImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (filePath == null || filePath!.isEmpty || !File(filePath!).existsSync()) {
+    if (filePath == null ||
+        filePath!.isEmpty ||
+        !File(filePath!).existsSync()) {
       return Container(
         width: width,
         height: height,
         decoration: const BoxDecoration(color: AppColor.silverColor),
         padding: const EdgeInsets.all(16),
-        child: Image.asset(
-          AppImages.placeholderImage,
-          fit: boxFit,
-        ),
+        child: Image.asset(AppImages.placeholderImage, fit: boxFit),
       );
     }
     return ClipRRect(
@@ -148,12 +148,13 @@ class CustomFileImage extends StatelessWidget {
         height: height,
         width: width,
         fit: boxFit,
-        errorBuilder: (context, error, stackTrace) => Image.asset(
-          AppImages.placeholderImage,
-          width: width,
-          height: height,
-          fit: boxFit,
-        ),
+        errorBuilder:
+            (context, error, stackTrace) => Image.asset(
+              AppImages.placeholderImage,
+              width: width,
+              height: height,
+              fit: boxFit,
+            ),
       ),
     );
   }

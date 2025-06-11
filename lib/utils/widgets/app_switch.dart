@@ -12,7 +12,13 @@ class AppSwitch extends StatelessWidget {
   final Function(bool val)? onChanged;
   final String? iconPath;
 
-  const AppSwitch({super.key,this.text,this.switchValue,this.onChanged,this.iconPath});
+  const AppSwitch({
+    super.key,
+    this.text,
+    this.switchValue,
+    this.onChanged,
+    this.iconPath,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,16 +26,19 @@ class AppSwitch extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 12.spH),
       child: Row(
         children: [
-          if(iconPath != null)
+          if (iconPath != null)
             Padding(
-              padding:  EdgeInsets.only(right: 15.spW),
+              padding: EdgeInsets.only(right: 15.spW),
               child: Container(
                 height: 20.spW,
                 width: 20.spW,
                 margin: EdgeInsets.symmetric(horizontal: 5.spW),
                 child: SvgPicture.asset(
                   iconPath ?? '',
-                  colorFilter: const ColorFilter.mode(AppColor.primaryColor, BlendMode.srcIn),
+                  colorFilter: const ColorFilter.mode(
+                    AppColor.primaryColor,
+                    BlendMode.srcIn,
+                  ),
                 ),
               ),
             ),
@@ -39,7 +48,9 @@ class AppSwitch extends StatelessWidget {
               children: [
                 TextView(
                   text ?? '',
-                  style: AppTextStyles.get16RegularTextStyle(color: Colors.black),
+                  style: AppTextStyles.get16RegularTextStyle(
+                    color: AppColor.blackColor,
+                  ),
                 ),
                 CupertinoSwitch(
                   value: switchValue ?? false,

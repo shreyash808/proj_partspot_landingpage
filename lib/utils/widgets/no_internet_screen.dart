@@ -37,30 +37,37 @@ class NoInternetScreen extends StatelessWidget {
           AppSizes.heightBox(boxHeight: 20),
           TextView(
             "No Internet Connection",
-            style: AppTextStyles.get22BoldTextStyle(color: titleColor ?? AppColor.silverColor),
+            style: AppTextStyles.get22BoldTextStyle(
+              color: titleColor ?? AppColor.silverColor,
+            ),
             textAlign: TextAlign.center,
           ),
           AppSizes.heightBox(boxHeight: 5),
           TextView(
             "Please check your connection and try again.",
-            style: AppTextStyles.get16RegularTextStyle(color: subTitleColor ?? Colors.grey),
+            style: AppTextStyles.get16RegularTextStyle(
+              color: subTitleColor ?? AppColor.greyColor,
+            ),
             textAlign: TextAlign.center,
           ),
           AppSizes.heightBox(boxHeight: 30),
-          if(onRetry != null)
-          ElevatedButton.icon(
-            onPressed: onRetry,
-            icon: const Icon(Icons.refresh, size: 22),
-            label: Text("Retry", style: AppTextStyles.get16MediumTextStyle()),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppColor.primaryColor,
-              foregroundColor: Colors.white,
-              padding: EdgeInsets.symmetric(horizontal: 30.spW, vertical: 12.spH),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
+          if (onRetry != null)
+            ElevatedButton.icon(
+              onPressed: onRetry,
+              icon: const Icon(Icons.refresh, size: 22),
+              label: Text("Retry", style: AppTextStyles.get16MediumTextStyle()),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColor.primaryColor,
+                foregroundColor: AppColor.whiteColor,
+                padding: EdgeInsets.symmetric(
+                  horizontal: 30.spW,
+                  vertical: 12.spH,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
               ),
             ),
-          ),
         ],
       ),
     );
