@@ -85,7 +85,7 @@ class OtpScreen extends StatelessWidget {
                             margin: const EdgeInsets.symmetric(vertical: 8),
                             onPressed: () {
                               controller.onVerifyOtp(phoneNumber,onSuccess: (){
-                                Get.offNamed(Routes.appEntryScreen);
+                                Get.offNamed(Routes.userDetailScreen);
                               });
                             },
                           );

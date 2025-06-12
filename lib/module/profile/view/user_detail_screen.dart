@@ -1,6 +1,7 @@
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:partyspot/routes/routes_const.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/classes/value_controller.dart';
 import 'package:partyspot/utils/constants/app_size.dart';
@@ -143,7 +144,9 @@ class UserDetailScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 16),
-                AppButton(StringConsts.submit, onPressed: (){})
+                AppButton(StringConsts.submit, onPressed: (){
+                  Get.toNamed(Routes.appEntryScreen);
+                })
               ],
             ),
           )
