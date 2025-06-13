@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
     final lightTheme = LightTheme();
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: Routes.appEntryScreen,
+      initialRoute: Routes.splashScreen,
 
       getPages: AppRoutes.getRoutes(),
       title: 'Party Spot',

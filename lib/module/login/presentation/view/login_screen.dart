@@ -75,8 +75,7 @@ class LoginScreen extends StatelessWidget {
                         StringConsts.next,
                         backgroundColor: AppColor.buttonOrange,
                         margin: const EdgeInsets.symmetric(vertical: 8),
-                        onPressed: () {
-                          loginController.onPhoneLogin('$selectedCountryCode${numberController.text}',onSuccess: (){
+                        onPressed: () {loginController.onPhoneLogin(selectedCountryCode,int.tryParse(numberController.text) ?? 0,onSuccess: (){
                             Get.offNamed(Routes.otpScreen,arguments: {RoutesArgument.phoneNumber: '$selectedCountryCode${numberController.text}'});
                           });
                         },

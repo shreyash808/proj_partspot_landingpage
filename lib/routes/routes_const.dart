@@ -36,4 +36,5 @@ class Routes {
 class RoutesArgument {
   static const title = 'title';
   static const phoneNumber = 'phoneNumber';
+  static const code = 'code';
 }

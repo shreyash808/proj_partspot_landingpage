@@ -71,8 +71,9 @@ class AppRoutes {
         name: Routes.otpScreen,
         transition: Transition.circularReveal,
         page: (){
-          final String? phoneNumber = Get.arguments?[RoutesArgument.phoneNumber] ?? '';
-          return OtpScreen(phoneNumber: phoneNumber);
+          final int? phoneNumber = Get.arguments?[RoutesArgument.phoneNumber] ?? 0;
+          final String? code = Get.arguments?[RoutesArgument.code] ?? '';
+          return OtpScreen(phoneNumber: phoneNumber,code: code);
         },
         binding: OtpBinding(),
       ),

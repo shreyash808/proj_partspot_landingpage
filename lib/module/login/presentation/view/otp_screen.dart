@@ -11,8 +11,9 @@ import 'package:partyspot/utils/constants/string_consts.dart';
 import 'package:partyspot/utils/widgets/buttons.dart';
 
 class OtpScreen extends StatelessWidget {
-  final String? phoneNumber;
-  OtpScreen({super.key,required this.phoneNumber});
+  final int? phoneNumber;
+  final String? code;
+  OtpScreen({super.key,required this.phoneNumber,required this.code});
 
 
   final OtpController controller = Get.find<OtpController>();
@@ -84,7 +85,7 @@ class OtpScreen extends StatelessWidget {
                             backgroundColor: AppColor.buttonOrange,
                             margin: const EdgeInsets.symmetric(vertical: 8),
                             onPressed: () {
-                              controller.onVerifyOtp(phoneNumber,onSuccess: (){
+                              controller.onVerifyOtp(code,phoneNumber,onSuccess: (){
                                 Get.offNamed(Routes.userDetailScreen);
                               });
                             },

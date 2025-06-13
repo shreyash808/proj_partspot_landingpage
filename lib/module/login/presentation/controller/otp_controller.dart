@@ -63,7 +63,7 @@ class OtpController extends BaseController {
     });
   }
 
-  Future<void> onVerifyOtp(String? phoneNumber,{void Function()? onSuccess}) async {
+  Future<void> onVerifyOtp(String? code,int? phoneNumber,{void Function()? onSuccess}) async {
     try {
       FullScreenLoading.show();
       final pushToken = await getPushToken();

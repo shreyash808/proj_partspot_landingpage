@@ -18,17 +18,18 @@ class AuthRepositoryImpl extends PartySportApiService implements AuthRepository 
   }
 
   @override
-  Future<PhoneLoginResponse?> phoneLogin({String? phoneNumber}) async {
+  Future<PhoneLoginResponse?> phoneLogin({String? code,int? phoneNumber}) async {
     final response = await postRequest(ApiUrl.loginPhone, data: {
-      'phone_number': phoneNumber,
+      'code': code,
+      'phone': phoneNumber,
     });
     return PhoneLoginResponse.fromJson(response.data);
   }
 
   @override
-  Future<LoginResponse?> verifyOTP({String? phoneNumber,String? otp,String? pushToken}) async {
+  Future<LoginResponse?> verifyOTP({required int? phoneNumber,required String? otp,String? pushToken}) async {
     final response = await postRequest(ApiUrl.verifyOtp, data: {
-      'phone_number': phoneNumber,
+      'phone': phoneNumber,
       'otp': otp,
       if(pushToken?.isNotEmpty ?? false) 'device_token': pushToken,
     });

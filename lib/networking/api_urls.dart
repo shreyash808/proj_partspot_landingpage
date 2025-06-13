@@ -2,7 +2,7 @@ class ApiUrl {
   static String baseUrl = '';
   static String socketUrl = '';
 
-  static const devUrl = 'http://192.168.1.66:8000/api';
+  static const devUrl = 'http://192.168.1.8:3000';
   static const stagingUrl = 'https://stg-partyspotoxygen.approd.ca/api/v1/';
   static const prodUrl = 'https://devop-partyspot.approd.ca/api/v1/';
 
@@ -11,6 +11,6 @@ class ApiUrl {
   static const socketProdUrl = 'https://devop-partyspot.approd.ca/';
 
   static const socialLogin = '/auth/social-login';
-  static const loginPhone = '/auth/login-phone';
-  static const verifyOtp = '/auth/verify-otp';
+  static const loginPhone = '/users/register';
+  static const verifyOtp = '/users/verify-otp';
 }
