@@ -6,6 +6,7 @@ class AppDropDown<T> extends StatelessWidget {
   final T? value;
   final ValueChanged<T?> onChanged;
   final String? hint;
+  final String? Function(T?)? validator;
 
   const AppDropDown({
     super.key,
@@ -13,6 +14,7 @@ class AppDropDown<T> extends StatelessWidget {
     required this.value,
     required this.onChanged,
     this.hint,
+    this.validator
   });
 
   @override
@@ -38,6 +40,7 @@ class AppDropDown<T> extends StatelessWidget {
           ),
         ),
       ),
+      validator: validator,
       icon: Icon(Icons.keyboard_arrow_down_rounded),
       dropdownColor: AppColor.fieldBgColor,
     );

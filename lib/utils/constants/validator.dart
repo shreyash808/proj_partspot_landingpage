@@ -61,6 +61,13 @@ class Validator{
     return null; // Valid input
   }
 
+  static String? validateEmpty(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'This field cannot be empty';
+    }
+    return null; // Valid input
+  }
+
   static String? validatePhoneNumber(String? value) {
     if (value == null || value.isEmpty) {
       return 'Please enter a valid phone number.';

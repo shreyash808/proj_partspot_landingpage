@@ -13,4 +13,5 @@ class ApiUrl {
   static const loginPhone = '/users/register-login';
   static const verifyOtp = '/users/verify-otp';
   static const resendOtp = '/users/resend-otp';
+  static const profile = '/users/profile';
 }

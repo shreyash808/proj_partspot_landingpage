@@ -1,18 +1,17 @@
 import 'dart:async';
 import 'dart:developer';
 import 'package:dio/dio.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:partyspot/networking/dio_injector.dart';
 import 'package:partyspot/networking/model/error_response_model.dart';
-import 'package:partyspot/utils/constants/key_constants.dart';
 import 'package:partyspot/utils/constants/service_const.dart';
+import 'package:partyspot/utils/services/storage_service.dart';
 
 class PartySportApiService {
   final apiClient = locator<DioInjector>();
 
-  Map<String, dynamic> getHeaders({String? token}) {
-    String accessToken =
-        token ?? (GetStorage().read(KeysConsts.accessTokenKey) ?? '');
+  Future<Map<String, dynamic>> getHeaders() async {
+    final storageService = locator<StorageService>();
+    final accessToken = await storageService.accessToken;
     log('Access Token :: $accessToken');
     return {
       'Authorization': 'Bearer $accessToken',
@@ -25,11 +24,12 @@ class PartySportApiService {
     Map<String, dynamic>? body,
   }) async {
     try {
+      final headers = await getHeaders();
       final response = await apiClient.dio.get(
         endpoint,
         queryParameters: queryParams,
         data: body,
-        options: Options(headers: getHeaders()),
+        options: Options(headers: headers),
       );
       return response;
     } on DioException catch (dioError) {
@@ -64,11 +64,12 @@ class PartySportApiService {
   }) async {
     try {
       final client = apiClient.dio;
+      final headers = await getHeaders();
       final response = await client.post(
         endpoint,
         data: data,
         cancelToken: cancelToken,
-        options: Options(headers: getHeaders(token: accessToken)),
+        options: Options(headers: headers),
         onSendProgress: onSendProgress,
       );
       return response;
@@ -91,13 +92,14 @@ class PartySportApiService {
   }) async {
     try {
       FormData formData = FormData.fromMap(formBody);
+      final headers = await getHeaders();
       final client = apiClient.dio;
       final response = await client.post(
         endpoint,
         data: formData,
         onSendProgress: onSendProgress,
         cancelToken: cancelToken,
-        options: Options(headers: getHeaders(token: accessToken)),
+        options: Options(headers: headers),
       );
       return response;
     } on DioException catch (dioError) {
@@ -114,10 +116,11 @@ class PartySportApiService {
     Map<String, dynamic>? data,
   }) async {
     try {
+      final headers = await getHeaders();
       final response = await apiClient.dio.put(
         endpoint,
         data: data,
-        options: Options(headers: getHeaders()),
+        options: Options(headers: headers),
       );
       return response;
     } on DioException catch (dioError) {
@@ -134,10 +137,11 @@ class PartySportApiService {
     Map<String, dynamic>? data,
   }) async {
     try {
+      final headers = await getHeaders();
       final response = await apiClient.dio.delete(
         endpoint,
         data: data,
-        options: Options(headers: getHeaders()),
+        options: Options(headers: headers),
       );
       return response;
     } on DioException catch (dioError) {

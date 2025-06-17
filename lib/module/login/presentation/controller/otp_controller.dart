@@ -7,10 +7,15 @@ import 'package:partyspot/networking/model/error_response_model.dart';
 import 'package:partyspot/utils/classes/base_controller.dart';
 import 'package:partyspot/utils/constants/service_const.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
+import 'package:partyspot/utils/services/storage_service.dart';
 import 'package:partyspot/utils/widgets/loader.dart';
 import 'package:partyspot/utils/widgets/snackbars.dart';
 
 class OtpController extends BaseController {
+
+  final AuthRepository _loginRepository = locator<AuthRepository>();
+  final StorageService _storageService = locator<StorageService>();
+
   final RxInt timer = 20.obs;
   Timer? _timer;
 
@@ -53,7 +58,6 @@ class OtpController extends BaseController {
 
   }
 
-  final AuthRepository _loginRepository = locator<AuthRepository>();
 
 
   final Rx<String> _otpCode = Rx<String>('');
@@ -64,7 +68,8 @@ class OtpController extends BaseController {
     try {
       FullScreenLoading.show();
       final pushToken = await getPushToken();
-      await _loginRepository.verifyOTP(code: code,phoneNumber: phoneNumber,otp: otpCode,pushToken: pushToken);
+      final res = await _loginRepository.verifyOTP(code: code,phoneNumber: phoneNumber,otp: otpCode,pushToken: pushToken);
+      _storageService.setAccessToken(res?.data?.accessToken);
       onSuccess?.call();
     } on ErrorResponse catch (e) {
       setErrorMessage(e.message);
