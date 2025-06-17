@@ -5,4 +5,5 @@ abstract class AuthRepository {
   Future<LoginResponse?> socialLogin({required String? provider,required String? idToken,String? pushToken});
   Future<PhoneLoginResponse?> phoneLogin({required String? code,required int? phoneNumber});
   Future<LoginResponse?> verifyOTP({required String? code,required int? phoneNumber,required String? otp,String? pushToken});
+  Future<PhoneLoginResponse?> resendOtp({required String? code,required int? phoneNumber});
 }

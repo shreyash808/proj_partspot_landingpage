@@ -54,6 +54,16 @@ class BaseController extends GetxController {
     _errorMessage.value = message ?? '';
   }
 
+  final Rx<String> _successMessage = ''.obs;
+
+  String get successMessage => _successMessage.value;
+  Rx<String> get successMessageRX => _successMessage;
+
+  void setSuccessMessage(String? message,{dynamic error}) {
+    log(error.toString());
+    _successMessage.value = message ?? '';
+  }
+
   final Rx<ApiState> _state = ApiState.initial.obs;
 
   ApiState get state => _state.value;

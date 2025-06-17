@@ -72,7 +72,11 @@ class OtpScreen extends StatelessWidget {
                       ),
 
                       ResendOtpTimerWidget(
-                        onResendTap: controller.startTimer,
+                        onResendTap: (){
+                          controller.onResendOtp(code,phoneNumber,onSuccess: (val){
+                            // showSnackBar(text: val);
+                          });
+                        },
                         timeBuilder: () => controller.timer.value,
                       ),
 

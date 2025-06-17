@@ -17,12 +17,30 @@ class OtpController extends BaseController {
   @override
   void onInit() {
     super.onInit();
+    ever<String>(errorMessageRx, (String msg) {
+      Future.microtask((){
+        if (msg.isNotEmpty) {
+          showSnackBar(text: errorMessage, isError: true);
+          setErrorMessage('');
+        }
+      });
+    });
+
+    ever<String>(successMessageRX, (String msg) {
+      Future.microtask((){
+        if (msg.isNotEmpty) {
+          showSnackBar(text: successMessage);
+          setErrorMessage('');
+        }
+      });
+    });
+
     startTimer();
   }
 
   Timer? _debounce;
 
-  void startTimer() {
+  void startTimer() async{
     _timer?.cancel();
     timer.value = 20;
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
@@ -32,14 +50,7 @@ class OtpController extends BaseController {
         this.timer.value--;
       }
     });
-    ever<String>(errorMessageRx, (String msg) {
-      Future.microtask((){
-        if (msg.isNotEmpty) {
-          showSnackBar(text: errorMessage, isError: true);
-          setErrorMessage('');
-        }
-      });
-    });
+
   }
 
   final AuthRepository _loginRepository = locator<AuthRepository>();
@@ -68,6 +79,21 @@ class OtpController extends BaseController {
       await FirebaseMessaging.instance.deleteToken();
     } catch (_) {}
     return FirebaseMessaging.instance.getToken();
+  }
+
+  Future<void> onResendOtp(String? code, int? phone,{void Function(String? msg)? onSuccess}) async {
+    try {
+      FullScreenLoading.show();
+      final res = await _loginRepository.resendOtp(code: code,phoneNumber: phone);
+      onSuccess?.call(res?.message);
+      setSuccessMessage(res?.message);
+      startTimer();
+    } on ErrorResponse catch (e) {
+      setErrorMessage(e.message);
+    } catch (e) {
+      setErrorMessage(StringConsts.unExpectedError,error: e);
+    }
+    FullScreenLoading.hide();
   }
 
 

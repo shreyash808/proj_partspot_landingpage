@@ -12,4 +12,5 @@ class ApiUrl {
   static const socialLogin = '/auth/social-login';
   static const loginPhone = '/users/register-login';
   static const verifyOtp = '/users/verify-otp';
+  static const resendOtp = '/users/resend-otp';
 }

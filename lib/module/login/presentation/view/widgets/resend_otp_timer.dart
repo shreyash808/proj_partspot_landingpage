@@ -32,7 +32,7 @@ class ResendOtpTimerWidget extends StatelessWidget {
                     children: [
                       const TextSpan(text: StringConsts.resendOtpIn),
                       TextSpan(
-                        text: "$timeLeft secs",
+                        text: " $timeLeft secs",
                         style: AppTextStyles.get10MediumTextStyle(
                           color: AppColor.timerGreen,
                         ),
