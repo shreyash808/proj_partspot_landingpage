@@ -9,7 +9,7 @@ class ErrorResponse {
   String? message;
   bool? status;
   DateTime? time;
-  Error? error;
+  String? error;
 
   ErrorResponse({
     this.statusCode,
@@ -24,7 +24,7 @@ class ErrorResponse {
     message: json["message"],
     status: json["status"],
     time: json["time"] == null ? null : DateTime.parse(json["time"]),
-    error: json["error"] == null ? null : Error.fromJson(json["error"]),
+    error: json["error"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -32,34 +32,7 @@ class ErrorResponse {
     "message": message,
     "status": status,
     "time": time?.toIso8601String(),
-    "error": error?.toJson(),
+    "error": error,
   };
 }
 
-class Error {
-  int? status;
-  String? name;
-  String? message;
-  String? stack;
-
-  Error({
-    this.status,
-    this.name,
-    this.message,
-    this.stack,
-  });
-
-  factory Error.fromJson(Map<String, dynamic> json) => Error(
-    status: json["status"],
-    name: json["name"],
-    message: json["message"],
-    stack: json["stack"],
-  );
-
-  Map<String, dynamic> toJson() => {
-    "status": status,
-    "name": name,
-    "message": message,
-    "stack": stack,
-  };
-}

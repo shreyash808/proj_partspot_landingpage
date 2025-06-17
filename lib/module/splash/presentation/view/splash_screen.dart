@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:partyspot/module/splash/presentation/controller/splash_controller.dart';
 import 'package:partyspot/routes/routes_const.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
@@ -7,18 +8,12 @@ import 'package:partyspot/utils/constants/image_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
 
 class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
+  SplashScreen({super.key});
 
-  void _startNavigation(BuildContext context) {
-    Future.delayed(const Duration(seconds: 3), () {
-      Get.offNamed(Routes.onBoardingScreen);
-    });
-  }
+  final SplashController splashController = Get.find<SplashController>();
 
   @override
   Widget build(BuildContext context) {
-    _startNavigation(context);
-
     return Scaffold(
       body: Stack(
         children: [

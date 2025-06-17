@@ -1,4 +1,5 @@
 import 'package:country_picker/country_picker.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:partyspot/routes/routes_const.dart';
@@ -8,7 +9,9 @@ import 'package:partyspot/utils/constants/app_size.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/icon_constants.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
+import 'package:partyspot/utils/constants/validator.dart';
 import 'package:partyspot/utils/widgets/app_check_box.dart';
+import 'package:partyspot/utils/widgets/app_drop_down.dart';
 import 'package:partyspot/utils/widgets/app_text_field.dart';
 import 'package:partyspot/utils/widgets/buttons.dart';
 import 'package:partyspot/utils/widgets/custom_svg_picture.dart';
@@ -17,6 +20,30 @@ class UserDetailScreen extends StatelessWidget {
   UserDetailScreen({super.key});
 
   final ValueController<String?> countryFlagController = ValueController<String?>("🇮🇳");
+  final ValueController<String?> gender = ValueController<String?>();
+
+  final ValueController<DateTime?> selectedDate = ValueController<DateTime?>();
+
+  final TextEditingController _ageController = TextEditingController();
+
+  Future<void> _selectDOB(BuildContext context) async {
+    final DateTime today = DateTime.now();
+    final DateTime latestAllowedDOB = DateTime(today.year - 12, today.month, today.day);
+    final DateTime earliestDOB = DateTime(1900); // Or any reasonable lower limit
+
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: latestAllowedDOB,
+      firstDate: earliestDOB,
+      lastDate: latestAllowedDOB,
+      helpText: 'Select your date of birth',
+    );
+
+    if (picked != null && picked != selectedDate) {
+        selectedDate.updateValue(picked);
+        _ageController.text =  DateFormat('dd/MM/yyyy').format(picked);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,10 +82,51 @@ class UserDetailScreen extends StatelessWidget {
                 const SizedBox(height: 24),
                 AppTextField(
                   title: StringConsts.enterYourName,
+                  autoValidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (value) => Validator.validateName(value),
                 ),
                 const SizedBox(height: 16),
                 AppTextField(
                   title: StringConsts.enterYourEmail,
+                  autoValidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (value) => Validator.validateEmail(value),
+                ),
+                const SizedBox(height: 16),
+                AppTextField(
+                  title: StringConsts.dob,
+                  readOnly: true,
+                  controller: _ageController,
+                  onTap: (){
+                    _selectDOB(context);
+                  },
+                ),
+                const SizedBox(height: 16),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16,right: 8,bottom: 8),
+                      child: Text(
+                        StringConsts.selectGender,
+                        style: AppTextStyles.get14MediumTextStyle(color: AppColor.violetLightColor),
+                      ),
+                    ),
+                    GetX<ValueController<String?>>(
+                      init: gender,
+                      builder: (controller){
+                        return AppDropDown<String>(
+                          value: controller.value,
+                          hint: StringConsts.select,
+                          items: ['Male', 'Female', 'Other']
+                              .map((e) => DropdownMenuItem(value: e, child: Text(e)))
+                              .toList(),
+                          onChanged: (val) {
+                            gender.updateValue(val);
+                          },
+                        );
+                      },
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 16),
                 Column(
@@ -108,7 +176,10 @@ class UserDetailScreen extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(width: 4),
-                        Expanded(child: AppTextField())
+                        Expanded(child: AppTextField(
+                          autoValidateMode: AutovalidateMode.onUserInteraction,
+                          validator: (value) => Validator.validatePhoneNumber(value),
+                        ))
                       ],
                     ),
                   ],

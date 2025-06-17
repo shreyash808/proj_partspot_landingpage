@@ -44,30 +44,16 @@ class OtpController extends BaseController {
 
   final AuthRepository _loginRepository = locator<AuthRepository>();
 
-  final Rx<String> _searchKey = Rx<String>('');
-  String get searchKey => _searchKey.value;
-  set searchKey(String val) => _searchKey.value = val;
 
-  final Rx<String> _code = Rx<String>('');
-  String get code => _code.value;
-  set code(String val) => _code.value = val;
-
-
-  onChangedSearch(String val) {
-    searchKey = '';
-    update();
-    if (_debounce?.isActive ?? false) _debounce?.cancel();
-    _debounce = Timer(const Duration(milliseconds: 500), () async {
-      searchKey = val;
-      update();
-    });
-  }
+  final Rx<String> _otpCode = Rx<String>('');
+  String get otpCode => _otpCode.value;
+  set otpCode(String val) => _otpCode.value = val;
 
   Future<void> onVerifyOtp(String? code,int? phoneNumber,{void Function()? onSuccess}) async {
     try {
       FullScreenLoading.show();
       final pushToken = await getPushToken();
-      await _loginRepository.verifyOTP(phoneNumber: phoneNumber,otp: code,pushToken: pushToken);
+      await _loginRepository.verifyOTP(code: code,phoneNumber: phoneNumber,otp: otpCode,pushToken: pushToken);
       onSuccess?.call();
     } on ErrorResponse catch (e) {
       setErrorMessage(e.message);

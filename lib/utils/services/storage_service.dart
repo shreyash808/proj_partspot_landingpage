@@ -1,39 +1,31 @@
-import 'package:get_storage/get_storage.dart';
-import 'package:partyspot/utils/constants/key_constants.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import '../../utils/constants/key_constants.dart';
 
 class StorageService {
-  static final _storage = GetStorage();
+  static const _secureStorage = FlutterSecureStorage();
 
-  String get accessToken => _storage.read(KeysConsts.accessToken) ?? '';
+  Future<String> get accessToken async {
+    return await _secureStorage.read(key: KeysConsts.accessTokenKey) ?? '';
+  }
 
-  String? get languageCode => _storage.read(KeysConsts.languageCodeKey);
-
-  bool get isOnBoardVisited => _storage.read(KeysConsts.isOnBoardVisitedKey) ?? false;
-
-  bool get isChooseLanguageVisited => _storage.read(KeysConsts.isChooseLanguageVisitedKey) ?? false;
+  Future<bool> get isOnBoardVisited async {
+    final value = await _secureStorage.read(key: KeysConsts.isOnBoardVisitedKey);
+    return value == 'true'; // Stored as string
+  }
 
   Future<void> setAccessToken(String? token) async {
-    await _storage.write(KeysConsts.accessToken, token);
+    await _secureStorage.write(key: KeysConsts.accessTokenKey, value: token);
   }
-
-  Future<void> setLanguageCode(String? locale) async {
-    await _storage.write(KeysConsts.languageCodeKey, locale);
-  }
-
 
   Future<void> setIsOnBoardVisited(bool val) async {
-    await _storage.write(KeysConsts.isOnBoardVisitedKey, val);
+    await _secureStorage.write(key: KeysConsts.isOnBoardVisitedKey, value: val.toString());
   }
 
-  Future<void> setIsChooseLanguageVisited(bool val) async {
-    await _storage.write(KeysConsts.isChooseLanguageVisitedKey, val);
+  Future<void> clearAllData() async {
+    await _secureStorage.deleteAll();
   }
 
-  void clearAllData() async {
-    await _storage.erase();
-  }
-
-  Future clearSession() async {
-    await _storage.remove(KeysConsts.accessToken);
+  Future<void> clearSession() async {
+    await _secureStorage.delete(key: KeysConsts.accessTokenKey);
   }
 }

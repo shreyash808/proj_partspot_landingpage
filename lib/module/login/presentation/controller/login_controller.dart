@@ -46,7 +46,7 @@ class LoginController extends BaseController {
     } on ErrorResponse catch (e) {
       setErrorMessage(e.message);
     } catch (e) {
-      setErrorMessage(StringConsts.unExpectedError);
+      setErrorMessage(StringConsts.unExpectedError,error: e);
     }
     FullScreenLoading.hide();
   }
@@ -72,7 +72,7 @@ class LoginController extends BaseController {
     } on ErrorResponse catch (e) {
       setErrorMessage(e.message);
     } catch (e) {
-      setErrorMessage('Unexpected error');
+      setErrorMessage(StringConsts.unExpectedError,error: e);
     }
     FullScreenLoading.hide();
   }

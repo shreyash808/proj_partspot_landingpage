@@ -41,6 +41,8 @@ class StringConsts {
   static const agree = "Agree";
   static const tnc = "T&C";
   static const andContinue = "and continue";
+  static const gender = "Gender";
+  static const dob = "DOB";
 
   ///Error Texts
   static const passwordCannotBeEmpty = 'passwordCannotBeEmpty';
@@ -54,7 +56,7 @@ class StringConsts {
   static const passwordMustContainAtLeastOneSpecialChar =
       'passwordMustContainAtLeastOneSpecialChar';
   static const enteredPasswordsDontMatch = 'enteredPasswordsDontMatch';
-  static const enteredEmailIsIncorrect = 'enteredEmailIsIncorrect';
+  static const enteredEmailIsIncorrect = 'Entered email is incorrect';
   static const enteredPhoneNumberIsIncorrect = 'enteredPhoneNumberIsIncorrect';
   static const userNameCannotBeEmpty = 'userNameCannotBeEmpty';
   static const userNameMustBeBetweenTheseChar =
@@ -64,7 +66,7 @@ class StringConsts {
   static const userNameShouldBeAlphaNumeric = 'userNameShouldBeAlphaNumeric';
   static const nameCannotBeEmpty = 'nameCannotBeEmpty';
   static const nameMustBeBetween = 'nameMustBeBetween';
-  static const invalidName = 'invalidName';
+  static const invalidName = 'Invalid name';
   // -------------
 
   // onBoarding

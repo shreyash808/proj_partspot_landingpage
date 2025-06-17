@@ -7,6 +7,8 @@ import 'package:partyspot/module/login/domain/repositories/auth_repository.dart'
 import 'package:partyspot/routes/app_routes.dart';
 import 'package:partyspot/routes/routes_const.dart';
 import 'package:partyspot/utils/constants/service_const.dart';
+import 'package:partyspot/utils/services/env_service.dart';
+import 'package:partyspot/utils/services/storage_service.dart';
 
 import 'package:partyspot/utils/theme/light_theme.dart';
 
@@ -20,7 +22,10 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 _setupService(){
+  AppEnv.setEnv = Env.dev;
   locator.registerLazySingleton<DioInjector>(() => DioInjector());
+  locator.registerLazySingleton<StorageService>(() => StorageService());
+
 }
 _setupRepo(){
   locator.registerLazySingleton<AuthRepository>(()=>AuthRepositoryImpl());
@@ -36,7 +41,6 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: Routes.splashScreen,
-
       getPages: AppRoutes.getRoutes(),
       title: 'Party Spot',
       theme: lightTheme.themeData(context),

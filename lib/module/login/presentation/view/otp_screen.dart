@@ -61,13 +61,13 @@ class OtpScreen extends StatelessWidget {
                       ),
 
                       OtpTextField(
-                        numberOfFields: 4,
+                        numberOfFields: 6,
                         borderRadius: BorderRadius.circular(10),
                         fillColor: AppColor.colorEDEDED,
-                        fieldWidth: 60,
                         showFieldAsBox: true,
-                        onCodeChanged: (String code) {
-                          controller.code = code;
+                        onSubmit: (val){
+                          debugPrint(val);
+                          controller.otpCode = val;
                         },
                       ),
 
@@ -81,7 +81,7 @@ class OtpScreen extends StatelessWidget {
                         child: Obx((){
                           return AppButton(
                             StringConsts.submit,
-                            isEnabled: controller.code.isNotEmpty,
+                            isEnabled: controller.otpCode.isNotEmpty,
                             backgroundColor: AppColor.buttonOrange,
                             margin: const EdgeInsets.symmetric(vertical: 8),
                             onPressed: () {

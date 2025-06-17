@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'package:get/get.dart';
 import 'package:partyspot/utils/constants/app_enums.dart';
 
@@ -48,8 +49,9 @@ class BaseController extends GetxController {
   String get errorMessage => _errorMessage.value;
   Rx<String> get errorMessageRx => _errorMessage;
 
-  void setErrorMessage(String? val) {
-    _errorMessage.value = val ?? '';
+  void setErrorMessage(String? message,{dynamic error}) {
+    log(error.toString());
+    _errorMessage.value = message ?? '';
   }
 
   final Rx<ApiState> _state = ApiState.initial.obs;

@@ -12,13 +12,10 @@ class AppEnv {
     env = environment;
     if (environment == Env.dev) {
       ApiUrl.baseUrl = ApiUrl.devUrl;
-      ApiUrl.socketUrl = ApiUrl.socketDevUrl;
     } else if(environment == Env.staging){
       ApiUrl.baseUrl = ApiUrl.stagingUrl;
-      ApiUrl.socketUrl = ApiUrl.socketStagUrl;
     } else if (environment == Env.prod) {
       ApiUrl.baseUrl = ApiUrl.prodUrl;
-      ApiUrl.socketUrl = ApiUrl.socketProdUrl;
     }
   }
 }
