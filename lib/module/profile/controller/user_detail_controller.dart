@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:partyspot/module/login/domain/repositories/auth_repository.dart';
 import 'package:partyspot/networking/model/error_response_model.dart';
 import 'package:partyspot/utils/classes/base_controller.dart';
+import 'package:partyspot/utils/classes/value_controller.dart';
 import 'package:partyspot/utils/constants/service_const.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
 import 'package:partyspot/utils/widgets/loader.dart';
@@ -13,12 +14,12 @@ class UserDetailController extends BaseController {
   final AuthRepository _loginRepository = locator<AuthRepository>();
 
   String? fullName;
-  String? gender;
   String? dob;
   String? email;
   String? profilePic;
   int? phoneNumber;
   String? code;
+  final ValueController<String?> gender = ValueController<String?>();
 
   final Rx<bool> _isTncAccepted = Rx<bool>(false);
   bool get isTncAccepted => _isTncAccepted.value;
@@ -52,14 +53,15 @@ class UserDetailController extends BaseController {
   Future<void> onUpdateProfile({void Function()? onSuccess}) async {
     try {
       FullScreenLoading.show();
-      await _loginRepository.updateProfile(fullName: fullName,gender: gender,profilePicture: profilePic);
+      await _loginRepository.updateProfile(fullName: fullName,gender: gender.value, profilePicture: profilePic);
       onSuccess?.call();
     } on ErrorResponse catch (e) {
       setErrorMessage(e.message);
     } catch (e) {
       setErrorMessage(StringConsts.unExpectedError);
+    } finally{
+      FullScreenLoading.hide();
     }
-    FullScreenLoading.hide();
   }
 
   Future<void> onGetUserDetail() async {

@@ -21,10 +21,9 @@ import 'package:partyspot/utils/widgets/loader.dart';
 class UserDetailScreen extends StatelessWidget {
   UserDetailScreen({super.key});
 
-  final UserDetailController controller = Get.find<UserDetailController>();
+  final UserDetailController userDetailController = Get.find<UserDetailController>();
 
   final ValueController<String?> countryFlagController = ValueController<String?>("🇮🇳");
-  final ValueController<String?> gender = ValueController<String?>();
 
   final ValueController<DateTime?> selectedDate = ValueController<DateTime?>();
 
@@ -68,7 +67,7 @@ class UserDetailScreen extends StatelessWidget {
             ),
           ),
           Obx((){
-            if(controller.isBusy){
+            if(userDetailController.isBusy){
               return CircularLoader();
             }
             return Container(
@@ -97,20 +96,32 @@ class UserDetailScreen extends StatelessWidget {
                       title: StringConsts.enterYourName,
                       autoValidateMode: AutovalidateMode.onUserInteraction,
                       validator: (value) => Validator.validateName(value),
+                      initialControllerValue: userDetailController.fullName,
+                      onChanged: (val){
+                        userDetailController.fullName = val;
+                      },
                     ),
                     const SizedBox(height: 16),
                     AppTextField(
                       title: StringConsts.enterYourEmail,
                       autoValidateMode: AutovalidateMode.onUserInteraction,
+                      initialControllerValue: userDetailController.email,
                       validator: (value) => Validator.validateEmail(value),
+                      onChanged: (val){
+                        userDetailController.email = val;
+                      },
                     ),
                     const SizedBox(height: 16),
                     AppTextField(
                       title: StringConsts.dob,
                       readOnly: true,
                       controller: _ageController,
+                      initialControllerValue: userDetailController.dob,
                       onTap: (){
                         _selectDOB(context);
+                      },
+                      onChanged: (val){
+                        userDetailController.dob = val;
                       },
                     ),
                     const SizedBox(height: 16),
@@ -125,7 +136,7 @@ class UserDetailScreen extends StatelessWidget {
                           ),
                         ),
                         GetX<ValueController<String?>>(
-                          init: gender,
+                          init: userDetailController.gender,
                           builder: (controller){
                             return AppDropDown<String?>(
                               value: controller.value,
@@ -134,7 +145,7 @@ class UserDetailScreen extends StatelessWidget {
                                   .map((e) => DropdownMenuItem(value: e, child: Text(e)))
                                   .toList(),
                               onChanged: (val) {
-                                gender.updateValue(val);
+                                userDetailController.gender.updateValue(val);
                               },
                               validator: Validator.validateEmpty,
                             );
@@ -194,7 +205,7 @@ class UserDetailScreen extends StatelessWidget {
                               autoValidateMode: AutovalidateMode.onUserInteraction,
                               readOnly: true,
 
-                              initialControllerValue: controller.phoneNumber?.toString() ?? '',
+                              initialControllerValue: userDetailController.phoneNumber?.toString() ?? '',
                               validator: (value) => Validator.validatePhoneNumber(value),
                             ))
                           ],
@@ -206,9 +217,9 @@ class UserDetailScreen extends StatelessWidget {
                       children: [
                         Obx((){
                           return AppCheckBox(
-                            value: controller.isTncAccepted,
+                            value: userDetailController.isTncAccepted,
                             onChanged: (val){
-                              controller.isTncAccepted = val;
+                              userDetailController.isTncAccepted = val;
                             },
                           );
                         }),
@@ -240,12 +251,12 @@ class UserDetailScreen extends StatelessWidget {
                     Obx((){
                       return AppButton(StringConsts.submit, onPressed: (){
                         if(_formKey.currentState?.validate() ?? false){
-                          controller.onUpdateProfile(onSuccess: (){
-                            Get.toNamed(Routes.appEntryScreen);
+                          userDetailController.onUpdateProfile(onSuccess: (){
+                            Get.offAndToNamed(Routes.appEntryScreen);
                           });
                         }
                       },
-                        isEnabled: controller.isTncAccepted,
+                        isEnabled: userDetailController.isTncAccepted,
                       );
                     })
                   ],
