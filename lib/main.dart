@@ -1,11 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get/get.dart';
 import 'package:partyspot/firebase_options.dart';
 import 'package:partyspot/module/login/data/auth_repository_impl.dart';
 import 'package:partyspot/module/login/domain/repositories/auth_repository.dart';
 import 'package:partyspot/routes/app_routes.dart';
 import 'package:partyspot/routes/routes_const.dart';
+import 'package:partyspot/utils/classes/user_controller.dart';
 import 'package:partyspot/utils/constants/service_const.dart';
 import 'package:partyspot/utils/services/env_service.dart';
 import 'package:partyspot/utils/services/storage_service.dart';
@@ -25,7 +26,7 @@ _setupService(){
   AppEnv.setEnv = Env.dev;
   locator.registerLazySingleton<DioInjector>(() => DioInjector());
   locator.registerLazySingleton<StorageService>(() => StorageService());
-
+  Get.put(UserController());
 }
 _setupRepo(){
   locator.registerLazySingleton<AuthRepository>(()=>AuthRepositoryImpl());

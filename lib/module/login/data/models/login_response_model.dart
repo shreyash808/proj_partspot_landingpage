@@ -55,35 +55,75 @@ class Data {
 class User {
   final String? id;
   final int? phone;
-  final dynamic otp;
-  final String? code;
+  final String? gender;
+  final bool? isEmailVerified;
   final bool? isNumberVerified;
+  final bool? isProfileComplete;
+  final bool? isDeleted;
+  final int? v;
+  final String? deviceToken;
+  final String? email;
+  final String? fullName;
+  final String? profilePictureUrl;
+  final String? otp;
+  final String? code;
   final DateTime? updatedAt;
+  final DateTime? dob;
 
   User({
     this.id,
     this.phone,
+    this.gender,
+    this.isEmailVerified,
+    this.isNumberVerified,
+    this.isProfileComplete,
+    this.isDeleted,
+    this.v,
+    this.deviceToken,
+    this.email,
+    this.fullName,
+    this.profilePictureUrl,
     this.otp,
     this.code,
-    this.isNumberVerified,
     this.updatedAt,
+    this.dob
   });
 
   factory User.fromJson(Map<String, dynamic> json) => User(
     id: json["_id"],
     phone: json["phone"],
+    gender: json["gender"],
+    isEmailVerified: json["isEmailVerified"],
+    isNumberVerified: json["isNumberVerified"],
+    isProfileComplete: json["isProfileComplete"],
+    isDeleted: json["isDeleted"],
+    v: json["__v"],
+    deviceToken: json["deviceToken"],
+    email: json["email"],
+    fullName: json["full_name"],
+    profilePictureUrl: json["profilePictureUrl"],
     otp: json["otp"],
     code: json["code"],
-    isNumberVerified: json["isNumberVerified"],
     updatedAt: json["updatedAt"] == null ? null : DateTime.parse(json["updatedAt"]),
+    dob: json["dob"] == null ? null : DateTime.parse(json["dob"]),
   );
 
   Map<String, dynamic> toJson() => {
     "_id": id,
     "phone": phone,
+    "gender": gender,
+    "isEmailVerified": isEmailVerified,
+    "isNumberVerified": isNumberVerified,
+    "isProfileComplete": isProfileComplete,
+    "isDeleted": isDeleted,
+    "__v": v,
+    "deviceToken": deviceToken,
+    "email": email,
+    "full_name": fullName,
+    "profilePictureUrl": profilePictureUrl,
     "otp": otp,
     "code": code,
-    "isNumberVerified": isNumberVerified,
     "updatedAt": updatedAt?.toIso8601String(),
+    "dob": dob?.toIso8601String(),
   };
 }

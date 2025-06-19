@@ -18,21 +18,21 @@ class AuthRepositoryImpl extends PartySportApiService implements AuthRepository 
   }
 
   @override
-  Future<PhoneLoginResponse?> phoneLogin({String? code,int? phoneNumber}) async {
+  Future<UserLoginResponse?> phoneLogin({String? code,int? phoneNumber}) async {
     final response = await postRequest(ApiUrl.loginPhone, data: {
       'code': code,
       'phone': phoneNumber,
     });
-    return PhoneLoginResponse.fromJson(response.data);
+    return UserLoginResponse.fromJson(response.data);
   }
 
   @override
-  Future<PhoneLoginResponse?> resendOtp({String? code,int? phoneNumber}) async {
+  Future<UserLoginResponse?> resendOtp({String? code,int? phoneNumber}) async {
     final response = await postRequest(ApiUrl.resendOtp, data: {
       'code': code,
       'phone': phoneNumber,
     });
-    return PhoneLoginResponse.fromJson(response.data);
+    return UserLoginResponse.fromJson(response.data);
   }
 
   @override
@@ -58,9 +58,9 @@ class AuthRepositoryImpl extends PartySportApiService implements AuthRepository 
   }
 
   @override
-  Future<LoginResponse?> userDetail() async {
-    final response = await getRequest(ApiUrl.profile);
-    return LoginResponse.fromJson(response.data);
+  Future<UserLoginResponse?> userDetail() async {
+    final response = await getRequest(ApiUrl.getProfile);
+    return UserLoginResponse.fromJson(response.data);
   }
 
 }

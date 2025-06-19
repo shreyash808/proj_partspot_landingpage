@@ -4,25 +4,27 @@
 
 import 'dart:convert';
 
-PhoneLoginResponse phoneLoginResponseFromJson(String str) => PhoneLoginResponse.fromJson(json.decode(str));
+import 'package:partyspot/module/login/data/models/login_response_model.dart';
 
-String phoneLoginResponseToJson(PhoneLoginResponse data) => json.encode(data.toJson());
+UserLoginResponse userLoginResponseFromJson(String str) => UserLoginResponse.fromJson(json.decode(str));
 
-class PhoneLoginResponse {
+String userLoginResponseToJson(UserLoginResponse data) => json.encode(data.toJson());
+
+class UserLoginResponse {
   final int? statusCode;
   final String? message;
-  final Data? data;
+  final User? data;
 
-  PhoneLoginResponse({
+  UserLoginResponse({
     this.statusCode,
     this.message,
     this.data,
   });
 
-  factory PhoneLoginResponse.fromJson(Map<String, dynamic> json) => PhoneLoginResponse(
+  factory UserLoginResponse.fromJson(Map<String, dynamic> json) => UserLoginResponse(
     statusCode: json["statusCode"],
     message: json["message"],
-    data: json["data"] == null ? null : Data.fromJson(json["data"]),
+    data: json["data"] == null ? null : User.fromJson(json["data"]),
   );
 
   Map<String, dynamic> toJson() => {
@@ -32,62 +34,3 @@ class PhoneLoginResponse {
   };
 }
 
-class Data {
-  final int? phone;
-  final String? gender;
-  final bool? isEmailVerified;
-  final bool? isNumberVerified;
-  final bool? isProfileComplete;
-  final bool? isDeleted;
-  final String? otp;
-  final String? code;
-  final String? id;
-  final DateTime? createdAt;
-  final DateTime? updatedAt;
-  final int? v;
-
-  Data({
-    this.phone,
-    this.gender,
-    this.isEmailVerified,
-    this.isNumberVerified,
-    this.isProfileComplete,
-    this.isDeleted,
-    this.otp,
-    this.code,
-    this.id,
-    this.createdAt,
-    this.updatedAt,
-    this.v,
-  });
-
-  factory Data.fromJson(Map<String, dynamic> json) => Data(
-    phone: json["phone"],
-    gender: json["gender"],
-    isEmailVerified: json["isEmailVerified"],
-    isNumberVerified: json["isNumberVerified"],
-    isProfileComplete: json["isProfileComplete"],
-    isDeleted: json["isDeleted"],
-    otp: json["otp"],
-    code: json["code"],
-    id: json["_id"],
-    createdAt: json["createdAt"] == null ? null : DateTime.parse(json["createdAt"]),
-    updatedAt: json["updatedAt"] == null ? null : DateTime.parse(json["updatedAt"]),
-    v: json["__v"],
-  );
-
-  Map<String, dynamic> toJson() => {
-    "phone": phone,
-    "gender": gender,
-    "isEmailVerified": isEmailVerified,
-    "isNumberVerified": isNumberVerified,
-    "isProfileComplete": isProfileComplete,
-    "isDeleted": isDeleted,
-    "otp": otp,
-    "code": code,
-    "_id": id,
-    "createdAt": createdAt?.toIso8601String(),
-    "updatedAt": updatedAt?.toIso8601String(),
-    "__v": v,
-  };
-}

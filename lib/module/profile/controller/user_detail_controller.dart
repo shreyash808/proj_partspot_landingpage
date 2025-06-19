@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:get/get.dart';
 import 'package:partyspot/module/login/domain/repositories/auth_repository.dart';
 import 'package:partyspot/networking/model/error_response_model.dart';
@@ -63,14 +64,19 @@ class UserDetailController extends BaseController {
 
   Future<void> onGetUserDetail() async {
     try {
-      FullScreenLoading.show();
-      await _loginRepository.userDetail();
+      setBusy(true);
+      final res = await _loginRepository.userDetail();
+      fullName = res?.data?.fullName;
+      email = res?.data?.email;
+      dob = res?.data?.dob != null ? DateFormat('dd/MM/yyyy').format(res?.data?.dob ?? DateTime.now()) : null;
+      code = res?.data?.code;
+      phoneNumber = res?.data?.phone;
     } on ErrorResponse catch (e) {
       setErrorMessage(e.message);
     } catch (e) {
       setErrorMessage(StringConsts.unExpectedError);
     }
-    FullScreenLoading.hide();
+    setBusy(false);
   }
 
 }

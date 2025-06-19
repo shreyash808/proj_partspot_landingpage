@@ -3,9 +3,9 @@ import 'package:partyspot/module/login/data/models/phone_login_response.dart';
 
 abstract class AuthRepository {
   Future<LoginResponse?> socialLogin({required String? provider,required String? idToken,String? pushToken});
-  Future<PhoneLoginResponse?> phoneLogin({required String? code,required int? phoneNumber});
+  Future<UserLoginResponse?> phoneLogin({required String? code,required int? phoneNumber});
   Future<LoginResponse?> verifyOTP({required String? code,required int? phoneNumber,required String? otp,String? pushToken});
-  Future<PhoneLoginResponse?> resendOtp({required String? code,required int? phoneNumber});
+  Future<UserLoginResponse?> resendOtp({required String? code,required int? phoneNumber});
   Future<LoginResponse?> updateProfile({String? fullName,String? gender,String? profilePicture,String? deviceToken});
-  Future<LoginResponse?> userDetail();
+  Future<UserLoginResponse?> userDetail();
 }
