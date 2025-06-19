@@ -25,7 +25,6 @@ class UserDetailScreen extends StatelessWidget {
 
   final ValueController<String?> countryFlagController = ValueController<String?>("🇮🇳");
 
-  final ValueController<DateTime?> selectedDate = ValueController<DateTime?>();
 
   final TextEditingController _ageController = TextEditingController();
 
@@ -45,9 +44,9 @@ class UserDetailScreen extends StatelessWidget {
       helpText: 'Select your date of birth',
     );
 
-    if (picked != null && picked != selectedDate) {
-        selectedDate.updateValue(picked);
-        _ageController.text =  DateFormat('dd/MM/yyyy').format(picked);
+    if (picked != null && picked != userDetailController.selectedDate.value) {
+      userDetailController.selectedDate.updateValue(picked);
+      _ageController.text =  DateFormat('dd/MM/yyyy').format(picked);
     }
   }
 
@@ -116,12 +115,9 @@ class UserDetailScreen extends StatelessWidget {
                       title: StringConsts.dob,
                       readOnly: true,
                       controller: _ageController,
-                      initialControllerValue: userDetailController.dob,
+                      initialControllerValue: DateFormat('dd/MM/yyyy').format(userDetailController.selectedDate.value ?? DateTime.now()),
                       onTap: (){
                         _selectDOB(context);
-                      },
-                      onChanged: (val){
-                        userDetailController.dob = val;
                       },
                     ),
                     const SizedBox(height: 16),

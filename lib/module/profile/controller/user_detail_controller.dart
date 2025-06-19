@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:get/get.dart';
 import 'package:partyspot/module/login/domain/repositories/auth_repository.dart';
 import 'package:partyspot/networking/model/error_response_model.dart';
@@ -14,12 +13,12 @@ class UserDetailController extends BaseController {
   final AuthRepository _loginRepository = locator<AuthRepository>();
 
   String? fullName;
-  String? dob;
   String? email;
   String? profilePic;
   int? phoneNumber;
   String? code;
   final ValueController<String?> gender = ValueController<String?>();
+  final ValueController<DateTime?> selectedDate = ValueController<DateTime?>();
 
   final Rx<bool> _isTncAccepted = Rx<bool>(false);
   bool get isTncAccepted => _isTncAccepted.value;
@@ -53,7 +52,7 @@ class UserDetailController extends BaseController {
   Future<void> onUpdateProfile({void Function()? onSuccess}) async {
     try {
       FullScreenLoading.show();
-      await _loginRepository.updateProfile(fullName: fullName,gender: gender.value, profilePicture: profilePic);
+      await _loginRepository.updateProfile(fullName: fullName,gender: gender.value, profilePicture: profilePic,dob: selectedDate.value?.toIso8601String());
       onSuccess?.call();
     } on ErrorResponse catch (e) {
       setErrorMessage(e.message);
@@ -70,7 +69,7 @@ class UserDetailController extends BaseController {
       final res = await _loginRepository.userDetail();
       fullName = res?.data?.fullName;
       email = res?.data?.email;
-      dob = res?.data?.dob != null ? DateFormat('dd/MM/yyyy').format(res?.data?.dob ?? DateTime.now()) : null;
+      selectedDate.updateValue(res?.data?.dob);
       code = res?.data?.code;
       phoneNumber = res?.data?.phone;
     } on ErrorResponse catch (e) {

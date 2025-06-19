@@ -6,6 +6,6 @@ abstract class AuthRepository {
   Future<UserLoginResponse?> phoneLogin({required String? code,required int? phoneNumber});
   Future<LoginResponse?> verifyOTP({required String? code,required int? phoneNumber,required String? otp,String? pushToken});
   Future<UserLoginResponse?> resendOtp({required String? code,required int? phoneNumber});
-  Future<LoginResponse?> updateProfile({String? fullName,String? gender,String? profilePicture,String? deviceToken});
+  Future<LoginResponse?> updateProfile({String? fullName,String? gender,String? profilePicture,String? deviceToken,String? dob});
   Future<UserLoginResponse?> userDetail();
 }

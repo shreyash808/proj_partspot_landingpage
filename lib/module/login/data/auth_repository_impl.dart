@@ -47,7 +47,7 @@ class AuthRepositoryImpl extends PartySportApiService implements AuthRepository 
   }
 
   @override
-  Future<LoginResponse?> updateProfile({String? fullName,String? gender,String? profilePicture,String? deviceToken}) async {
+  Future<LoginResponse?> updateProfile({String? fullName,String? gender,String? profilePicture,String? deviceToken,String? dob}) async {
     final response = await putRequest(ApiUrl.profile, data: {
       'full_name': fullName,
       'gender': gender,
