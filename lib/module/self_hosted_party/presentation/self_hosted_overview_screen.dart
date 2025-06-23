@@ -23,9 +23,9 @@ class SelfHostedOverviewScreen extends StatelessWidget {
         backgroundColor: AppColor.offWhiteColor,
         body: GetBuilder<PlanAWeddingController>(
             init: PlanAWeddingController(
-                subTypes: subTypes,
-                foodPreferences: foodPreferences,
-                venueTypes: venueTypes
+                subTypes: subTypes ?? [],
+                foodPreferences: foodPreferences ?? [],
+                venueTypes: venueTypes ?? []
             ),
           builder: (controller) {
             return PartyOverview(

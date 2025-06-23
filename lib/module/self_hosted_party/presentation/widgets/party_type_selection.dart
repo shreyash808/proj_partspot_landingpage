@@ -108,31 +108,36 @@ class PartyTypeSelection extends StatelessWidget {
                       style: AppTextStyles.get18MediumTextStyle(),
                       textAlign: TextAlign.left,
                     ),
-                    Obx(() => Wrap(
-                      spacing: 5.spW,
-                      runSpacing: 12,
-                      children: List.generate(items?.length ?? 0, (index) {
-                        final item = items![index];
-                        final isSelected = controller.isSelected(item?.id);
-                        return SelectionItem(
-                          text: item?.name ?? '',
-                          isSelected: isSelected,
-                          onTap: () => controller.toggleSelection(item?.id),
-                          constraints: BoxConstraints(
-                            minWidth: (AppSizes.width * 0.5) - 35.spW, // Ensure spW is defined
-                          ),
-                        );
-                      }),
-                    )),
-                    AppButton(
-                      StringConsts.next,
-                      onPressed: () {
-                        if (onSelectionDone != null) {
-                          onSelectionDone!(controller.selectedItems);
-                        }
-                      },
-                      backgroundColor: AppColor.violet,
-                    ),
+                    if(items?.isNotEmpty ?? false)
+                      Column(
+                        children: [
+                          Obx(() => Wrap(
+                            spacing: 5.spW,
+                            runSpacing: 12,
+                            children: List.generate(items?.length ?? 0, (index) {
+                              final item = items?[index];
+                              final isSelected = controller.isSelected(item?.id);
+                              return SelectionItem(
+                                text: item?.name ?? '',
+                                isSelected: isSelected,
+                                onTap: () => controller.toggleSelection(item?.id),
+                                constraints: BoxConstraints(
+                                  minWidth: (AppSizes.width * 0.5) - 35.spW, // Ensure spW is defined
+                                ),
+                              );
+                            }),
+                          )),
+                          AppButton(
+                            StringConsts.next,
+                            onPressed: () {
+                              if (onSelectionDone != null) {
+                                onSelectionDone!(controller.selectedItems);
+                              }
+                            },
+                            backgroundColor: AppColor.violet,
+                          )
+                        ],
+                      ),
                   ],
                 ),
               ),

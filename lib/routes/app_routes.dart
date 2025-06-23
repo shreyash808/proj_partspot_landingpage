@@ -99,9 +99,9 @@ class AppRoutes {
         name: Routes.selfHostedOverviewScreen,
         transition: Transition.circularReveal,
         page: () {
-          final List<EventSubType?>? subTypes = Get.arguments?[RoutesArgument.subTypes];
-          final List<Venue?>? venueTypes = Get.arguments?[RoutesArgument.venueTypes];
-          final List<FoodPref?>? foodPreferences = Get.arguments?[RoutesArgument.foodPreferences];
+          final List<EventSubType?>? subTypes = Get.arguments?[RoutesArgument.subTypes] ?? [];
+          final List<Venue?>? venueTypes = Get.arguments?[RoutesArgument.venueTypes] ?? [];
+          final List<FoodPref?>? foodPreferences = Get.arguments?[RoutesArgument.foodPreferences] ?? [];
 
           return SelfHostedOverviewScreen(subTypes: subTypes,foodPreferences: foodPreferences,venueTypes: venueTypes);
         },
@@ -110,9 +110,9 @@ class AppRoutes {
         name: Routes.planAWeddingOverviewScreen,
         transition: Transition.circularReveal,
         page: () {
-          final List<EventSubType?>? subTypes = Get.arguments?[RoutesArgument.subTypes];
-          final List<Venue?>? venueTypes = Get.arguments?[RoutesArgument.venueTypes];
-          final List<FoodPref?>? foodPreferences = Get.arguments?[RoutesArgument.foodPreferences];
+          final List<EventSubType?>? subTypes = Get.arguments?[RoutesArgument.subTypes] ?? [];
+          final List<Venue?>? venueTypes = Get.arguments?[RoutesArgument.venueTypes] ?? [];
+          final List<FoodPref?>? foodPreferences = Get.arguments?[RoutesArgument.foodPreferences] ?? [];
 
           return PlanAWeddingOverviewScreen(subTypes: subTypes,foodPreferences: foodPreferences,venueTypes: venueTypes);
         },
