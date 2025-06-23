@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:partyspot/module/login/data/models/login_response_model.dart';
 import 'package:partyspot/module/login/domain/repositories/auth_repository.dart';
 import 'package:partyspot/networking/model/error_response_model.dart';
 import 'package:partyspot/utils/classes/base_controller.dart';
@@ -15,6 +16,8 @@ class UserDetailController extends BaseController {
   String? email;
   String? profilePic;
   int? phoneNumber;
+
+  LoginResponse? loginResponse;
 
   final Rxn<String?> _countryCode = Rxn<String>('91');
   String? get countryCode => _countryCode.value;
@@ -81,6 +84,7 @@ class UserDetailController extends BaseController {
     try {
       setBusy(true);
       final res = await _loginRepository.userDetail();
+      loginResponse = res;
       fullName = res?.data?.user?.fullName;
       email = res?.data?.user?.email;
       selectedDate = res?.data?.user?.dob;

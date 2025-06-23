@@ -162,13 +162,15 @@ class UserDetailScreen extends StatelessWidget {
                           children: [
                             InkWell(
                               onTap: () {
-                                showCountryPicker(
+                                if(!(userDetailController.loginResponse?.data?.user?.isNumberVerified ?? false)) {
+                                  showCountryPicker(
                                   context: context,
                                   showPhoneCode: true,
                                   onSelect: (Country country) {
                                     userDetailController.countryCode = country.phoneCode;
                                   },
                                 );
+                                }
                               },
                               child: Container(
                                 padding: const EdgeInsets.symmetric(vertical: 12,horizontal: 16),
