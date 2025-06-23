@@ -67,6 +67,12 @@ class StringConsts {
   static const nameCannotBeEmpty = 'nameCannotBeEmpty';
   static const nameMustBeBetween = 'nameMustBeBetween';
   static const invalidName = 'Invalid name';
+  static const invalidInput = 'Invalid input';
+  static const pleaseSelectDate = 'Please select date';
+  static const pleaseSelectVenue = 'Please select venue';
+  static const pleaseSelectFoodPreference = 'Please select food preference';
+  static const pleaseUploadPdf = 'Please select pdf';
+
   // -------------
 
   // onBoarding

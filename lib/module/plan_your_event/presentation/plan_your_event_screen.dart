@@ -1,5 +1,8 @@
+import 'package:easy_localization/easy_localization.dart' show DateFormat;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:partyspot/module/plan_a_wedding/presentation/controller/plan_a_event_controller.dart';
+import 'package:partyspot/module/plan_your_event/presentation/widgets/enter_guest_dialog.dart';
 import 'package:partyspot/module/self_hosted_party/presentation/controller/part_selection_controller.dart';
 import 'package:partyspot/module/self_hosted_party/presentation/widgets/selection_item.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
@@ -9,10 +12,13 @@ import 'package:partyspot/utils/constants/icon_constants.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
 import 'package:partyspot/utils/widgets/buttons.dart';
 import 'package:partyspot/utils/widgets/custom_svg_picture.dart';
+import 'package:path/path.dart' as p;
 
 class PlanYourEventScreen extends StatelessWidget {
   final String? title;
-  const PlanYourEventScreen({super.key, this.title});
+  PlanYourEventScreen({super.key, this.title});
+
+  final PlanAEventController planAEventController = Get.find<PlanAEventController>();
 
   @override
   Widget build(BuildContext context) {
@@ -25,27 +31,45 @@ class PlanYourEventScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 16),
           child: Column(
             children: [
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 18),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(
-                    color: AppColor.orangeColor,
-                    width: 2,
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(StringConsts.chooseDate,style: AppTextStyles.get16MediumTextStyle()),
-                        Text("*",style: AppTextStyles.get16MediumTextStyle(color: AppColor.redColor)),
-                      ],
+              GestureDetector(
+                onTap: ()async {
+                  final date = await _selectDOB(context);
+                  if(date != null){
+                    planAEventController.selectedDate = date;
+                  }
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 18),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      color: AppColor.orangeColor,
+                      width: 2,
                     ),
-                    CustomSvgPicture(iconPath: AppIcons.calendarIcon)
-                  ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Obx((){
+                            return Row(
+                              children: [
+                            Text(planAEventController.selectedDate != null ? DateFormat('dd/MM/yyyy').format(planAEventController.selectedDate ?? DateTime.now())
+                                : StringConsts.chooseDate,style: AppTextStyles.get16MediumTextStyle()),
+                                  Visibility(
+                                      visible: planAEventController.selectedDate == null,
+                                      child: Text("*",style: AppTextStyles.get16MediumTextStyle(color: AppColor.redColor))),
+                              ],
+                            );
+
+                          }),
+                        ],
+                      ),
+                      CustomSvgPicture(iconPath: AppIcons.calendarIcon)
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(height: 22),
@@ -72,17 +96,27 @@ class PlanYourEventScreen extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('100 Guests',style: AppTextStyles.get16RegularTextStyle(color: AppColor.colorB1B1B1)),
-                          Container(
-                            padding: const EdgeInsets.all(4),
-                            decoration: BoxDecoration(
-                              color: AppColor.offWhiteColor,
-                              borderRadius: BorderRadius.circular(2),
-                              border: Border.all(
-                                color: AppColor.disabledColor
-                              )
+                          Obx((){
+                            return Text('${planAEventController.noOfGuest} Guests',style: AppTextStyles.get16RegularTextStyle(color: AppColor.colorB1B1B1));
+                          }),
+                          GestureDetector(
+                            onTap: ()async{
+                              final res = await showIntegerInputDialog(context);
+                              if(res != null){
+                                planAEventController.noOfGuest = res;
+                              }
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.all(4),
+                              decoration: BoxDecoration(
+                                color: AppColor.offWhiteColor,
+                                borderRadius: BorderRadius.circular(2),
+                                border: Border.all(
+                                  color: AppColor.disabledColor
+                                )
+                              ),
+                              child: Text(StringConsts.custom,style: AppTextStyles.get12RegularTextStyle(color: AppColor.disabledColor),),
                             ),
-                            child: Text(StringConsts.custom,style: AppTextStyles.get12RegularTextStyle(color: AppColor.disabledColor),),
                           )
                         ],
                       ),
@@ -115,18 +149,20 @@ class PlanYourEventScreen extends StatelessWidget {
                         init: PartyTypeSelectionController(isMultiSelect: false),
                         tag: 'venue_type',
                         builder: (controller) {
-                          final items = ["Garden", "Banquet", "Custom"];
                           return Obx(() => Wrap(
                             spacing: 5.spW,
                             runSpacing: 12,
-                            children: List.generate(items.length, (index) {
-                              final item = items[index];
-                              final isSelected = controller.isSelected(item);
+                            children: List.generate(planAEventController.venueTypes?.length ?? 0, (index) {
+                              final item = planAEventController.venueTypes?[index];
+                              final isSelected = controller.isSelected(item?.id);
                               return SelectionItem(
-                                text: item,
+                                text: item?.name ?? '',
                                 borderRadius: 4,
                                 isSelected: isSelected,
-                                onTap: () => controller.toggleSelection(item),
+                                onTap: (){
+                                  controller.toggleSelection(item?.id);
+                                  planAEventController.selectedVenueTypes = controller.selectedItems;
+                                },
                                 borderWidth: 1,
                                 textStyle: AppTextStyles.get14RegularTextStyle(
                                   color: isSelected ? AppColor.orangeColor : AppColor.disabledColor,
@@ -166,18 +202,20 @@ class PlanYourEventScreen extends StatelessWidget {
                         init: PartyTypeSelectionController(isMultiSelect: false),
                         tag: 'food_preferences',
                         builder: (controller) {
-                          final items = ["Only Veg.", "Non Veg.", "Custom"];
                           return Obx(() => Wrap(
                             spacing: 5.spW,
                             runSpacing: 12,
-                            children: List.generate(items.length, (index) {
-                              final item = items[index];
-                              final isSelected = controller.isSelected(item);
+                            children: List.generate(planAEventController.foodPreferences?.length ?? 0, (index) {
+                              final item = planAEventController.foodPreferences?[index];
+                              final isSelected = controller.isSelected(item?.id);
                               return SelectionItem(
-                                text: item,
+                                text: item?.name ?? '',
                                 borderRadius: 4,
                                 isSelected: isSelected,
-                                onTap: () => controller.toggleSelection(item),
+                                onTap: () {
+                                  controller.toggleSelection(item?.id);
+                                  planAEventController.selectedFoodPreferences = controller.selectedItems;
+                                },
                                 borderWidth: 1,
                                 textStyle: AppTextStyles.get14RegularTextStyle(
                                   color: isSelected ? AppColor.orangeColor : AppColor.disabledColor,
@@ -215,26 +253,77 @@ class PlanYourEventScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SelectionItem(
-                            borderWidth: 1,
-                            icon: AppIcons.uploadIcon,
-                            textStyle: AppTextStyles.get14RegularTextStyle(
-                              color:  AppColor.disabledColor,
-                            ),
-                            borderRadius: 4,
-                            padding: const EdgeInsets.symmetric(vertical: 4,horizontal: 12),
-                            text: StringConsts.uploadPDF, isSelected: false, onTap: (){})
+                        Obx((){
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SelectionItem(
+                                  borderWidth: 1,
+                                  icon: AppIcons.uploadIcon,
+                                  textStyle: AppTextStyles.get14RegularTextStyle(
+                                    color:  AppColor.disabledColor,
+                                  ),
+                                  borderRadius: 4,
+                                  padding: const EdgeInsets.symmetric(vertical: 4,horizontal: 12),
+                                  text: StringConsts.uploadPDF,
+                                  isSelected: planAEventController.file != null,
+                                  onTap: (){
+                                    planAEventController.uploadPdf();
+                                  }
+                              ),
+                              Visibility(
+                                  visible: planAEventController.file != null,
+                                  child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(p.basename(planAEventController.file?.path ?? ''),overflow: TextOverflow.ellipsis,style: AppTextStyles.get14RegularTextStyle(),),
+                              ))
+                            ],
+                          );
+                        })
                       ],
                     )
                   ],
                 ),
               ),
               const SizedBox(height: 22),
-              AppButton(StringConsts.submit, onPressed: (){},backgroundColor: AppColor.violet,),
+              AppButton(StringConsts.submit, onPressed: (){
+                planAEventController.submit();
+              },backgroundColor: AppColor.violet,),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Future<DateTime?> _selectDOB(BuildContext context) async {
+    final DateTime today = DateTime.now();
+    final DateTime latestAllowedDOB = DateTime(today.year - 12, today.month, today.day);
+    final DateTime earliestDOB = DateTime(1900); // Or any reasonable lower limit
+
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: latestAllowedDOB,
+      firstDate: earliestDOB,
+      lastDate: latestAllowedDOB,
+      helpText: 'Select your date of birth',
+    );
+
+    if (picked != null) {
+      return picked;
+    }else{
+      return null;
+    }
+  }
+
+  Future<int?> showIntegerInputDialog(BuildContext context) {
+    return showDialog<int>(
+      context: context,
+      builder: (context) {
+        return EnterGuestDialog(
+          initialValue: planAEventController.noOfGuest.toString(),
+        );
+      },
     );
   }
 }

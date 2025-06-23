@@ -1,7 +1,7 @@
 class ApiUrl {
   static String baseUrl = '';
 
-  static const devUrl = 'http://192.168.1.8:3000';
+  static const devUrl = 'http://44.203.188.5:3000';
   static const stagingUrl = 'http://192.168.1.8:3000';
   static const prodUrl = 'http://192.168.1.8:3000';
 

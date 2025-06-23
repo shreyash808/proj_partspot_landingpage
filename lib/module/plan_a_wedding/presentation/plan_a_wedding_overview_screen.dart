@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:partyspot/module/home/data/models/events_meta.dart';
-import 'package:partyspot/module/plan_a_wedding/presentation/controller/plan_a_wedding_controller.dart';
+import 'package:partyspot/module/plan_a_wedding/presentation/controller/plan_a_event_controller.dart';
 import 'package:partyspot/module/self_hosted_party/presentation/widgets/party_overview.dart';
 import 'package:partyspot/routes/routes_const.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
@@ -21,8 +21,8 @@ class PlanAWeddingOverviewScreen extends StatelessWidget {
       top: false,
       child: Scaffold(
         backgroundColor: AppColor.offWhiteColor,
-        body: GetBuilder<PlanAWeddingController>(
-          init: PlanAWeddingController(
+        body: GetBuilder<PlanAEventController>(
+          init: PlanAEventController(
             subTypes: subTypes,
             foodPreferences: foodPreferences,
             venueTypes: venueTypes
