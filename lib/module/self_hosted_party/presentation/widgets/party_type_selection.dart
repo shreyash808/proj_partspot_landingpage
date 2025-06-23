@@ -110,6 +110,7 @@ class PartyTypeSelection extends StatelessWidget {
                     ),
                     if(items?.isNotEmpty ?? false)
                       Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Obx(() => Wrap(
                             spacing: 5.spW,
@@ -127,6 +128,7 @@ class PartyTypeSelection extends StatelessWidget {
                               );
                             }),
                           )),
+                          const SizedBox(height: 16),
                           AppButton(
                             StringConsts.next,
                             onPressed: () {

@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:partyspot/module/profile/controller/user_detail_controller.dart';
 import 'package:partyspot/routes/routes_const.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
-import 'package:partyspot/utils/classes/value_controller.dart';
 import 'package:partyspot/utils/constants/app_size.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/icon_constants.dart';
@@ -43,8 +42,8 @@ class UserDetailScreen extends StatelessWidget {
       helpText: 'Select your date of birth',
     );
 
-    if (picked != null && picked != userDetailController.selectedDate.value) {
-      userDetailController.selectedDate.updateValue(picked);
+    if (picked != null && picked != userDetailController.selectedDate) {
+      userDetailController.selectedDate = picked;
       _ageController.text =  DateFormat('dd/MM/yyyy').format(picked);
     }
   }
@@ -114,8 +113,8 @@ class UserDetailScreen extends StatelessWidget {
                       title: StringConsts.dob,
                       readOnly: true,
                       controller: _ageController,
-                      initialControllerValue: userDetailController.selectedDate.value != null
-                          ? DateFormat('dd/MM/yyyy').format(userDetailController.selectedDate.value
+                      initialControllerValue: userDetailController.selectedDate != null
+                          ? DateFormat('dd/MM/yyyy').format(userDetailController.selectedDate
                           ?? DateTime.now()) : null,
                       onTap: (){
                         _selectDOB(context);
@@ -132,22 +131,19 @@ class UserDetailScreen extends StatelessWidget {
                             style: AppTextStyles.get14MediumTextStyle(color: AppColor.violetLightColor),
                           ),
                         ),
-                        GetX<ValueController<String?>>(
-                          init: userDetailController.gender,
-                          builder: (controller){
-                            return AppDropDown<String?>(
-                              value: controller.value,
-                              hint: StringConsts.select,
-                              items: ['Male', 'Female', 'Other']
-                                  .map((e) => DropdownMenuItem(value: e, child: Text(e)))
-                                  .toList(),
-                              onChanged: (val) {
-                                userDetailController.gender.updateValue(val);
-                              },
-                              validator: Validator.validateEmpty,
-                            );
-                          },
-                        ),
+                        Obx((){
+                          return AppDropDown<String?>(
+                            value: userDetailController.gender,
+                            hint: StringConsts.select,
+                            items: ['Male', 'Female', 'Other']
+                                .map((e) => DropdownMenuItem(value: e, child: Text(e)))
+                                .toList(),
+                            onChanged: (val) {
+                              userDetailController.gender = val;
+                            },
+                            validator: Validator.validateEmpty,
+                          );
+                        }),
                       ],
                     ),
                     const SizedBox(height: 16),
@@ -170,7 +166,7 @@ class UserDetailScreen extends StatelessWidget {
                                   context: context,
                                   showPhoneCode: true,
                                   onSelect: (Country country) {
-                                    userDetailController.countryFlagController.updateValue(country.phoneCode);
+                                    userDetailController.countryCode = country.phoneCode;
                                   },
                                 );
                               },
@@ -181,18 +177,15 @@ class UserDetailScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Center(
-                                  child: GetX<ValueController<String?>>(
-                                      init: userDetailController.countryFlagController,
-                                      builder: (value){
-                                        return Text(
-                                          CountryParser.tryParsePhoneCode(value.value?.replaceAll("+", "") ?? '91')?.flagEmoji ?? '',
-                                          style: const TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 20,
-                                          ),
-                                        );
-                                      }
-                                  ),
+                                  child: Obx((){
+                                    return Text(
+                                      CountryParser.tryParsePhoneCode(userDetailController.countryCode?.replaceAll("+", "") ?? '91')?.flagEmoji ?? '',
+                                      style: const TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 20,
+                                      ),
+                                    );
+                                  }),
                                 ),
                               ),
                             ),

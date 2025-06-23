@@ -2,7 +2,6 @@ import 'package:get/get.dart';
 import 'package:partyspot/module/login/domain/repositories/auth_repository.dart';
 import 'package:partyspot/networking/model/error_response_model.dart';
 import 'package:partyspot/utils/classes/base_controller.dart';
-import 'package:partyspot/utils/classes/value_controller.dart';
 import 'package:partyspot/utils/constants/service_const.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
 import 'package:partyspot/utils/widgets/loader.dart';
@@ -16,9 +15,18 @@ class UserDetailController extends BaseController {
   String? email;
   String? profilePic;
   int? phoneNumber;
-  final ValueController<String?> gender = ValueController<String?>();
-  final ValueController<DateTime?> selectedDate = ValueController<DateTime?>();
-  final ValueController<String?> countryFlagController = ValueController<String?>("91");
+
+  final Rxn<String?> _countryCode = Rxn<String>('91');
+  String? get countryCode => _countryCode.value;
+  set countryCode(String? val) => _countryCode.value = val;
+
+  final Rx<String?> _gender = Rxn<String>();
+  String? get gender => _gender.value;
+  set gender(String? val) => _gender.value = val;
+
+  final Rxn<DateTime?> _selectedDate = Rxn<DateTime?>();
+  DateTime? get selectedDate => _selectedDate.value;
+  set selectedDate(DateTime? val) => _selectedDate.value = val;
 
   final Rx<bool> _isTncAccepted = Rx<bool>(false);
   bool get isTncAccepted => _isTncAccepted.value;
@@ -54,9 +62,9 @@ class UserDetailController extends BaseController {
       FullScreenLoading.show();
       await _loginRepository.updateProfile(
         fullName: fullName,
-        gender: gender.value,
+        gender: gender,
         profilePicture: profilePic,
-        dob: selectedDate.value?.toIso8601String(),
+        dob: selectedDate?.toIso8601String(),
         email: email
       );
       onSuccess?.call();
@@ -75,9 +83,9 @@ class UserDetailController extends BaseController {
       final res = await _loginRepository.userDetail();
       fullName = res?.data?.user?.fullName;
       email = res?.data?.user?.email;
-      selectedDate.updateValue(res?.data?.user?.dob);
-      countryFlagController.updateValue(res?.data?.user?.code);
-      gender.updateValue(res?.data?.user?.gender);
+      selectedDate = res?.data?.user?.dob;
+      countryCode = res?.data?.user?.code;
+      gender = res?.data?.user?.gender;
       phoneNumber = res?.data?.user?.phone;
     } on ErrorResponse catch (e) {
       setErrorMessage(e.message);
