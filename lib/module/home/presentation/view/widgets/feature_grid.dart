@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:partyspot/routes/routes_const.dart' show Routes;
+import 'package:partyspot/module/home/data/models/events_meta.dart';
+import 'package:partyspot/routes/routes_const.dart' show Routes, RoutesArgument;
 import 'package:partyspot/utils/classes/app_text_styles.dart' show AppTextStyles;
 import 'package:partyspot/utils/constants/app_size.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
-import 'package:partyspot/utils/constants/image_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart' show StringConsts;
-import 'package:partyspot/utils/widgets/custom_image_asset.dart';
+import 'package:partyspot/utils/widgets/custom_network_image.dart';
 
 class FeatureGrid extends StatelessWidget {
-  const FeatureGrid({super.key});
+  final EventsMetaDataResponse? eventData;
+  const FeatureGrid({super.key,required this.eventData});
 
   @override
   Widget build(BuildContext context) {
@@ -20,31 +21,35 @@ class FeatureGrid extends StatelessWidget {
         children: [
           Text(StringConsts.featured,style: AppTextStyles.get20MediumTextStyle(),),
           const SizedBox(height: 16),
-          Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _featureItem(imagePath: AppImages.curatedPartyFeatureImage,title: StringConsts.curatedParties,onTap: (){
+          SizedBox(
+            width: double.infinity,
+            child: Wrap(
+              alignment: WrapAlignment.center,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              spacing: 16,
+              runSpacing: 16,
+              children: List.generate(eventData?.eventType?.length ?? 0, (index){
+                return _featureItem(imagePath: eventData?.eventType?[index].image,title: eventData?.eventType?[index].name,onTap: (){
+                  if(eventData?.eventType?[index].name == 'wedding') {
+                    Get.toNamed(Routes.planAWeddingOverviewScreen,arguments: {
+                      RoutesArgument.subTypes: eventData?.eventSubType?.where((e)=>e.parent == eventData?.eventType?[index].id).toList(),
+                      RoutesArgument.venueTypes: eventData?.venues,
+                      RoutesArgument.foodPreferences: eventData?.foodPrefs
+                    });
+                  }else if(eventData?.eventType?[index].name == 'self hosted'){
+                    Get.toNamed(Routes.selfHostedOverviewScreen,arguments: {
+                      RoutesArgument.subTypes: eventData?.eventSubType?.where((e)=>e.parent == eventData?.eventType?[index].id).toList(),
+                      RoutesArgument.venueTypes: eventData?.venues,
+                      RoutesArgument.foodPreferences: eventData?.foodPrefs
+                    });
+                  }else if(eventData?.eventType?[index].name == 'curated parties'){
                     Get.toNamed(Routes.curatedEventsListScreen);
+                  }else if(eventData?.eventType?[index].name == 'multiple host'){
 
-                  }),
-                  _featureItem(imagePath: AppImages.selfHostedFeatureImage,title: StringConsts.selfHosted,onTap: (){
-                    Get.toNamed(Routes.selfHostedOverviewScreen);
-                  }),
-                ],
-              ),
-              const SizedBox(height: 16,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _featureItem(imagePath: AppImages.planAWeddingFeatureImage,title: StringConsts.planAWedding,onTap: (){
-                    Get.toNamed(Routes.planAWeddingOverviewScreen);
-                  }),
-                  _featureItem(imagePath: AppImages.multipleHostFeatureImage,title: StringConsts.multipleHost),
-                ],
-              ),
-            ],
+                  }
+                });
+              }),
+            ),
           )
         ],
       ),
@@ -56,35 +61,38 @@ class FeatureGrid extends StatelessWidget {
       onTap: onTap,
       child: ClipRRect(
           borderRadius: BorderRadius.circular(16),
-          child: Stack(
-            alignment: Alignment.bottomLeft,
-            children: [
-              CustomImageAsset(
-                image: imagePath,
-                width: AppSizes.width * 0.5 - 24,
-                height: AppSizes.width * 0.5 - 24,
-                fit: BoxFit.cover,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(title ?? '', style: AppTextStyles.get16BoldTextStyle(color: AppColor.whiteColor)),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text('Explore', style: AppTextStyles.get12MediumTextStyle(color: AppColor.whiteColor)),
-                        const SizedBox(width: 4),
-                        Icon(Icons.arrow_forward_ios_rounded,color: AppColor.whiteColor,size: 12,)
-                      ],
-                    )
-                  ],
+          child: SizedBox(
+            width: AppSizes.width * 0.5 - 24,
+            height: AppSizes.width * 0.5 - 24,
+            child: Stack(
+              alignment: Alignment.bottomLeft,
+              fit: StackFit.expand,
+              children: [
+                CustomNetworkImage(
+                  imageUrl: imagePath,
+                  boxFit: BoxFit.cover,
                 ),
-              )
-            ],
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(title ?? '', style: AppTextStyles.get16BoldTextStyle(color: AppColor.whiteColor)),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text('Explore', style: AppTextStyles.get12MediumTextStyle(color: AppColor.whiteColor)),
+                          const SizedBox(width: 4),
+                          Icon(Icons.arrow_forward_ios_rounded,color: AppColor.whiteColor,size: 12,)
+                        ],
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           )
       ),
     );

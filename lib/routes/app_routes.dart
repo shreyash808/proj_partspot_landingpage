@@ -5,6 +5,7 @@ import 'package:partyspot/module/bookings/binding/booking_binding.dart';
 import 'package:partyspot/module/bookings/view/booking_screen.dart';
 import 'package:partyspot/module/curated_events_list/presentation/curated_events_list_screen.dart';
 import 'package:partyspot/module/event_info/presentation/curated_event_info_screen.dart';
+import 'package:partyspot/module/home/data/models/events_meta.dart';
 import 'package:partyspot/module/profile/binding/profile_binding.dart';
 import 'package:partyspot/module/profile/binding/user_detail_binding.dart';
 import 'package:partyspot/module/profile/view/profile_screen.dart';
@@ -19,8 +20,6 @@ import 'package:partyspot/module/vip_plans/binding/beast_binding.dart';
 import 'package:partyspot/module/vip_plans/view/beast_plan.dart';
 import 'package:partyspot/module/explore/binding/explore_binding.dart';
 import 'package:partyspot/module/explore/view/explore_screen.dart';
-import 'package:partyspot/module/home/presentation/binding/home_binding.dart';
-import 'package:partyspot/module/home/presentation/view/home_screen.dart';
 import 'package:partyspot/module/login/presentation/binding/login_binding.dart';
 import 'package:partyspot/module/login/presentation/view/login_screen.dart';
 import 'package:partyspot/module/login/presentation/view/otp_screen.dart';
@@ -78,13 +77,6 @@ class AppRoutes {
         binding: OtpBinding(),
       ),
       GetPage(
-        name: Routes.homeScreen,
-        transition: Transition.circularReveal,
-        page: () => const HomeScreen(),
-        binding: HomeBinding(),
-      ),
-
-      GetPage(
         name: Routes.exploreScreen,
         transition: Transition.circularReveal,
         page: () => ExploreScreen(),
@@ -106,12 +98,24 @@ class AppRoutes {
       GetPage(
         name: Routes.selfHostedOverviewScreen,
         transition: Transition.circularReveal,
-        page: () => SelfHostedOverviewScreen(),
+        page: () {
+          final List<EventSubType?>? subTypes = Get.arguments?[RoutesArgument.subTypes];
+          final List<Venue?>? venueTypes = Get.arguments?[RoutesArgument.venueTypes];
+          final List<FoodPref?>? foodPreferences = Get.arguments?[RoutesArgument.foodPreferences];
+
+          return SelfHostedOverviewScreen(subTypes: subTypes,foodPreferences: foodPreferences,venueTypes: venueTypes);
+        },
       ),
       GetPage(
         name: Routes.planAWeddingOverviewScreen,
         transition: Transition.circularReveal,
-        page: () => PlanAWeddingOverviewScreen(),
+        page: () {
+          final List<EventSubType?>? subTypes = Get.arguments?[RoutesArgument.subTypes];
+          final List<Venue?>? venueTypes = Get.arguments?[RoutesArgument.venueTypes];
+          final List<FoodPref?>? foodPreferences = Get.arguments?[RoutesArgument.foodPreferences];
+
+          return PlanAWeddingOverviewScreen(subTypes: subTypes,foodPreferences: foodPreferences,venueTypes: venueTypes);
+        },
       ),
       GetPage(
         name: Routes.VipScreen,

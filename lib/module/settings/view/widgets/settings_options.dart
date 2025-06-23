@@ -25,7 +25,7 @@ class SettingsOptions extends StatelessWidget {
                 profileListItem(
                   imagePath: AppImages.profileIcon,
                   onTap: () {
-                    Get.toNamed(Routes.profileScreen);
+                    Get.toNamed(Routes.userDetailScreen);
                   },
                   title: StringConsts.editProfile,
                 ),

@@ -15,4 +15,5 @@ class ApiUrl {
   static const resendOtp = '/users/resend-otp';
   static const getProfile = '/users/get-profile';
   static const profile = '/users/profile';
+  static const eventsMetaData = '/events/get-event-meta';
 }

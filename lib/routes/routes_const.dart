@@ -37,4 +37,7 @@ class RoutesArgument {
   static const title = 'title';
   static const phoneNumber = 'phoneNumber';
   static const code = 'code';
+  static const subTypes = 'subTypes';
+  static const venueTypes = 'venueTypes';
+  static const foodPreferences = 'foodPreferences';
 }

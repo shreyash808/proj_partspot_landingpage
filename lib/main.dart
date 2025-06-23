@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:partyspot/firebase_options.dart';
+import 'package:partyspot/module/home/data/repositories/home_repository_impl.dart';
+import 'package:partyspot/module/home/domain/repositories/home_repository.dart';
 import 'package:partyspot/module/login/data/auth_repository_impl.dart';
 import 'package:partyspot/module/login/domain/repositories/auth_repository.dart';
 import 'package:partyspot/routes/app_routes.dart';
@@ -30,6 +32,7 @@ _setupService(){
 }
 _setupRepo(){
   locator.registerLazySingleton<AuthRepository>(()=>AuthRepositoryImpl());
+  locator.registerLazySingleton<HomeRepository>(()=>HomeRepositoryImpl());
 }
 
 class MyApp extends StatelessWidget {

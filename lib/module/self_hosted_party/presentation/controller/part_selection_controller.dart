@@ -6,9 +6,9 @@ class PartyTypeSelectionController extends BaseController {
 
   PartyTypeSelectionController({this.isMultiSelect = true});
 
-  final selectedItems = <String>[].obs;
+  final selectedItems = <String?>[].obs;
 
-  void toggleSelection(String item) {
+  void toggleSelection(String? item) {
     if (isMultiSelect) {
       if (selectedItems.contains(item)) {
         selectedItems.remove(item);
@@ -20,5 +20,5 @@ class PartyTypeSelectionController extends BaseController {
     }
   }
 
-  bool isSelected(String item) => selectedItems.contains(item);
+  bool isSelected(String? item) => selectedItems.contains(item);
 }

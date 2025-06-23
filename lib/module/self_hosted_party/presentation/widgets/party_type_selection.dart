@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:partyspot/module/home/data/models/events_meta.dart';
 import 'package:partyspot/module/self_hosted_party/presentation/controller/part_selection_controller.dart';
 import 'package:partyspot/module/self_hosted_party/presentation/widgets/selection_item.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
@@ -15,9 +16,9 @@ class PartyTypeSelection extends StatelessWidget {
   final String? title;
   final String? desc;
   final String? image;
-  final List<String>? items;
+  final List<EventSubType?>? items;
   final bool isMultiSelect;
-  final Function(List<String> selectedItems)? onSelectionDone;
+  final Function(List<String?> selectedItems)? onSelectionDone;
 
   const PartyTypeSelection({
     super.key,
@@ -112,11 +113,11 @@ class PartyTypeSelection extends StatelessWidget {
                       runSpacing: 12,
                       children: List.generate(items?.length ?? 0, (index) {
                         final item = items![index];
-                        final isSelected = controller.isSelected(item);
+                        final isSelected = controller.isSelected(item?.id);
                         return SelectionItem(
-                          text: item,
+                          text: item?.name ?? '',
                           isSelected: isSelected,
-                          onTap: () => controller.toggleSelection(item),
+                          onTap: () => controller.toggleSelection(item?.id),
                           constraints: BoxConstraints(
                             minWidth: (AppSizes.width * 0.5) - 35.spW, // Ensure spW is defined
                           ),
