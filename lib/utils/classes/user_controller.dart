@@ -18,7 +18,7 @@ class UserController extends BaseController {
       final accessToken = await _storageService.accessToken;
       if(accessToken.isNotEmpty){
         final res =  await _loginRepository.userDetail();
-        return res?.data;
+        return res?.data?.user;
       }else{
         return null;
       }

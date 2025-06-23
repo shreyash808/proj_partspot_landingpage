@@ -23,7 +23,6 @@ class UserDetailScreen extends StatelessWidget {
 
   final UserDetailController userDetailController = Get.find<UserDetailController>();
 
-  final ValueController<String?> countryFlagController = ValueController<String?>("🇮🇳");
 
 
   final TextEditingController _ageController = TextEditingController();
@@ -115,7 +114,9 @@ class UserDetailScreen extends StatelessWidget {
                       title: StringConsts.dob,
                       readOnly: true,
                       controller: _ageController,
-                      initialControllerValue: DateFormat('dd/MM/yyyy').format(userDetailController.selectedDate.value ?? DateTime.now()),
+                      initialControllerValue: userDetailController.selectedDate.value != null
+                          ? DateFormat('dd/MM/yyyy').format(userDetailController.selectedDate.value
+                          ?? DateTime.now()) : null,
                       onTap: (){
                         _selectDOB(context);
                       },
@@ -169,7 +170,7 @@ class UserDetailScreen extends StatelessWidget {
                                   context: context,
                                   showPhoneCode: true,
                                   onSelect: (Country country) {
-                                    countryFlagController.updateValue(country.flagEmoji);
+                                    userDetailController.countryFlagController.updateValue(country.phoneCode);
                                   },
                                 );
                               },
@@ -181,10 +182,10 @@ class UserDetailScreen extends StatelessWidget {
                                 ),
                                 child: Center(
                                   child: GetX<ValueController<String?>>(
-                                      init: countryFlagController,
+                                      init: userDetailController.countryFlagController,
                                       builder: (value){
                                         return Text(
-                                          '${countryFlagController.value}',
+                                          CountryParser.tryParsePhoneCode(value.value?.replaceAll("+", "") ?? '91')?.flagEmoji ?? '',
                                           style: const TextStyle(
                                             color: Colors.black,
                                             fontSize: 20,

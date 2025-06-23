@@ -16,9 +16,9 @@ class UserDetailController extends BaseController {
   String? email;
   String? profilePic;
   int? phoneNumber;
-  String? code;
   final ValueController<String?> gender = ValueController<String?>();
   final ValueController<DateTime?> selectedDate = ValueController<DateTime?>();
+  final ValueController<String?> countryFlagController = ValueController<String?>("91");
 
   final Rx<bool> _isTncAccepted = Rx<bool>(false);
   bool get isTncAccepted => _isTncAccepted.value;
@@ -52,7 +52,13 @@ class UserDetailController extends BaseController {
   Future<void> onUpdateProfile({void Function()? onSuccess}) async {
     try {
       FullScreenLoading.show();
-      await _loginRepository.updateProfile(fullName: fullName,gender: gender.value, profilePicture: profilePic,dob: selectedDate.value?.toIso8601String());
+      await _loginRepository.updateProfile(
+        fullName: fullName,
+        gender: gender.value,
+        profilePicture: profilePic,
+        dob: selectedDate.value?.toIso8601String(),
+        email: email
+      );
       onSuccess?.call();
     } on ErrorResponse catch (e) {
       setErrorMessage(e.message);
@@ -67,11 +73,12 @@ class UserDetailController extends BaseController {
     try {
       setBusy(true);
       final res = await _loginRepository.userDetail();
-      fullName = res?.data?.fullName;
-      email = res?.data?.email;
-      selectedDate.updateValue(res?.data?.dob);
-      code = res?.data?.code;
-      phoneNumber = res?.data?.phone;
+      fullName = res?.data?.user?.fullName;
+      email = res?.data?.user?.email;
+      selectedDate.updateValue(res?.data?.user?.dob);
+      countryFlagController.updateValue(res?.data?.user?.code);
+      gender.updateValue(res?.data?.user?.gender);
+      phoneNumber = res?.data?.user?.phone;
     } on ErrorResponse catch (e) {
       setErrorMessage(e.message);
     } catch (e) {
@@ -79,5 +86,6 @@ class UserDetailController extends BaseController {
     }
     setBusy(false);
   }
+
 
 }
