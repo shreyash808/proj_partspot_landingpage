@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart' show DateFormat;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:partyspot/module/plan_a_wedding/presentation/controller/plan_a_event_controller.dart';
+import 'package:partyspot/module/plan_your_event/presentation/widgets/enter_custom_venue_dialog.dart';
 import 'package:partyspot/module/plan_your_event/presentation/widgets/enter_guest_dialog.dart';
 import 'package:partyspot/module/self_hosted_party/presentation/controller/part_selection_controller.dart';
 import 'package:partyspot/module/self_hosted_party/presentation/widgets/selection_item.dart';
@@ -101,7 +102,7 @@ class PlanYourEventScreen extends StatelessWidget {
                           }),
                           GestureDetector(
                             onTap: ()async{
-                              final res = await showIntegerInputDialog(context);
+                              final res = await showCustomGuestDialog(context);
                               if(res != null){
                                 planAEventController.noOfGuest = res;
                               }
@@ -159,7 +160,13 @@ class PlanYourEventScreen extends StatelessWidget {
                                 text: item?.name ?? '',
                                 borderRadius: 4,
                                 isSelected: isSelected,
-                                onTap: (){
+                                onTap: ()async{
+                                  if(item?.name?.contains('custom') ?? false){
+                                    final res = await showCustomVenueDialog(context);
+                                    if(res == null){
+                                      return;
+                                    }
+                                  }
                                   controller.toggleSelection(item?.id);
                                   planAEventController.selectedVenueTypes = controller.selectedItems;
                                 },
@@ -316,13 +323,22 @@ class PlanYourEventScreen extends StatelessWidget {
     }
   }
 
-  Future<int?> showIntegerInputDialog(BuildContext context) {
+  Future<int?> showCustomGuestDialog(BuildContext context) {
     return showDialog<int>(
       context: context,
       builder: (context) {
         return EnterGuestDialog(
           initialValue: planAEventController.noOfGuest.toString(),
         );
+      },
+    );
+  }
+
+  Future<String?> showCustomVenueDialog(BuildContext context) {
+    return showDialog<String?>(
+      context: context,
+      builder: (context) {
+        return EnterCustomVenueDialog();
       },
     );
   }

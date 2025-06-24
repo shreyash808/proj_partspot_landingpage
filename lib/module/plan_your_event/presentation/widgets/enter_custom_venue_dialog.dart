@@ -5,10 +5,10 @@ import 'package:partyspot/utils/constants/string_consts.dart';
 import 'package:partyspot/utils/widgets/app_text_field.dart';
 import 'package:partyspot/utils/widgets/buttons.dart';
 
-class EnterGuestDialog extends StatelessWidget {
+class EnterCustomVenueDialog extends StatelessWidget {
   final String? initialValue;
 
-  EnterGuestDialog({super.key, required this.initialValue});
+  EnterCustomVenueDialog({super.key, this.initialValue});
 
   final TextEditingController controller = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -28,7 +28,7 @@ class EnterGuestDialog extends StatelessWidget {
           children: [
             /// Dialog Title
             Text(
-              StringConsts.enterTheNumberOfGuests,
+              StringConsts.enterVenue,
               style: AppTextStyles.get18SemiBoldTextStyle(color: AppColor.blackColor),
             ),
             const SizedBox(height: 16),
@@ -38,17 +38,10 @@ class EnterGuestDialog extends StatelessWidget {
               key: formKey,
               child: AppTextField(
                 controller: controller,
-                inputType: TextInputType.number,
-                hint: StringConsts.noOfGuests,
+                hint: StringConsts.venueType,
                 initialControllerValue: initialValue,
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
-                    return StringConsts.invalidInput;
-                  }
-                  if (int.tryParse(value.trim()) == null) {
-                    return StringConsts.invalidInput;
-                  }
-                  if ((int.tryParse(value.trim()) ?? 0) <= 0) {
                     return StringConsts.invalidInput;
                   }
                   return null;
@@ -72,7 +65,8 @@ class EnterGuestDialog extends StatelessWidget {
                     StringConsts.done,
                     onPressed: () {
                       if (formKey.currentState?.validate() == true) {
-                        Navigator.of(context).pop(controller.text.trim());
+                        final intValue = int.tryParse(controller.text.trim());
+                        Navigator.of(context).pop(intValue);
                       }
                     },
                   ),

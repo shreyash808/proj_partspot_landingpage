@@ -43,6 +43,8 @@ class StringConsts {
   static const andContinue = "and continue";
   static const gender = "Gender";
   static const dob = "DOB";
+  static const enterTheNumberOfGuests = "Enter Number of Guests";
+  static const enterVenue = "Enter Venue";
 
   ///Error Texts
   static const passwordCannotBeEmpty = 'passwordCannotBeEmpty';
