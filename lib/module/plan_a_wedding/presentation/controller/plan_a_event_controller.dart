@@ -61,7 +61,7 @@ class PlanAEventController extends BaseController{
     return null; // User canceled
   }
 
-  Future<void> submit()async{
+  Future<void> submit(Function()? onSuccess)async{
     if(selectedDate == null){
       setErrorMessage(StringConsts.pleaseSelectDate);
     }else if(selectedVenueTypes.isEmpty){
@@ -71,7 +71,7 @@ class PlanAEventController extends BaseController{
     }else if(file == null){
       setErrorMessage(StringConsts.pleaseSelectDate);
     }else{
-
+      onSuccess?.call();
     }
   }
 }

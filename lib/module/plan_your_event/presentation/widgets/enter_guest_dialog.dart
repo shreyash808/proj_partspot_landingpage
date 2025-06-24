@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
@@ -63,7 +64,10 @@ class EnterGuestDialog extends StatelessWidget {
                 Expanded(
                   child: AppOutlinedButton(
                     StringConsts.cancel,
-                    onPressed: () => Navigator.of(context).pop(null),
+                    onPressed: () {
+                      Future.delayed(Duration.zero, () {
+                        Get.back();                      });
+                      },
                   ),
                 ),
                 const SizedBox(width: 8),
@@ -72,7 +76,7 @@ class EnterGuestDialog extends StatelessWidget {
                     StringConsts.done,
                     onPressed: () {
                       if (formKey.currentState?.validate() == true) {
-                        Navigator.of(context).pop(controller.text.trim());
+                       Get.back(result: int.tryParse(controller.text.trim()));
                       }
                     },
                   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
@@ -56,7 +57,7 @@ class EnterCustomVenueDialog extends StatelessWidget {
                 Expanded(
                   child: AppOutlinedButton(
                     StringConsts.cancel,
-                    onPressed: () => Navigator.of(context).pop(null),
+                    onPressed: () => Get.back(),
                   ),
                 ),
                 const SizedBox(width: 8),
@@ -66,7 +67,7 @@ class EnterCustomVenueDialog extends StatelessWidget {
                     onPressed: () {
                       if (formKey.currentState?.validate() == true) {
                         final intValue = int.tryParse(controller.text.trim());
-                        Navigator.of(context).pop(intValue);
+                        Get.back(result:intValue);
                       }
                     },
                   ),

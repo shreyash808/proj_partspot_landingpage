@@ -1,3 +1,4 @@
+import 'package:partyspot/module/home/data/models/banner_response_model.dart';
 import 'package:partyspot/module/home/data/models/events_meta.dart';
 import 'package:partyspot/module/home/domain/repositories/home_repository.dart';
 import 'package:partyspot/networking/api_urls.dart';
@@ -8,5 +9,11 @@ class HomeRepositoryImpl extends PartySportApiService implements HomeRepository 
   Future<EventsMetaDataResponse?> getEventMetaData() async{
     final response = await getRequest(ApiUrl.eventsMetaData);
     return EventsMetaDataResponse.fromJson(response.data);
+  }
+
+  @override
+  Future<BannerResponse?> getBannerData() async{
+    final response = await getRequest(ApiUrl.carousel);
+    return BannerResponse.fromJson(response.data);
   }
 }

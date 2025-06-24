@@ -6,6 +6,7 @@ import 'package:partyspot/module/plan_your_event/presentation/widgets/enter_cust
 import 'package:partyspot/module/plan_your_event/presentation/widgets/enter_guest_dialog.dart';
 import 'package:partyspot/module/self_hosted_party/presentation/controller/part_selection_controller.dart';
 import 'package:partyspot/module/self_hosted_party/presentation/widgets/selection_item.dart';
+import 'package:partyspot/routes/routes_const.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/app_size.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
@@ -57,7 +58,8 @@ class PlanYourEventScreen extends StatelessWidget {
                           Obx((){
                             return Row(
                               children: [
-                            Text(planAEventController.selectedDate != null ? DateFormat('dd/MM/yyyy').format(planAEventController.selectedDate ?? DateTime.now())
+                            Text(planAEventController.selectedDate != null
+                                ? DateFormat('dd/MM/yyyy').format(planAEventController.selectedDate ?? DateTime.now())
                                 : StringConsts.chooseDate,style: AppTextStyles.get16MediumTextStyle()),
                                   Visibility(
                                       visible: planAEventController.selectedDate == null,
@@ -294,7 +296,11 @@ class PlanYourEventScreen extends StatelessWidget {
               ),
               const SizedBox(height: 22),
               AppButton(StringConsts.submit, onPressed: (){
-                planAEventController.submit();
+                planAEventController.submit(
+                  () {
+                    Get.toNamed(Routes.representativeScreen);
+                  },
+                );
               },backgroundColor: AppColor.violet,),
             ],
           ),

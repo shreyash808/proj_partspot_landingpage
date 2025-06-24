@@ -1,15 +1,13 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:partyspot/module/home/presentation/controller/home_controller.dart';
+import 'package:partyspot/module/home/presentation/view/widgets/banner_widget.dart';
 import 'package:partyspot/module/home/presentation/view/widgets/feature_grid.dart';
 import 'package:partyspot/module/home/presentation/view/widgets/party_sport_vip_home.dart';
 import 'package:partyspot/module/home/presentation/view/widgets/popular_events_list.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/icon_constants.dart';
-import 'package:partyspot/utils/constants/image_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
-import 'package:partyspot/utils/widgets/custom_image_asset.dart';
 import 'package:partyspot/utils/widgets/custom_svg_picture.dart';
 import 'package:partyspot/utils/widgets/loader.dart';
 
@@ -51,23 +49,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  CarouselSlider.builder(
-                    itemCount: 3,
-                    options: CarouselOptions(
-                      autoPlay: true,
-                      viewportFraction: 1,
-                      aspectRatio: 16 / 6,
-                    ),
-                    itemBuilder: (context, index, realIndex) {
-                      return Container(
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: CustomImageAsset(image: AppImages.dummyCarousel),
-                      );
-                    }
-                  ),
+                  BannerWidget(),
                   FeatureGrid(eventData: homeController.eventMetaData),
                   PopularEventsList(),
                   PartySportVipHome(),

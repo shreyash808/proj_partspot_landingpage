@@ -108,7 +108,7 @@ class FilterDialogWidget extends StatelessWidget {
                 child: AppButton(
                   StringConsts.apply,
                   onPressed: () {
-                    Navigator.pop(context);
+                    Get.back();
                   },
                   height: 50,
                   padding: EdgeInsets.symmetric(vertical: 12),
