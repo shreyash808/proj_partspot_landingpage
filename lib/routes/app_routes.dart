@@ -69,10 +69,11 @@ class AppRoutes {
       GetPage(
         name: Routes.otpScreen,
         transition: Transition.circularReveal,
-        page: (){
-          final int? phoneNumber = Get.arguments?[RoutesArgument.phoneNumber] ?? 0;
+        page: () {
+          final int? phoneNumber =
+              Get.arguments?[RoutesArgument.phoneNumber] ?? 0;
           final String? code = Get.arguments?[RoutesArgument.code] ?? '';
-          return OtpScreen(phoneNumber: phoneNumber,code: code);
+          return OtpScreen(phoneNumber: phoneNumber, code: code);
         },
         binding: OtpBinding(),
       ),
@@ -99,22 +100,36 @@ class AppRoutes {
         name: Routes.selfHostedOverviewScreen,
         transition: Transition.circularReveal,
         page: () {
-          final List<EventSubType?>? subTypes = Get.arguments?[RoutesArgument.subTypes] ?? [];
-          final List<Venue?>? venueTypes = Get.arguments?[RoutesArgument.venueTypes] ?? [];
-          final List<FoodPref?>? foodPreferences = Get.arguments?[RoutesArgument.foodPreferences] ?? [];
+          final List<EventSubType?>? subTypes =
+              Get.arguments?[RoutesArgument.subTypes] ?? [];
+          final List<Venue?>? venueTypes =
+              Get.arguments?[RoutesArgument.venueTypes] ?? [];
+          final List<FoodPref?>? foodPreferences =
+              Get.arguments?[RoutesArgument.foodPreferences] ?? [];
 
-          return SelfHostedOverviewScreen(subTypes: subTypes,foodPreferences: foodPreferences,venueTypes: venueTypes);
+          return SelfHostedOverviewScreen(
+            subTypes: subTypes,
+            foodPreferences: foodPreferences,
+            venueTypes: venueTypes,
+          );
         },
       ),
       GetPage(
         name: Routes.planAWeddingOverviewScreen,
         transition: Transition.circularReveal,
         page: () {
-          final List<EventSubType?>? subTypes = Get.arguments?[RoutesArgument.subTypes] ?? [];
-          final List<Venue?>? venueTypes = Get.arguments?[RoutesArgument.venueTypes] ?? [];
-          final List<FoodPref?>? foodPreferences = Get.arguments?[RoutesArgument.foodPreferences] ?? [];
+          final List<EventSubType?>? subTypes =
+              Get.arguments?[RoutesArgument.subTypes] ?? [];
+          final List<Venue?>? venueTypes =
+              Get.arguments?[RoutesArgument.venueTypes] ?? [];
+          final List<FoodPref?>? foodPreferences =
+              Get.arguments?[RoutesArgument.foodPreferences] ?? [];
 
-          return PlanAWeddingOverviewScreen(subTypes: subTypes,foodPreferences: foodPreferences,venueTypes: venueTypes);
+          return PlanAWeddingOverviewScreen(
+            subTypes: subTypes,
+            foodPreferences: foodPreferences,
+            venueTypes: venueTypes,
+          );
         },
       ),
       GetPage(
@@ -186,7 +201,12 @@ class AppRoutes {
       GetPage(
         name: Routes.userDetailScreen,
         transition: Transition.circularReveal,
-        page: () => UserDetailScreen(),
+        page: () {
+          final bool? fromEdit =
+              Get.arguments?[RoutesArgument.fromEdit] ?? false;
+
+          return UserDetailScreen(fromEdit: fromEdit);
+        },
         binding: UserDetailBinding(),
       ),
     ];

@@ -24,7 +24,8 @@ class Routes {
   static const selfHostedOverviewScreen = '/selfHostedOverviewScreen';
   static const planAWeddingOverviewScreen = '/planAWeddingOverviewScreen';
   static const representativeScreen = '/RepresentativeScreen';
-  static const selfHostedPartySelectionScreen = '/selfHostedPartySelectionScreen';
+  static const selfHostedPartySelectionScreen =
+      '/selfHostedPartySelectionScreen';
   static const weddingWaySelectionScreen = '/weddingWaySelectionScreen';
   static const planEventScreen = '/planEventScreen';
 
@@ -40,4 +41,5 @@ class RoutesArgument {
   static const subTypes = 'subTypes';
   static const venueTypes = 'venueTypes';
   static const foodPreferences = 'foodPreferences';
+  static const fromEdit = 'fromEdit';
 }

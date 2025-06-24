@@ -22,9 +22,11 @@ class StringConsts {
   static const planAWeddingDesc =
       "Plan your dream wedding, stress-free and your style!";
   static const hostYourPartyWithUs = "Host your parties, with us.";
-  static const selectTheTypeOfEvent = "Select the type of event you want to organize.";
+  static const selectTheTypeOfEvent =
+      "Select the type of event you want to organize.";
   static const yourWeddingYourWay = "Your Wedding, Your Way";
-  static const selectTheTypeOfWedding = "Select the types of wedding event you want to organize.";
+  static const selectTheTypeOfWedding =
+      "Select the types of wedding event you want to organize.";
   static const planYourEvents = "Plan Your Events";
   static const chooseDate = "Choose date";
   static const numberOfGuests = "Number of Guests";
@@ -98,6 +100,8 @@ class StringConsts {
 
   static const enterOtp = "Enter OTP";
   static const submit = "Submit";
+
+  static const update = "Update";
 
   static const resendOtp = "Resend OTP";
   static const resendOtpIn = "Resend OTP in";
@@ -274,6 +278,4 @@ class StringConsts {
   static const maximumTicketsPerBooking = "Maximum 10 tickets per booking";
   static const totalPrice = "Total Price";
   static const planYourWedding = "Plan your Wedding";
-
-
 }

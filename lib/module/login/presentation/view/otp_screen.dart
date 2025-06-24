@@ -13,8 +13,7 @@ import 'package:partyspot/utils/widgets/buttons.dart';
 class OtpScreen extends StatelessWidget {
   final int? phoneNumber;
   final String? code;
-  OtpScreen({super.key,required this.phoneNumber,required this.code});
-
+  OtpScreen({super.key, required this.phoneNumber, required this.code});
 
   final OtpController controller = Get.find<OtpController>();
 
@@ -65,33 +64,44 @@ class OtpScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10),
                         fillColor: AppColor.colorEDEDED,
                         showFieldAsBox: true,
-                        onSubmit: (val){
+                        onSubmit: (val) {
                           debugPrint(val);
                           controller.otpCode = val;
                         },
                       ),
 
                       ResendOtpTimerWidget(
-                        onResendTap: (){
-                          controller.onResendOtp(code,phoneNumber,onSuccess: (val){
-                            // showSnackBar(text: val);
-                          });
+                        onResendTap: () {
+                          controller.onResendOtp(
+                            code,
+                            phoneNumber,
+                            onSuccess: (val) {
+                              // showSnackBar(text: val);
+                            },
+                          );
                         },
                         timeBuilder: () => controller.timer.value,
                       ),
 
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 15.0),
-                        child: Obx((){
+                        child: Obx(() {
                           return AppButton(
                             StringConsts.submit,
                             isEnabled: controller.otpCode.isNotEmpty,
                             backgroundColor: AppColor.buttonOrange,
                             margin: const EdgeInsets.symmetric(vertical: 8),
                             onPressed: () {
-                              controller.onVerifyOtp(code,phoneNumber,onSuccess: (){
-                                Get.offNamed(Routes.userDetailScreen);
-                              });
+                              controller.onVerifyOtp(
+                                code,
+                                phoneNumber,
+                                onSuccess: () {
+                                  Get.offNamed(
+                                    Routes.userDetailScreen,
+                                    arguments: {RoutesArgument.fromEdit: false},
+                                  );
+                                },
+                              );
                             },
                           );
                         }),

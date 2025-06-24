@@ -9,7 +9,6 @@ import 'package:partyspot/utils/widgets/loader.dart';
 import 'package:partyspot/utils/widgets/snackbars.dart';
 
 class UserDetailController extends BaseController {
-
   final AuthRepository _loginRepository = locator<AuthRepository>();
 
   String? fullName;
@@ -31,9 +30,10 @@ class UserDetailController extends BaseController {
   DateTime? get selectedDate => _selectedDate.value;
   set selectedDate(DateTime? val) => _selectedDate.value = val;
 
-  final Rx<bool> _isTncAccepted = Rx<bool>(false);
-  bool get isTncAccepted => _isTncAccepted.value;
-  set isTncAccepted(bool val) => _isTncAccepted.value = val;
+  final RxBool isTncAcceptedRx = false.obs;
+
+  bool get isTncAccepted => isTncAcceptedRx.value;
+  set isTncAccepted(bool val) => isTncAcceptedRx.value = val;
 
   @override
   void onInit() {
@@ -42,7 +42,7 @@ class UserDetailController extends BaseController {
     onGetUserDetail();
 
     ever<String>(errorMessageRx, (String msg) {
-      Future.microtask((){
+      Future.microtask(() {
         if (msg.isNotEmpty) {
           showSnackBar(text: errorMessage, isError: true);
           setErrorMessage('');
@@ -51,7 +51,7 @@ class UserDetailController extends BaseController {
     });
 
     ever<String>(successMessageRX, (String msg) {
-      Future.microtask((){
+      Future.microtask(() {
         if (msg.isNotEmpty) {
           showSnackBar(text: successMessage);
           setErrorMessage('');
@@ -68,14 +68,14 @@ class UserDetailController extends BaseController {
         gender: gender,
         profilePicture: profilePic,
         dob: selectedDate?.toIso8601String(),
-        email: email
+        email: email,
       );
       onSuccess?.call();
     } on ErrorResponse catch (e) {
       setErrorMessage(e.message);
     } catch (e) {
       setErrorMessage(StringConsts.unExpectedError);
-    } finally{
+    } finally {
       FullScreenLoading.hide();
     }
   }
@@ -98,6 +98,4 @@ class UserDetailController extends BaseController {
     }
     setBusy(false);
   }
-
-
 }
