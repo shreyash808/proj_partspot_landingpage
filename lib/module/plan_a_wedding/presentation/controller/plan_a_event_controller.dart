@@ -118,7 +118,7 @@ class PlanAEventController extends BaseController{
     }else if(selectedFoodPreferences.isEmpty){
       setErrorMessage(StringConsts.pleaseSelectFoodPreference);
     }else if(file == null){
-      setErrorMessage(StringConsts.pleaseSelectDate);
+      setErrorMessage(StringConsts.pleaseUploadPdf);
     }else{
       try {
         FullScreenLoading.show();
