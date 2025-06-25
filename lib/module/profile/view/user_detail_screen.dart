@@ -244,7 +244,7 @@ class UserDetailScreen extends StatelessWidget {
                       return AppButton(StringConsts.submit, onPressed: (){
                         if(_formKey.currentState?.validate() ?? false){
                           userDetailController.onUpdateProfile(onSuccess: (){
-                            Get.offAndToNamed(Routes.appEntryScreen);
+                            Get.offAllNamed(Routes.appEntryScreen);
                           });
                         }
                       },

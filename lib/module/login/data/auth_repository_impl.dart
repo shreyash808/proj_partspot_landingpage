@@ -1,4 +1,8 @@
 
+import 'dart:io';
+
+import 'package:dio/dio.dart';
+import 'package:partyspot/module/login/data/models/file_upload_response.dart';
 import 'package:partyspot/module/login/data/models/login_response_model.dart';
 import 'package:partyspot/module/login/data/models/phone_login_response.dart';
 import 'package:partyspot/module/login/domain/repositories/auth_repository.dart';
@@ -57,6 +61,14 @@ class AuthRepositoryImpl extends PartySportApiService implements AuthRepository 
       'dob': dob
     });
     return LoginResponse.fromJson(response.data);
+  }
+
+  @override
+  Future<FileUploadResponse?> uploadFile({File? file})async {
+    final response = await postRequest(ApiUrl.fileUpload, data: {'file': await MultipartFile.fromFile(
+        file?.path ?? '',
+    )});
+    return FileUploadResponse.fromJson(response.data);
   }
 
   @override

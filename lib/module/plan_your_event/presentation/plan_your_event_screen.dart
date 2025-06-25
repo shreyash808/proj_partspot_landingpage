@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart' show DateFormat;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:partyspot/module/home/data/models/events_meta.dart';
 import 'package:partyspot/module/plan_a_wedding/presentation/controller/plan_a_event_controller.dart';
 import 'package:partyspot/module/plan_your_event/presentation/widgets/enter_custom_venue_dialog.dart';
 import 'package:partyspot/module/plan_your_event/presentation/widgets/enter_guest_dialog.dart';
@@ -148,8 +149,8 @@ class PlanYourEventScreen extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 30),
-                    GetBuilder<PartyTypeSelectionController>(
-                        init: PartyTypeSelectionController(isMultiSelect: false),
+                    GetBuilder<PartyTypeSelectionController<Venue?>>(
+                        init: PartyTypeSelectionController<Venue?>(isMultiSelect: false),
                         tag: 'venue_type',
                         builder: (controller) {
                           return Obx(() => Wrap(
@@ -157,7 +158,7 @@ class PlanYourEventScreen extends StatelessWidget {
                             runSpacing: 12,
                             children: List.generate(planAEventController.venueTypes?.length ?? 0, (index) {
                               final item = planAEventController.venueTypes?[index];
-                              final isSelected = controller.isSelected(item?.id);
+                              final isSelected = controller.isSelected(item);
                               return SelectionItem(
                                 text: item?.name ?? '',
                                 borderRadius: 4,
@@ -169,7 +170,7 @@ class PlanYourEventScreen extends StatelessWidget {
                                       return;
                                     }
                                   }
-                                  controller.toggleSelection(item?.id);
+                                  controller.toggleSelection(item);
                                   planAEventController.selectedVenueTypes = controller.selectedItems;
                                 },
                                 borderWidth: 1,
@@ -207,8 +208,8 @@ class PlanYourEventScreen extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 30),
-                    GetBuilder<PartyTypeSelectionController>(
-                        init: PartyTypeSelectionController(isMultiSelect: false),
+                    GetBuilder<PartyTypeSelectionController<FoodPref?>>(
+                        init: PartyTypeSelectionController<FoodPref?>(isMultiSelect: false),
                         tag: 'food_preferences',
                         builder: (controller) {
                           return Obx(() => Wrap(
@@ -216,13 +217,13 @@ class PlanYourEventScreen extends StatelessWidget {
                             runSpacing: 12,
                             children: List.generate(planAEventController.foodPreferences?.length ?? 0, (index) {
                               final item = planAEventController.foodPreferences?[index];
-                              final isSelected = controller.isSelected(item?.id);
+                              final isSelected = controller.isSelected(item);
                               return SelectionItem(
                                 text: item?.name ?? '',
                                 borderRadius: 4,
                                 isSelected: isSelected,
                                 onTap: () {
-                                  controller.toggleSelection(item?.id);
+                                  controller.toggleSelection(item);
                                   planAEventController.selectedFoodPreferences = controller.selectedItems;
                                 },
                                 borderWidth: 1,

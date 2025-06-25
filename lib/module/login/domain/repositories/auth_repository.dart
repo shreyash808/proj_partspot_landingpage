@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:partyspot/module/login/data/models/file_upload_response.dart';
 import 'package:partyspot/module/login/data/models/login_response_model.dart';
 import 'package:partyspot/module/login/data/models/phone_login_response.dart';
 
@@ -8,4 +11,5 @@ abstract class AuthRepository {
   Future<UserLoginResponse?> resendOtp({required String? code,required int? phoneNumber});
   Future<LoginResponse?> updateProfile({String? fullName,String? gender,String? profilePicture,String? deviceToken,String? dob,String? email});
   Future<LoginResponse?> userDetail();
+  Future<FileUploadResponse?> uploadFile({File? file});
 }

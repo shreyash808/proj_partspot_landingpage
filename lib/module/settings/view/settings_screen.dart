@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:partyspot/module/settings/view/widgets/profile_card.dart';
 import 'package:partyspot/module/settings/view/widgets/profile_img_circle.dart';

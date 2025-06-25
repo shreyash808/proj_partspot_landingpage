@@ -102,8 +102,9 @@ class AppRoutes {
           final List<EventSubType?>? subTypes = Get.arguments?[RoutesArgument.subTypes] ?? [];
           final List<Venue?>? venueTypes = Get.arguments?[RoutesArgument.venueTypes] ?? [];
           final List<FoodPref?>? foodPreferences = Get.arguments?[RoutesArgument.foodPreferences] ?? [];
+          final EventType? eventType = Get.arguments?[RoutesArgument.eventType] ?? [];
 
-          return SelfHostedOverviewScreen(subTypes: subTypes,foodPreferences: foodPreferences,venueTypes: venueTypes);
+          return SelfHostedOverviewScreen(subTypes: subTypes,foodPreferences: foodPreferences,venueTypes: venueTypes,eventType: eventType);
         },
       ),
       GetPage(
@@ -113,8 +114,9 @@ class AppRoutes {
           final List<EventSubType?>? subTypes = Get.arguments?[RoutesArgument.subTypes] ?? [];
           final List<Venue?>? venueTypes = Get.arguments?[RoutesArgument.venueTypes] ?? [];
           final List<FoodPref?>? foodPreferences = Get.arguments?[RoutesArgument.foodPreferences] ?? [];
+          final EventType? eventType = Get.arguments?[RoutesArgument.eventType] ?? [];
 
-          return PlanAWeddingOverviewScreen(subTypes: subTypes,foodPreferences: foodPreferences,venueTypes: venueTypes);
+          return PlanAWeddingOverviewScreen(subTypes: subTypes,foodPreferences: foodPreferences,venueTypes: venueTypes,eventType: eventType,);
         },
       ),
       GetPage(

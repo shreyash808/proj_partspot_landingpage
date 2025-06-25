@@ -40,4 +40,5 @@ class RoutesArgument {
   static const subTypes = 'subTypes';
   static const venueTypes = 'venueTypes';
   static const foodPreferences = 'foodPreferences';
+  static const eventType = 'eventType';
 }

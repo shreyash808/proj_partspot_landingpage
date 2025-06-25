@@ -12,8 +12,9 @@ class PlanAWeddingOverviewScreen extends StatelessWidget {
   final List<EventSubType?>? subTypes;
   final List<Venue?>? venueTypes;
   final List<FoodPref?>? foodPreferences;
+  final EventType? eventType;
 
-  const PlanAWeddingOverviewScreen({super.key,required this.subTypes,required this.foodPreferences,required this.venueTypes});
+  const PlanAWeddingOverviewScreen({super.key,required this.subTypes,required this.foodPreferences,required this.venueTypes,required this.eventType});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,8 @@ class PlanAWeddingOverviewScreen extends StatelessWidget {
           init: PlanAEventController(
             subTypes: subTypes,
             foodPreferences: foodPreferences,
-            venueTypes: venueTypes
+            venueTypes: venueTypes,
+            eventType: eventType
           ),
           builder: (controller){
             return PartyOverview(

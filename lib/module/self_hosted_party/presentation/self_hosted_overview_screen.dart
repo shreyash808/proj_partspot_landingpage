@@ -12,8 +12,9 @@ class SelfHostedOverviewScreen extends StatelessWidget {
   final List<EventSubType?>? subTypes;
   final List<Venue?>? venueTypes;
   final List<FoodPref?>? foodPreferences;
+  final EventType? eventType;
 
-  const SelfHostedOverviewScreen({super.key,required this.subTypes,required this.foodPreferences,required this.venueTypes});
+  const SelfHostedOverviewScreen({super.key,required this.subTypes,required this.foodPreferences,required this.venueTypes,required this.eventType});
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +24,10 @@ class SelfHostedOverviewScreen extends StatelessWidget {
         backgroundColor: AppColor.offWhiteColor,
         body: GetBuilder<PlanAEventController>(
             init: PlanAEventController(
-                subTypes: subTypes ?? [],
-                foodPreferences: foodPreferences ?? [],
-                venueTypes: venueTypes ?? []
+              subTypes: subTypes ?? [],
+              foodPreferences: foodPreferences ?? [],
+              venueTypes: venueTypes ?? [],
+              eventType: eventType
             ),
           builder: (controller) {
             return PartyOverview(

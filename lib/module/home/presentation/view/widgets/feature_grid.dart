@@ -34,13 +34,15 @@ class FeatureGrid extends StatelessWidget {
                     Get.toNamed(Routes.planAWeddingOverviewScreen,arguments: {
                       RoutesArgument.subTypes: eventData?.eventSubType?.where((e)=>e.parent == eventData?.eventType?[index].id).toList(),
                       RoutesArgument.venueTypes: eventData?.venues,
-                      RoutesArgument.foodPreferences: eventData?.foodPrefs
+                      RoutesArgument.foodPreferences: eventData?.foodPrefs,
+                      RoutesArgument.eventType: eventData?.eventType?[index],
                     });
                   }else if(eventData?.eventType?[index].name == 'self hosted'){
                     Get.toNamed(Routes.selfHostedOverviewScreen,arguments: {
                       RoutesArgument.subTypes: eventData?.eventSubType?.where((e)=>e.parent == eventData?.eventType?[index].id).toList(),
                       RoutesArgument.venueTypes: eventData?.venues,
-                      RoutesArgument.foodPreferences: eventData?.foodPrefs
+                      RoutesArgument.foodPreferences: eventData?.foodPrefs,
+                      RoutesArgument.eventType: eventData?.eventType?[index],
                     });
                   }else if(eventData?.eventType?[index].name == 'curated parties'){
                     Get.toNamed(Routes.curatedEventsListScreen);

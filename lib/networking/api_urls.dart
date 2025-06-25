@@ -1,13 +1,9 @@
 class ApiUrl {
   static String baseUrl = '';
 
-  static const devUrl = 'http://44.203.188.5:3000';
+  static const devUrl = 'http://44.203.188.5:3000/api';
   static const stagingUrl = 'http://192.168.1.8:3000';
   static const prodUrl = 'http://192.168.1.8:3000';
-
-  static const socketDevUrl = 'https://devop-partyspot.approd.ca/';
-  static const socketStagUrl = 'https://stg-partyspotoxygen.approd.ca/';
-  static const socketProdUrl = 'https://devop-partyspot.approd.ca/';
 
   static const socialLogin = '/auth/social-login';
   static const loginPhone = '/users/register-login';
@@ -16,4 +12,7 @@ class ApiUrl {
   static const getProfile = '/users/get-profile';
   static const profile = '/users/profile';
   static const eventsMetaData = '/events/get-event-meta';
+  static const carousel = '/admin/carousel';
+  static const fileUpload = '/admin/file-upload';
+  static const createEventRequest = '/users/create-event-request';
 }

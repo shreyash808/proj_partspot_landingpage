@@ -6,6 +6,8 @@ import 'package:partyspot/module/home/data/repositories/home_repository_impl.dar
 import 'package:partyspot/module/home/domain/repositories/home_repository.dart';
 import 'package:partyspot/module/login/data/auth_repository_impl.dart';
 import 'package:partyspot/module/login/domain/repositories/auth_repository.dart';
+import 'package:partyspot/module/plan_a_wedding/data/plan_event_repository_impl.dart';
+import 'package:partyspot/module/plan_a_wedding/domain/plan_event_repository.dart';
 import 'package:partyspot/routes/app_routes.dart';
 import 'package:partyspot/routes/routes_const.dart';
 import 'package:partyspot/utils/classes/user_controller.dart';
@@ -33,6 +35,7 @@ _setupService(){
 _setupRepo(){
   locator.registerLazySingleton<AuthRepository>(()=>AuthRepositoryImpl());
   locator.registerLazySingleton<HomeRepository>(()=>HomeRepositoryImpl());
+  locator.registerLazySingleton<PlanEventRepository>(()=>PlanEventRepositoryImpl());
 }
 
 class MyApp extends StatelessWidget {

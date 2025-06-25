@@ -33,8 +33,8 @@ class PartyTypeSelection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return GetBuilder<PartyTypeSelectionController>(
-      init: PartyTypeSelectionController(isMultiSelect: isMultiSelect),
+    return GetBuilder<PartyTypeSelectionController<String?>>(
+      init: PartyTypeSelectionController<String?>(isMultiSelect: isMultiSelect),
       builder: (controller){
         return Column(
           children: [
