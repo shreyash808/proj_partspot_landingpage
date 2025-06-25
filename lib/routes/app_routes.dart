@@ -70,10 +70,11 @@ class AppRoutes {
       GetPage(
         name: Routes.otpScreen,
         transition: Transition.circularReveal,
-        page: (){
-          final int? phoneNumber = Get.arguments?[RoutesArgument.phoneNumber] ?? 0;
+        page: () {
+          final int? phoneNumber =
+              Get.arguments?[RoutesArgument.phoneNumber] ?? 0;
           final String? code = Get.arguments?[RoutesArgument.code] ?? '';
-          return OtpScreen(phoneNumber: phoneNumber,code: code);
+          return OtpScreen(phoneNumber: phoneNumber, code: code);
         },
         binding: OtpBinding(),
       ),
@@ -192,7 +193,12 @@ class AppRoutes {
       GetPage(
         name: Routes.userDetailScreen,
         transition: Transition.circularReveal,
-        page: () => UserDetailScreen(),
+        page: () {
+          final bool? fromEdit =
+              Get.arguments?[RoutesArgument.fromEdit] ?? false;
+
+          return UserDetailScreen(fromEdit: fromEdit);
+        },
         binding: UserDetailBinding(),
       ),
     ];
