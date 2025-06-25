@@ -51,7 +51,20 @@ class PlanAEventController extends BaseController{
   String? get specialReqUrl => _specialReqUrl.value;
   set specialReqUrl(String? val) => _specialReqUrl.value = val;
 
+  void updateVenueNameById(String? id, String? newName) {
+    final index = _selectedVenueTypes.indexWhere((venue) => venue?.id == id);
 
+    if (index != -1) {
+      final oldVenue = _selectedVenueTypes[index];
+
+      if (oldVenue != null) {
+        final updatedJson = oldVenue.toJson()
+          ..["name"] = newName;
+
+        _selectedVenueTypes[index] = Venue.fromJson(updatedJson);
+      }
+    }
+  }
 
   @override
   void onInit() {
@@ -67,19 +80,17 @@ class PlanAEventController extends BaseController{
   }
 
 
+
+
   Future<void> uploadPdf() async {
-    file = await pickOnlyPdfFile();
     if(file != null){
       try {
-        FullScreenLoading.show();
         final res = await _planEventRepository.uploadFile(file: file);
         specialReqUrl = res?.data?.url ?? '';
       } on ErrorResponse catch (e) {
         setErrorMessage(e.message);
       } catch (e) {
         setErrorMessage(StringConsts.unExpectedError,error: e);
-      } finally {
-        FullScreenLoading.hide();
       }
     }
 
@@ -93,7 +104,8 @@ class PlanAEventController extends BaseController{
     );
 
     if (result != null && result.files.single.path != null) {
-      return File(result.files.single.path ?? '');
+      file =  File(result.files.single.path ?? '');
+      return file;
     }
     return null; // User canceled
   }
@@ -110,7 +122,7 @@ class PlanAEventController extends BaseController{
     }else{
       try {
         FullScreenLoading.show();
-
+        await uploadPdf();
         final PlanEventRequest planEventRequest = PlanEventRequest(
           foodPreferences:  List.generate(foodPreferences?.length ?? 0, (index) => Name(name: foodPreferences?[index]?.name,id: foodPreferences?[index]?.id)),
           venueType: List.generate(venueTypes?.length ?? 0, (index) => Name(name: venueTypes?[index]?.name,id: venueTypes?[index]?.id)),

@@ -26,7 +26,9 @@ class WeddingWaySelectionScreen extends StatelessWidget {
             isMultiSelect: true,
             onSelectionDone: (selectedItems) {
               print("Selected items: $selectedItems");
-              Get.toNamed(Routes.planEventScreen,arguments: {RoutesArgument.title: StringConsts.planYourWedding});
+              if(selectedItems.isNotEmpty){
+                Get.toNamed(Routes.planEventScreen,arguments: {RoutesArgument.title: StringConsts.planYourWedding});
+              }
             },
           )
       ),

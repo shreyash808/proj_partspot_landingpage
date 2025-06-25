@@ -164,10 +164,13 @@ class PlanYourEventScreen extends StatelessWidget {
                                 borderRadius: 4,
                                 isSelected: isSelected,
                                 onTap: ()async{
-                                  if(item?.name?.contains('custom') ?? false){
-                                    final res = await showCustomVenueDialog(context);
+                                  if(item?.name?.contains(
+                                      'custom') ?? false){
+                                    final res = await showCustomVenueDialog(context,initialValue: item?.name);
                                     if(res == null){
                                       return;
+                                    }else{
+                                      planAEventController.updateVenueNameById(item?.id, res);
                                     }
                                   }
                                   controller.toggleSelection(item);
@@ -278,7 +281,7 @@ class PlanYourEventScreen extends StatelessWidget {
                                   text: StringConsts.uploadPDF,
                                   isSelected: planAEventController.file != null,
                                   onTap: (){
-                                    planAEventController.uploadPdf();
+                                    planAEventController.pickOnlyPdfFile();
                                   }
                               ),
                               Visibility(
@@ -338,11 +341,11 @@ class PlanYourEventScreen extends StatelessWidget {
     );
   }
 
-  Future<String?> showCustomVenueDialog(BuildContext context) {
+  Future<String?> showCustomVenueDialog(BuildContext context,{String? initialValue}) {
     return showDialog<String?>(
       context: context,
       builder: (context) {
-        return EnterCustomVenueDialog();
+        return EnterCustomVenueDialog(initialValue: initialValue,);
       },
     );
   }

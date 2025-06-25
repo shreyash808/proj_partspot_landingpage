@@ -66,8 +66,7 @@ class EnterCustomVenueDialog extends StatelessWidget {
                     StringConsts.done,
                     onPressed: () {
                       if (formKey.currentState?.validate() == true) {
-                        final intValue = int.tryParse(controller.text.trim());
-                        Get.back(result:intValue);
+                        Get.back(result:controller.text.trim());
                       }
                     },
                   ),
