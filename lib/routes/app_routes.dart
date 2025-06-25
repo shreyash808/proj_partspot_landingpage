@@ -6,6 +6,7 @@ import 'package:partyspot/module/bookings/view/booking_screen.dart';
 import 'package:partyspot/module/curated_events_list/presentation/curated_events_list_screen.dart';
 import 'package:partyspot/module/event_info/presentation/curated_event_info_screen.dart';
 import 'package:partyspot/module/home/data/models/events_meta.dart';
+import 'package:partyspot/module/plan_a_wedding/data/models/plan_event_response.dart';
 import 'package:partyspot/module/profile/binding/profile_binding.dart';
 import 'package:partyspot/module/profile/binding/user_detail_binding.dart';
 import 'package:partyspot/module/profile/view/profile_screen.dart';
@@ -149,7 +150,10 @@ class AppRoutes {
       GetPage(
         name: Routes.representativeScreen,
         transition: Transition.circularReveal,
-        page: () => RepresentativeScreen(),
+        page: () {
+          final Booking? bookingData = Get.arguments?[RoutesArgument.bookingData] ?? [];
+          return  RepresentativeScreen(bookingData: bookingData);
+        },
         binding: RepresentativeBinding(),
       ),
       GetPage(

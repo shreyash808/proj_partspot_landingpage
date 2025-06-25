@@ -51,7 +51,7 @@ class AppButton extends StatelessWidget {
       style:
           textStyle ??
           AppTextStyles.get18SemiBoldTextStyle(
-            color: isEnabled && onPressed != null ? null : AppColor.whiteColor,
+            color: AppColor.whiteColor,
           ),
     );
 
@@ -157,10 +157,7 @@ class AppOutlinedButton extends StatelessWidget {
       style:
           textStyle ??
           AppTextStyles.get14MediumTextStyle(
-            color:
-                isEnabled && onPressed != null
-                    ? (textColor ?? AppColor.primaryColor)
-                    : AppColor.greyColor,
+            color: AppColor.greyColor,
           ),
       overflow: TextOverflow.ellipsis,
       maxLines: 1,

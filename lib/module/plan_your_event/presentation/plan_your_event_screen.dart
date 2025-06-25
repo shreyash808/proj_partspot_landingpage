@@ -298,8 +298,8 @@ class PlanYourEventScreen extends StatelessWidget {
               const SizedBox(height: 22),
               AppButton(StringConsts.submit, onPressed: (){
                 planAEventController.submit(
-                  () {
-                    Get.toNamed(Routes.representativeScreen);
+                  (bookingData) {
+                    Get.toNamed(Routes.representativeScreen,arguments: {RoutesArgument.bookingData: bookingData});
                   },
                 );
               },backgroundColor: AppColor.violet,),
@@ -311,15 +311,12 @@ class PlanYourEventScreen extends StatelessWidget {
   }
 
   Future<DateTime?> _selectDOB(BuildContext context) async {
-    final DateTime today = DateTime.now();
-    final DateTime latestAllowedDOB = DateTime(today.year - 12, today.month, today.day);
-    final DateTime earliestDOB = DateTime(1900); // Or any reasonable lower limit
 
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: latestAllowedDOB,
-      firstDate: earliestDOB,
-      lastDate: latestAllowedDOB,
+      initialDate: DateTime.now(),
+      firstDate: DateTime.now(),
+      lastDate: DateTime(3000),
       helpText: 'Select your date of birth',
     );
 

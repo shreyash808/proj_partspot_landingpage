@@ -74,6 +74,8 @@ class StringConsts {
   static const pleaseSelectVenue = 'Please select venue';
   static const pleaseSelectFoodPreference = 'Please select food preference';
   static const pleaseUploadPdf = 'Please select pdf';
+  static const invalidPhoneNumber = 'Invalid phone number';
+  static const couldNotOpenPhoneDialer = 'Could not open phone dialer';
 
   // -------------
 

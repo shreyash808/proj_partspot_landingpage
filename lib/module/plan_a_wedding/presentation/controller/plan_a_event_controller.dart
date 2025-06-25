@@ -3,6 +3,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:get/get.dart';
 import 'package:partyspot/module/home/data/models/events_meta.dart';
 import 'package:partyspot/module/plan_a_wedding/data/models/plan_event_request.dart';
+import 'package:partyspot/module/plan_a_wedding/data/models/plan_event_response.dart';
 import 'package:partyspot/module/plan_a_wedding/domain/plan_event_repository.dart';
 import 'package:partyspot/networking/model/error_response_model.dart';
 import 'package:partyspot/utils/classes/base_controller.dart';
@@ -97,7 +98,7 @@ class PlanAEventController extends BaseController{
     return null; // User canceled
   }
 
-  Future<void> submit(Function()? onSuccess)async{
+  Future<void> submit(Function(Booking? bookingData)? onSuccess)async{
     if(selectedDate == null){
       setErrorMessage(StringConsts.pleaseSelectDate);
     }else if(selectedVenueTypes.isEmpty){
@@ -120,7 +121,9 @@ class PlanAEventController extends BaseController{
           name: Name(name: eventType?.name,id: eventType?.id)
         );
 
-        await _planEventRepository.postEventRequest(planEventRequest: planEventRequest);
+        final res = await _planEventRepository.postEventRequest(planEventRequest: planEventRequest);
+        FullScreenLoading.hide();
+        onSuccess?.call(res?.booking);
       } on ErrorResponse catch (e) {
         setErrorMessage(e.message);
       } catch (e) {
@@ -130,4 +133,6 @@ class PlanAEventController extends BaseController{
       }
     }
   }
+
+
 }

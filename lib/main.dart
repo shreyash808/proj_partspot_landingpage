@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
       initialRoute: Routes.splashScreen,
       getPages: AppRoutes.getRoutes(),
       title: 'Party Spot',
-      theme: lightTheme.themeData(context),
+      // theme: lightTheme.themeData(context),
     );
   }
 }

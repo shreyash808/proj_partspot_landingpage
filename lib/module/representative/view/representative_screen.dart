@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:partyspot/module/plan_a_wedding/data/models/plan_event_response.dart';
 import 'package:partyspot/utils/classes/app_text_styles.dart';
 import 'package:partyspot/utils/constants/color_consts.dart';
 import 'package:partyspot/utils/constants/string_consts.dart';
 import 'package:partyspot/utils/widgets/buttons.dart';
+import 'package:partyspot/utils/widgets/custom_network_image.dart';
+import 'package:partyspot/utils/widgets/snackbars.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class RepresentativeScreen extends StatelessWidget {
-  const RepresentativeScreen({super.key});
+  final Booking? bookingData;
+  const RepresentativeScreen({super.key, this.bookingData});
 
   @override
   Widget build(BuildContext context) {
@@ -61,17 +66,22 @@ class RepresentativeScreen extends StatelessWidget {
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                CircleAvatar(radius: 50),
+                                CustomNetworkImage(
+                                  width: 100,
+                                  height: 100,
+                                  imageUrl: bookingData?.assignedAgent?.profilePictureUrl,
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
                                 Padding(
                                   padding: const EdgeInsets.only(top: 8.0),
                                   child: Text(
-                                    "Sujeet Kumar Jain",
+                                    bookingData?.assignedAgent?.fullName ?? '',
                                     style: AppTextStyles.get20BoldTextStyle(),
                                   ),
                                 ),
 
                                 Text(
-                                  "Senior Relation Manager",
+                                  bookingData?.assignedAgent?.designation ?? '',
                                   style: AppTextStyles.get12RegularTextStyle(
                                     color: AppColor.colorB1B1B1,
                                   ),
@@ -91,7 +101,7 @@ class RepresentativeScreen extends StatelessWidget {
                                 Align(
                                   alignment: Alignment.centerLeft,
                                   child: Text(
-                                    "Dedicated and detail-oriented with a passion for creating seamless and memorable experiences. From concept to completion, he is specialise in planning and executing a wide range of events—corporate functions, social gatherings, weddings, and more. With strong organisational skills, a creative mindset, and a commitment to client satisfaction, Sujeet ensure every event is professionally managed and uniquely tailored to exceed expectations.",
+                                    bookingData?.assignedAgent?.about ?? '',
                                     style: AppTextStyles.get12RegularTextStyle(
                                       color: AppColor.colorB1B1B1,
                                     ),
@@ -107,7 +117,9 @@ class RepresentativeScreen extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 10.0),
                         child: AppButton(
                           StringConsts.getOnCall,
-                          onPressed: () {},
+                          onPressed: () {
+                            makePhoneCall('${bookingData?.assignedAgent?.code ?? ''}${bookingData?.assignedAgent?.phone ?? ''}');
+                          },
                           height: 50,
                           padding: const EdgeInsets.symmetric(vertical: 12),
                           textStyle: AppTextStyles.get14BoldTextStyle(
@@ -119,7 +131,9 @@ class RepresentativeScreen extends StatelessWidget {
 
                       AppButton(
                         StringConsts.connectOnWhatsapp,
-                        onPressed: () {},
+                        onPressed: () {
+                          openWhatsApp('${bookingData?.assignedAgent?.code ?? ''}${bookingData?.assignedAgent?.phone ?? ''}');
+                        },
                         height: 50,
                         padding: const EdgeInsets.symmetric(vertical: 12),
                         textStyle: AppTextStyles.get14BoldTextStyle(
@@ -137,4 +151,34 @@ class RepresentativeScreen extends StatelessWidget {
       ),
     );
   }
+
+
+  void makePhoneCall(String? phoneNumber) {
+    if (phoneNumber == null || phoneNumber.trim().isEmpty) {
+      showSnackBar(text: StringConsts.invalidPhoneNumber, isError: true);
+      return;
+    }
+
+    final Uri phoneUri = Uri.parse("tel:${phoneNumber.trim()}");
+
+    launchUrl(phoneUri).catchError((_) {
+      showSnackBar(text: StringConsts.couldNotOpenPhoneDialer, isError: true);
+      return false;
+    });
+  }
+
+  void openWhatsApp(String? phoneNumber) {
+    if (phoneNumber == null || phoneNumber.trim().isEmpty) {
+      showSnackBar(text: StringConsts.invalidPhoneNumber, isError: true);
+      return;
+    }
+
+    final Uri whatsappUri = Uri.parse("https://wa.me/${phoneNumber.trim()}");
+
+    launchUrl(whatsappUri).catchError((_) {
+      showSnackBar(text: StringConsts.couldNotOpenPhoneDialer, isError: true);
+      return false;
+    });
+  }
+
 }
