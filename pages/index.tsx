@@ -30,21 +30,26 @@ export default function Home() {
     "Get Ready to Party with PartySpot – From Mehandi to Mehfil",
     "Your Event. Our Magic. Coming Soon!"
   ]
-  const tagline = taglines[Math.floor(Math.random() * taglines.length)]
+  const [tagline, setTagline] = useState(taglines[0])
+  useEffect(() => {
+    setTagline(taglines[Math.floor(Math.random() * taglines.length)])
+  }, [])
+
   const isMobile = width < 768
   const isTablet = width >= 768 && width < 1024
 
   return (
     <div style={{
       textAlign: 'center',
-      padding: isMobile ? '1rem' : isTablet ? '2rem' : '3rem',
       background: 'black',
       color: 'white',
       minHeight: '100vh',
-      position: 'relative'
+      boxSizing: 'border-box',
+      overflowX: 'hidden',
     }}>
       <Head>
         <title>PartyWalah – Coming Soon!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
       {showConfetti && (
@@ -58,157 +63,109 @@ export default function Home() {
         />
       )}
 
-      {/* Rajasthani Animation Overlay */}
-      {/* <motion.img
-        src="https://cdn.pixabay.com/photo/2019/08/28/14/44/rajasthani-4436347_960_720.png"
-        alt="Rajasthani Dancer"
-        initial={{ opacity: 0, x: -200 }}
-        animate={{ opacity: 0.7, x: 0 }}
-        transition={{ duration: 2 }}
-        style={{
-          position: 'absolute',
-          top: '10%',
-          left: '5%',
-          width: isMobile ? '80px' : isTablet ? '150px' : '200px',
-          opacity: 0.8,
-          transition: 'transform 0.3s',
-        }}
-        whileHover={{ scale: 1.1 }}
-      /> */}
+      <div style={{
+        padding: isMobile ? '1rem' : isTablet ? '2rem' : '3rem',
+        maxWidth: '1200px',
+        margin: '0 auto',
+      }}>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5, y: -50 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 1, type: 'spring' }}
+          style={{ display: 'flex', justifyContent: 'center', margin: '1rem 0' }}
+        >
+          <Image
+            src="/partyspot-logo.png"
+            alt="Party Spot Logo"
+            width={200}
+            height={200}
+            style={{
+              width: isMobile ? '100px' : isTablet ? '150px' : '200px',
+              height: 'auto',
+              maxWidth: '90vw',
+            }}
+          />
+        </motion.div>
 
-      {/* <motion.img
-        src="https://cdn.pixabay.com/photo/2017/11/21/13/46/rajasthan-2964843_960_720.jpg"
-        alt="Jodhpur Fort"
-        initial={{ opacity: 0, x: 200 }}
-        animate={{ opacity: 0.7, x: 0 }}
-        transition={{ duration: 2 }}
-        style={{
-          position: 'absolute',
-          bottom: '10%',
-          right: '5%',
-          width: isMobile ? '80px' : isTablet ? '150px' : '200px',
-          opacity: 0.8,
-          borderRadius: '10px',
-          transition: 'transform 0.3s',
-        }}
-        whileHover={{ scale: 1.1 }}
-      /> */}
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0.5, y: -50 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 1, type: 'spring' }}
-      >
-        <Image src="/partyspot-logo.png" alt="Party Spot Logo" width={isMobile ? 120 : 200} height={isMobile ? 120 : 200} />
-      </motion.div>
-
-      <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 1 }}
-        style={{
-          fontSize: isMobile ? '2.5rem' : isTablet ? '3rem' : '3.8rem',
-          marginTop: '1rem',
-          transition: 'color 0.3s',
-          fontWeight: '900',
-          color: '#FFFFFF', // default text color for dark theme
-          textAlign: 'center',
-          textShadow: '0 0 10px #ff4d00, 0 0 20px #ff4d00', // subtle glow
-        }}
-        whileHover={{
-          color: '#FFEA00', // bright neon yellow on hover
-          textShadow: '0 0 20px #FFEA00, 0 0 40px #FFEA00', // glow effect
-          scale: 1.1, // optional pop effect
-        }}
-      >
-        🎉 <span style={{
-          background: 'linear-gradient(90deg, #ff4d00, #ff9e00, #ffea00)', 
-          WebkitBackgroundClip: 'text', 
-          WebkitTextFillColor: 'transparent',
-          fontWeight: '900',
-          textTransform: 'uppercase',
-          letterSpacing: '3px',
-          textShadow: 'none',
-        }}>PartyWalah</span> by Partyspot 🎉
-      </motion.h1>
-
-
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 1 }}
-        style={{
-          fontSize: isMobile ? '1rem' : isTablet ? '1.25rem' : '1.5rem',
-          marginTop: '1rem',
-          fontStyle: 'italic',
-          transition: 'color 0.3s',
-        }}
-        whileHover={{ color: '#ff9e00' }}
-      >
-        {tagline}
-      </motion.p>
-
-      {/* Mehandi & Haldi Visuals with Hover */}
-      {/* <motion.img
-        src="https://cdn.pixabay.com/photo/2017/09/02/16/25/mehndi-2702860_960_720.jpg"
-        alt="Mehandi"
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        style={{
-          width: isMobile ? '80px' : isTablet ? '120px' : '150px',
-          marginTop: '2rem',
-          borderRadius: '10px',
-          transition: 'transform 0.3s',
-        }}
-        whileHover={{ scale: 1.1 }}
-      /> */}
-
-      {/* <motion.img
-        src="https://cdn.pixabay.com/photo/2018/01/17/16/42/haldi-3088270_960_720.jpg"
-        alt="Haldi Function"
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        style={{
-          width: isMobile ? '80px' : isTablet ? '120px' : '150px',
-          marginTop: '1rem',
-          borderRadius: '10px',
-          transition: 'transform 0.3s',
-        }}
-        whileHover={{ scale: 1.1 }}
-      /> */}
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2.5, duration: 1 }}
-        style={{ marginTop: '2rem' }}
-      >
-        <a
-          href="https://www.instagram.com/party_spot_jd/"
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 1 }}
           style={{
-            padding: isMobile ? '0.5rem 1rem' : '1rem 2rem',
-            background: '#ff9e00',
-            color: 'black',
-            borderRadius: '2rem',
-            textDecoration: 'none',
-            fontWeight: 'bold',
-            boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
-            transition: 'transform 0.3s, background 0.3s',
+            fontSize: isMobile ? '2rem' : isTablet ? '2.8rem' : '3.5rem',
+            fontWeight: '900',
+            textAlign: 'center',
+            textShadow: '0 0 10px #ff4d00, 0 0 20px #ff4d00',
+            marginTop: '0.5rem',
+            lineHeight: 1.2,
           }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = '#ffa500'
-            e.currentTarget.style.transform = 'scale(1.1)'
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = '#ff9e00'
-            e.currentTarget.style.transform = 'scale(1)'
+          whileHover={{
+            color: '#FFEA00',
+            textShadow: '0 0 20px #FFEA00, 0 0 40px #FFEA00',
+            scale: 1.05,
           }}
         >
-          Follow Us @ party_spot_jd 💜
-        </a>
-      </motion.div>
+          🎉 <span style={{
+            background: 'linear-gradient(90deg, #ff4d00, #ff9e00, #ffea00)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            textTransform: 'uppercase',
+            letterSpacing: '1px',
+          }}>PartyWalah</span> by Partyspot 🎉
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 1 }}
+          style={{
+            fontSize: isMobile ? '1rem' : isTablet ? '1.2rem' : '1.4rem',
+            marginTop: '1rem',
+            fontStyle: 'italic',
+            lineHeight: 1.5,
+            maxWidth: '90%',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+          whileHover={{ color: '#ff9e00' }}
+        >
+          {tagline}
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2.5, duration: 1 }}
+          style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center' }}
+        >
+          <a
+            href="https://www.instagram.com/party_spot_jd/"
+            style={{
+              padding: isMobile ? '0.6rem 1.4rem' : '1rem 2rem',
+              background: '#ff9e00',
+              color: 'black',
+              borderRadius: '2rem',
+              textDecoration: 'none',
+              fontWeight: 'bold',
+              fontSize: isMobile ? '1rem' : '1.2rem',
+              boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
+              minWidth: isMobile ? '60vw' : 'auto',
+              display: 'inline-block',
+              transition: 'transform 0.3s, background 0.3s',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = '#ffa500'
+              e.currentTarget.style.transform = 'scale(1.1)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = '#ff9e00'
+              e.currentTarget.style.transform = 'scale(1)'
+            }}
+          >
+            Follow Us @ party_spot_jd 💜
+          </a>
+        </motion.div>
+      </div>
     </div>
   )
 }
